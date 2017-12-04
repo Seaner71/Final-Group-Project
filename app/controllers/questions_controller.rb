@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    # @posts = current_user.posts.new
   end
 
   def destroy
