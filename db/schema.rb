@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204203454) do
+ActiveRecord::Schema.define(version: 20171204214121) do
 
   create_table "answers", force: :cascade do |t|
-    t.integer "question_id"
+    t.integer "question"
     t.text "content"
     t.integer "votes"
     t.datetime "created_at", null: false
@@ -42,6 +42,11 @@ ActiveRecord::Schema.define(version: 20171204203454) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.text "bio"
+    t.string "location"
+    t.string "github_url"
+    t.string "previous_industry"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
