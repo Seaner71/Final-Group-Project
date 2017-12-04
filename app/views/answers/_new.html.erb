@@ -1,0 +1,11 @@
+<%= render '@question/show' %>
+
+<h3>Add an answer</h3>
+<div class='form-group'>
+<%= form_with(model: Answer.new, local: true) do |f| %>
+  <%= f.label :content %>
+  <br>
+  <%= f.text_field :content %>
+  <br>
+  <%= f.submit %>
+<% end %>
