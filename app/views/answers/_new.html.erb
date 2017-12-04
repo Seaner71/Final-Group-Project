@@ -1,8 +1,7 @@
-<%= render '@question/show' %>
 
 <h3>Add an answer</h3>
 <div class='form-group'>
-<%= form_with(model: Answer.new, local: true) do |f| %>
+<%= form_with(model: [ @question, @question.answers.build]) do |f| %>
   <%= f.label :content %>
   <br>
   <%= f.text_field :content %>

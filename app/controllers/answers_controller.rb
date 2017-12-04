@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
   end
 
   def new
-    @question = Answer.new
+    @answer = Answer.new
   end
 
   def create
@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
     @answer= @question.answers.create(answer_params)
     @answer.user_id = current_user.id
     if @answer.save
-      redirect_to question_path(@question)
+      redirect_to @question
     end
   end
 
