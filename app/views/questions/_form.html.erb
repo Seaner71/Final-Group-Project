@@ -1,0 +1,24 @@
+
+  <%= form_with model: @question, local: true do |f|  %>
+    <% if @question.errors.any? %>
+      <div id="explain_error">
+        <h2> Uh oh! <%= pluralize(@question.errors.count, "error") %> prohibited this post from being saved: </h2>
+        <ul>
+          <% @question.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+  <div>
+    <%= f.label "Title:" %>
+    <%= f.text_field :title %> <br>
+    <%= f.label "Question:" %>
+    <%= f.text_area :body %> <br>
+    <%= f.label "Select a tag:" %>
+    <%= f.select :tag1, ['Bootcamp Prep', 'Choosing a Bootcamp', 'Job Interviews', 'Work/Life Balance'] %>
+  </div>
+
+  <%= f.submit %>
+
+  <% end %>
