@@ -1,0 +1,27 @@
+<h1>Edit Your Information</h1>
+
+  <%= form_with model: @user, local: true do |f| %>
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username, class: "form-control"%>
+  </div>
+  <div class="field">
+    <%= f.label :fname %>
+    <%= f.text_field :fname, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :lname %>
+    <%= f.text_field :lname, class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+  <div>
+    <%= link_to "Edit Registration Info", edit_user_registration_path(current_user), class: 'btn btn-primary' %>
+  </div>
+<% end %>
+</div>
