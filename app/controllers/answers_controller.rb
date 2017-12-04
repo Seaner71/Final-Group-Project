@@ -2,13 +2,15 @@ class AnswersController < ApplicationController
   def show
   end
 
-  def new
-    @answer = Answer.new
-  end
+  # def new
+  #   @answer = Answer.new
+  # end
 
   def create
-    @question = Question.find_by_id(params[:question_id])
-    @answer= @question.answers.create(answer_params)
+    @question = Question.find_by_id(params[:id])
+    @answer= @question.answers.new(answer_params)
+    @answer.question_id = @question.id
+    @answer.votes = 0
     @answer.user_id = current_user.id
     if @answer.save
       redirect_to @question

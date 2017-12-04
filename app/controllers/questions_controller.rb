@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @question = Question.find_by_id(params[:id])
   end
 
   def edit
