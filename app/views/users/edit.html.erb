@@ -3,25 +3,25 @@
   <%= form_with model: @user, local: true do |f| %>
   <div class="field">
     <%= f.label :username %>
-    <%= f.text_field :username, class: "form-control"%>
-  </div>
-  <div class="field">
-    <%= f.label :fname %>
-    <%= f.text_field :fname, class: "form-control" %>
-  </div>
-  <div class="field">
-    <%= f.label :lname %>
-    <%= f.text_field :lname, class: "form-control" %>
+    <%= f.text_field :username %>
   </div>
   <div class="field">
     <%= f.label :location %>
-    <%= f.text_field :location, class: "form-control" %>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :bio %>
+    <%= f.text_area :bio  %>
+  </div>
+  <div class="field">
+    <%= f.label :previous_industry %>
+    <%= f.text_field :previous_industry %>
   </div>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
   <div>
-    <%= link_to "Edit Registration Info", edit_user_registration_path(current_user), class: 'btn btn-primary' %>
+    <%= link_to "Edit Registration Info", edit_user_registration_path(current_user) %>
   </div>
 <% end %>
 </div>
