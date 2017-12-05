@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
     @answer.user_id = current_user.id
 
     if @answer.save
-      redirect_to questions_path
+      redirect_to question_path(@question)
     end
   end
 
@@ -37,18 +37,18 @@ class AnswersController < ApplicationController
   end
 
   def upvote
-    @question = Question.find_by_id(params[:question_id])
     @answer = Answer.find(params[:id])
     @answer.upvote_by current_user
-    redirect_to @question
+    @q = Question.find(params[:question_id])
+    redirect_to @q
 
   end
 
   def downvote
-    @question = Question.find_by_id(params[:question_id])
     @answer = Answer.find(params[:id])
     @answer.downvote_by current_user
-    redirect_to @question
+    @q = Question.find(params[:question_id])
+    redirect_to @q
   end
 
   private

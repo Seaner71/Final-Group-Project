@@ -3,17 +3,16 @@
   <li><a href='/questions/<%=@question.id %>/answers/<%= answer.id %>/edit'><%=answer.content %></a></li>
   <li>Posted by: <%= answer.user.email %></li>
 
-  <%= link_to like_question_answer_path(answer), method: :put do %>
-  Upvote
+  <a href="/questions/<%= @question.id %>/answers/<%= answer.id %>/like" data-method="PUT">Upvote</a>
   <%= answer.get_upvotes.size %>
-  <% end %>
 
-  <%= link_to dislike_question_answer_path(answer), method: :put do %>
-  Downvote
+  <a href="/questions/<%= @question.id %>/answers/<%= answer.id %>/dislike" data-method="PUT">Downvote</a>
   <%= answer.get_downvotes.size %>
-  <% end %>
+
 
   <p><a href='/questions/<%= @question.id %>/answers/<%= answer.id %>/edit'>Edit Answer</a></p>
   <hr>
 
+
+  <br><br>
 <% end %>
