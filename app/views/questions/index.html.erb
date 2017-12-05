@@ -1,2 +1,22 @@
 <h1>Questions#index</h1>
 <p>Find me in app/views/questions/index.html.erb</p>
+
+<% @questions.last(10).reverse_each do |question| %>
+  <div class="question-box">
+        <%= question.title %>
+      Posted on: <%= question.created_at.localtime.strftime("%B %d, %Y %I:%M:%S %p") %>
+
+
+    <div class="comment-box">
+        <strong>Answers</strong><br>
+        <%= 'No answer yet' if question.answers.empty? %>
+
+        <% question.answers.last(3).reverse.each do |answer| %>
+        <li><%=answer.content %> </li>
+        <% end %>
+
+    </div>
+ </div>
+
+
+<% end %>
