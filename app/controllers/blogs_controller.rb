@@ -1,4 +1,4 @@
-class WelcomeController < ApplicationController
+class BlogsController < ApplicationController
   def index
     @blogs = Blog.all
   end
@@ -15,9 +15,9 @@ class WelcomeController < ApplicationController
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
       if @blog.save
-        redirect_to question_path
+        redirect_to root_path
       else
-        render 'show'
+        render 'new'
       end
   end
 
@@ -35,4 +35,6 @@ class WelcomeController < ApplicationController
   def blog_params
     params.require(:blog).permit(:title, :body, :user_id)
   end
+
+
 end
