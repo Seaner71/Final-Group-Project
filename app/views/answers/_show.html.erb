@@ -1,6 +1,6 @@
 <h1>Answers</h1>
 <% @question.answers.each do |answer| %>
-  <li><%=answer.content %></li>
+  <li><a href='/questions/<%=@question.id %>/answers/<%= answer.id %>/edit'><%=answer.content %></a></li>
   <li>Posted by: <%= answer.user.email %></li>
 
   <a href="/questions/<%= @question.id %>/answers/<%= answer.id %>/like" data-method="PUT">Upvote</a>
@@ -8,6 +8,11 @@
 
   <a href="/questions/<%= @question.id %>/answers/<%= answer.id %>/dislike" data-method="PUT">Downvote</a>
   <%= answer.get_downvotes.size %>
+
+
+  <p><a href='/questions/<%= @question.id %>/answers/<%= answer.id %>/edit'>Edit Answer</a></p>
+  <hr>
+
 
   <br><br>
 <% end %>
