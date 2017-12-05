@@ -17,3 +17,9 @@
   <%= f.submit %>
 
   <% end %>
+
+  <% @blogs.each do |answer| %>
+    <li><%= blog.title %></li>
+    <li><%= blog.body %></li>
+
+  <% end %>

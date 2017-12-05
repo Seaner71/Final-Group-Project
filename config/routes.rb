@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'blogs/index'
+
+  get 'blogs/show'
+
+  get 'blogs/edit'
+
+  get 'blogs/update'
+
+  get 'blogs/destroy'
+
+  get 'blogs/new'
+
   devise_for :users
   get 'welcome/index'
 
