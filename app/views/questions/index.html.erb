@@ -5,7 +5,7 @@
 
 <% @questions.last(10).reverse_each do |question| %>
   <div class="question-box">
-        <%= question.title %>
+        <a href="questions/<%= question.id %>"> <%= question.title %></a>
       Posted on: <%= question.created_at.localtime.strftime("%B %d, %Y %I:%M:%S %p") %>
 
 
