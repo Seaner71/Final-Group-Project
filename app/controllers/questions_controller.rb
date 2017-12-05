@@ -7,11 +7,18 @@ class QuestionsController < ApplicationController
     @question = Question.find_by_id(params[:id])
   end
 
-  def edit
-  end
-
   def new
     @question = Question.new
+  end
+
+  def edit
+    @question = Question.find_by_id(params[:id])
+  end
+
+  def update
+    @question = Question.find_by_id(params[:id])
+    @question.update(question_params)
+    redirect_to questions_path
   end
 
   def create

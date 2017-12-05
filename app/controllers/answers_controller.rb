@@ -4,6 +4,7 @@ class AnswersController < ApplicationController
   end
 
   def new
+    @answer = Answer.new
   end
 
   def create
@@ -18,9 +19,13 @@ class AnswersController < ApplicationController
   end
 
   def edit
+    @answer = Answer.find_by_id(params[:id])
   end
 
   def update
+    @answer = Answer.find_by_id(params[:id])
+    @answer.update(answer_params)
+    redirect_to question_answer_path
   end
 
   def destroy

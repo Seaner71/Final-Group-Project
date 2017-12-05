@@ -8,13 +8,14 @@
         <a href="questions/<%= question.id %>"> <%= question.title %></a>
       Posted on: <%= question.created_at.localtime.strftime("%B %d, %Y %I:%M:%S %p") %>
 
-
+  <%= link_to "Edit Question", edit_question_path(question) %>
     <div class="comment-box">
         <strong>Answers</strong><br>
         <%= 'No answer yet' if question.answers.empty? %>
 
         <% question.answers.last(3).reverse.each do |answer| %>
         <li><%=answer.content %> </li>
+
         <% end %>
 
     </div>
