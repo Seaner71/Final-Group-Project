@@ -15,6 +15,7 @@
         <%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"} %>
         <%= link_to "Home", root_path %>
         <%= link_to "User Profile", user_path(current_user) %>
+        <%= link_to "Questions", questions_path %>
         <% else %>
         <%= link_to "Log In", new_user_session_path %>
         <%= link_to "Sign Up", new_user_registration_path %>
