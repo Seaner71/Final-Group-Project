@@ -1,1 +1,16 @@
+<h1>Answers</h1>
+<% @question.answers.each do |answer| %>
+  <li><%=answer.content %></li>
+  <li>Posted by: <%= answer.user.email %></li>
 
+  <%= link_to like_question_answer_path(answer), method: :put do %>
+  Upvote
+  <%= answer.get_upvotes.size %>
+  <% end %>
+
+  <%= link_to dislike_question_answer_path(answer), method: :put do %>
+  Downvote
+  <%= answer.get_downvotes.size %>
+  <% end %>
+
+<% end %>
