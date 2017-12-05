@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
   def show
+    @question = Question.find_by_id(params[:id])
   end
 
   def new
@@ -28,6 +29,21 @@ class AnswersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def upvote
+    @question = Question.find_by_id(params[:question_id])
+    @answer = Answer.find(params[:id])
+    @answer.upvote_by current_user
+    redirect_to @question
+
+  end
+
+  def downvote
+    @question = Question.find_by_id(params[:question_id])
+    @answer = Answer.find(params[:id])
+    @answer.downvote_by current_user
+    redirect_to @question
   end
 
   private
