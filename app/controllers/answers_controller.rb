@@ -7,13 +7,13 @@ class AnswersController < ApplicationController
   # end
 
   def create
-    @question = Question.find_by_id(params[:id])
+    @question = Question.find_by_id(params[:question_id])
     @answer= @question.answers.new(answer_params)
-    @answer.question_id = @question.id
     @answer.votes = 0
     @answer.user_id = current_user.id
+
     if @answer.save
-      redirect_to @question
+      redirect_to questions_path
     end
   end
 
