@@ -13,7 +13,7 @@ class AnswersController < ApplicationController
     @answer.user_id = current_user.id
 
     if @answer.save
-      redirect_to questions_path
+      redirect_to question_path(@question)
     end
   end
 
