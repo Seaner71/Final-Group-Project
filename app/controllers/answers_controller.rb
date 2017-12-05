@@ -2,9 +2,8 @@ class AnswersController < ApplicationController
   def show
   end
 
-  # def new
-  #   @answer = Answer.new
-  # end
+  def new
+  end
 
   def create
     @question = Question.find_by_id(params[:question_id])
@@ -24,6 +23,11 @@ class AnswersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def upvote
+    @answer = Answer.find(params[:id])
+    @answer.upvote_by current_user redirect_to questions_path
   end
 
   private
