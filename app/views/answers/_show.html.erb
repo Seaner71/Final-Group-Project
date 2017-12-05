@@ -1,1 +1,5 @@
-
+<h1>Answers</h1>
+<% @question.answers.each do |answer| %>
+  <li><%=answer.content %></li>
+  <li>Posted by: <%= answer.user.email %></li>
+<% end %>
