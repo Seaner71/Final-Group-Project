@@ -1,6 +1,6 @@
 <h1>Answers</h1>
 <% @question.answers.each do |answer| %>
-  <li><%=answer.content %></li>
+  <li><a href='/questions/<%=@question.id %>/answers/<%= answer.id %>/edit'><%=answer.content %></a></li>
   <li>Posted by: <%= answer.user.email %></li>
 
   <%= link_to like_question_answer_path(answer), method: :put do %>
@@ -12,5 +12,8 @@
   Downvote
   <%= answer.get_downvotes.size %>
   <% end %>
+
+  <p><a href='/questions/<%= @question.id %>/answers/<%= answer.id %>/edit'>Edit Answer</a></p>
+  <hr>
 
 <% end %>
