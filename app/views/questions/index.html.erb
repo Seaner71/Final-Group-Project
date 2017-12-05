@@ -7,7 +7,7 @@
   <div class="question-box">
         <a href="questions/<%= question.id %>"> <%= question.title %></a>
       Posted on: <%= question.created_at.localtime.strftime("%B %d, %Y %I:%M:%S %p") %>
-
+    <%= link_to question.tag1, tags_index_path %>
   <%= link_to "Edit Question", edit_question_path(question) %>
     <div class="comment-box">
         <strong>Answers</strong><br>
