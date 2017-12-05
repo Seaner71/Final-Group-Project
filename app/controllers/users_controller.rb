@@ -1,10 +1,30 @@
 class UsersController < ApplicationController
   def show
     @user = current_user
+
+    @blog = Blog.find_by_id(:id)
+      #@blog = current_user.blogs.new(blog_params)
+    #@blog.user_id = current_user.id
   end
 
   def edit
     @user = current_user
+  end
+
+  def new
+    @blog = Blog.new
+  end
+
+  def create
+
+    @blog = current_user.posts.new(blog_params)
+
+
+      if @blog.save
+        redirect_to root_path
+      else
+        render 'new'
+      end
   end
 
   def update
@@ -20,7 +40,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :location, :bio, :previous_industry, :github_url)
-  end 
+  end
+
+  def blog_params
+    params.permit(:title, :body, :user_id)
+  end
 
 
 end

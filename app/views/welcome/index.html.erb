@@ -2,24 +2,3 @@
 <p>Find me in app/views/welcome/index.html.erb</p>
 
 <%= link_to 'Ask a question', new_question_path %>
-
-
-<hr>
-<h2> My blog </h2>
-
-
-  <%= form_with model: @blog, local: true do |f|  %>
-    <%= f.label "Title:" %>
-    <%= f.text_field :title %> <br>
-    <%= f.label "Body:" %>
-    <%= f.text_area :body %> <br>
-  </div>
-  <%= f.submit %>
-
-  <% end %>
-
-  <% @blogs.each do |answer| %>
-    <li><%= blog.title %></li>
-    <li><%= blog.body %></li>
-
-  <% end %>
