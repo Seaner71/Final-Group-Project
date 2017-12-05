@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  get 'tags/index'
+
+
   devise_for :users
   get 'welcome/index'
   post 'users/:id/', to: 'users#show'

@@ -9,7 +9,7 @@ class AnswersController < ApplicationController
 
   def create
     @question = Question.find_by_id(params[:question_id])
-    @answer= @question.answers.new(answer_params)
+    @answer = @question.answers.new(answer_params)
     @answer.votes = 0
     @answer.user_id = current_user.id
 
@@ -19,31 +19,36 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @answer = Answer.find_by_id(params[:id])
+    @question = Question.find_by_id(params[:question_id])
+    @answer = Answer.find(params[:id])
   end
 
   def update
-    @answer = Answer.find_by_id(params[:id])
-    @answer.update(answer_params)
-    redirect_to question_answer_path
+    @question = Question.find_by_id(params[:question_id])
+    @answer = Answer.find(params[:id])
+    if @answer.update(answer_params)
+      redirect_to @question
+    else
+      render 'edit'
+    end
   end
 
   def destroy
   end
 
   def upvote
-    @question = Question.find_by_id(params[:question_id])
     @answer = Answer.find(params[:id])
     @answer.upvote_by current_user
-    redirect_to @question
+    @q = Question.find(params[:question_id])
+    redirect_to @q
 
   end
 
   def downvote
-    @question = Question.find_by_id(params[:question_id])
     @answer = Answer.find(params[:id])
     @answer.downvote_by current_user
-    redirect_to @question
+    @q = Question.find(params[:question_id])
+    redirect_to @q
   end
 
   private
