@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   get 'tags/index'
+  get 'tags/show'
 
 
   devise_for :users
@@ -9,11 +10,8 @@ Rails.application.routes.draw do
   post 'users/:id/', to: 'users#show'
 
 
-resources :users
-resources :blogs
-
-
-
+  resources :users
+  resources :blogs
 
   resources :questions do
       resources :answers do
