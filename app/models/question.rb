@@ -2,7 +2,6 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
   validates :title, :body, presence: true
   belongs_to :user
-  scope :by_tag1, -> tag1 { where(:tag1 => tag1) }
   has_many :taggings
   has_many :tags, through: :taggings
   has_attached_file :avatar, styles: { medium: "300x300>", middle: "230x230>", thumb: "100x100>" }, default_url: "/assets/default.png"
@@ -10,8 +9,10 @@ class Question < ApplicationRecord
 
   #### Justin Weiss filtering stuff
   scope :title, -> (title) { where title: title }
-  scope :location, -> (location_id) { where location_id: location_id }
-  scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
+  # scope :location, -> (location_id) { where location_id: location_id }
+   # scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
+   # early of my attempt to search by tag (wrong model???) 
+  # scope :by_tag, -> (name) { where name: name }
 
   def tag_list
     self.tags.collect do |tag|
