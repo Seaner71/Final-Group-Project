@@ -35,3 +35,12 @@
   <%= text_field_tag(:tag1) %>
   <%= submit_tag("Search", :name => nil) %>
 <% end %>
+
+
+<%= form_with(model: Question.new, local: true) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.select :tag1, options_from_collection_for_select(Question.all, 'id', 'tag1') %>
+  <%= f.submit %>
+<% end %>
