@@ -7,12 +7,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
   post 'users/:id/', to: 'users#show'
 
-  resources :tags
+  resources :users
+  resources :blogs
 
-  resources :users do
-    resources :blogs
-end
-  
   resources :questions do
       resources :answers do
         member do
