@@ -20,7 +20,7 @@
 
 * {
   font-family: 'Lato', sans-serif;
-  // border: 1px dotted #ccc;
+  border: 1px dotted #ccc;
 }
 
 nav {
@@ -38,6 +38,7 @@ nav a {
   background-color: #ccc;
   display: block;
   border-radius: 100%;
+  margin: 0 auto;
 }
 
 .ans_list {
@@ -53,4 +54,20 @@ ul.ans_list li {
   background-color: #f1f1f1;
   padding: 10px;
   margin-top: 15px;
+}
+
+.answer-box .thumb img{
+  height: 60px;
+  width: 60px;
+}
+
+.up a {
+  // Green
+}
+.dwn a {
+  // red
+}
+
+.answer-box textarea {
+  width: 100%;
 }

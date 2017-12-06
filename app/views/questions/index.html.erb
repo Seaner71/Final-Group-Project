@@ -6,7 +6,7 @@
 
 <% @questions.last(10).reverse_each do |question| %>
   <div class="question-box row">
-        <div class="col-sm-1 thumb">
+        <div class="col-sm-2 thumb">
           <%= image_tag question.avatar.url(:thumb) %>
         </div>
         <div class="col">
@@ -21,7 +21,7 @@
           <br>
           <% if current_user.id == question.user_id %>
            <%= link_to "<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Edit Question".html_safe, edit_question_path(question) %>
-          <% end %>    
+          <% end %>
     </div>
    </div>
    <div class="answer-box">
