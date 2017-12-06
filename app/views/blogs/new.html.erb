@@ -4,7 +4,6 @@
   <%= f.label "Title:" %>
   <%= f.text_field :title %> <br>
   <%= f.label "Body:" %>
-  <%= f.text_area :body %> <br>
-  <%= f.submit %>
-
+  <%= f.trix_editor :body, class: 'trix-content' %> <br>
+  <%= f.submit "Post" %>
 <% end %>
