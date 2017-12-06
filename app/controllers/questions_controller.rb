@@ -1,10 +1,16 @@
 class QuestionsController < ApplicationController
   def index
     @questions = Question.all
+    #get_question
+    #@user.id = @question.user_id
+  #@user = User.find_by_id(params[:id])
+    @user = current_user
+
   end
 
   def show
     get_question
+    @user = current_user
   end
 
   def new
@@ -41,7 +47,11 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:title, :body, :tag1)
+    params.require(:question).permit(:title, :body, :tag1, :user_id)
+  end
+
+  def user_params
+    params.permit(:id, :username, :location, :bio, :previous_industry, :github_url, :avatar)
   end
 
 end

@@ -11,11 +11,13 @@ class BlogsController < ApplicationController
 
   def new
     @blog = Blog.new
+    @user = current_user
   end
 
   def create
     @blog = Blog.new(blog_params)
-    @user = User.find_by_id(params[:id])
+    #@user = User.find_by_id(params[:id])
+    @user = current_user
     @blog.user_id = current_user.id
       if @blog.save
         redirect_to root_path
