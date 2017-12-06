@@ -8,7 +8,7 @@
 <h2>The latest blog posts<h3>
   <% Blog.last(3).reverse_each do |blog| %>
     <h3><%= blog.title %><h3>
-    <%= blog.body %>
+    <%= blog.body.html_safe %>
     <hr>
 
   <% end %>
