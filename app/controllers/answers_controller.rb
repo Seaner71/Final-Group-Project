@@ -9,8 +9,8 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @question = Question.find_by_id(params[:question_id])
-    @answer= @question.answers.new(answer_params)
+    get_question
+    @answer = @question.answers.new(answer_params)
     @answer.votes = 0
     @answer.user_id = current_user.id
 
@@ -20,20 +20,25 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @answer = Answer.find_by_id(params[:id])
+    get_question
+    get_answer
   end
 
   def update
-    @answer = Answer.find_by_id(params[:id])
-    @answer.update(answer_params)
-    redirect_to question_answer_path
+    get_question
+    get_answer
+    if @answer.update(answer_params)
+      redirect_to @question
+    else
+      render 'edit'
+    end
   end
 
   def destroy
   end
 
   def upvote
-    @answer = Answer.find(params[:id])
+    get_answer
     @answer.upvote_by current_user
     @q = Question.find(params[:question_id])
     redirect_to @q
@@ -41,13 +46,21 @@ class AnswersController < ApplicationController
   end
 
   def downvote
-    @answer = Answer.find(params[:id])
+    get_answer
     @answer.downvote_by current_user
     @q = Question.find(params[:question_id])
     redirect_to @q
   end
 
   private
+
+  def get_question
+    @question = Question.find_by_id(params[:question_id])
+  end
+
+  def get_answer
+    @answer = Answer.find(params[:id])
+  end
 
   def answer_params
     params.require(:answer).permit(:content)
