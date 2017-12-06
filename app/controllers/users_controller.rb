@@ -22,6 +22,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    get_user
+    @user.destroy
+      redirect_to root_path
+  end
+
   private
 
   def get_user

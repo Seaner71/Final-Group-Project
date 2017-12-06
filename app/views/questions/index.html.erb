@@ -19,7 +19,7 @@
             Posted on: <%= question.created_at.localtime.strftime("%B %d, %Y") %>
           </small>
           <br>
-          <% if current_user.id == question.user_id %>
+          <% if current_user.id == question.user_id || current_user.admin? %>
            <%= link_to "<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Edit Question".html_safe, edit_question_path(question) %>
           <% end %>
     </div>
@@ -43,5 +43,7 @@
            <%= form_for '', method: 'get' do |f| %>
             <%= f.select :title, options_from_collection_for_select(Question.all, 'title','title'), prompt: "Select Question Title"%>
             <%= f.submit "Search", :name => nil %>
+
             <% end %>
           
+

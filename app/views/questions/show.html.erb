@@ -13,7 +13,7 @@ Tags:
 
 <hr>
 <%= render 'answers/new' %>
-<% if current_user.id == @question.user_id %>
+<% if current_user.id == @question.user_id || current_user.admin? %>
 <%= link_to "Edit this question", edit_question_path(@question) %><br>
 <%= link_to "Delete this question", question_path, method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>

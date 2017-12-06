@@ -1,5 +1,15 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
+<hr>
+<% if current_user.admin == true %>
+<h1>Admin view </h1>
+<% User.all.each do |user| %>
+<%= link_to user.email, user_path(user) %><br>
+
+
+<% end %>
+
+<% if current_user.admin == false %>
 
 <%= link_to 'Ask a question', new_question_path %>
 <%#= link_to "Write a blog", blog_path %>
@@ -11,6 +21,9 @@
     <%= blog.body.html_safe %>
     <hr>
 
+  <% end %>
+
+  <% end %>
   <% end %>
 
   <!-- <div class="container">
