@@ -9,9 +9,9 @@ class Question < ApplicationRecord
 
   #### Justin Weiss filtering stuff
   scope :title, -> (title) { where title: title }
-  scope :contains, -> (body) { where body: ("body like ?", "%#{body}%")}
+  scope :contains, -> (body) { where("body like ?", "%#{body}%")}
   # scope :location, -> (location_id) { where location_id: location_id }
-
+  # scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
    # early of my attempt to search by tag (wrong model???)
   # scope :by_tag, -> (name) { where name: name }
 

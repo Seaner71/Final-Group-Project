@@ -44,8 +44,4 @@
             <%= f.select :title, options_from_collection_for_select(Question.all, 'title','title'), prompt: "Select Question Title"%>
             <%= f.submit "Search", :name => nil %>
             <% end %>
-
-            <%= form_tag(questions_path method: :get) do %>
-            <%= text_field_tag :body, params[:body] %>
-            <%= submit_tag 'Search', name: nil %>
-          <% end %>
+          
