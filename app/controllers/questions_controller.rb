@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  # has_scope :by_tag1
+  has_scope :by_tag1
   def index
     # @questions = Question.all
     @questions = apply_scopes(Question).all
