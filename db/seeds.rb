@@ -9,8 +9,6 @@ User.destroy_all
 
 user = User.create! :email => 'john@gmail.com', :password => '123456', :password_confirmation => '123456', :admin => true
 
-Question.destroy_all
-
 question1 = Question.create! :title => "Sanity", :body => "how do you keep yourself sane and healthy during bootcamp? ", :tag1 => 'Self Care', :user_id => user.id
 question2 = Question.create! :title => "Functions", :body => "What is a callback function ", :tag1 => 'JavaScript', :user_id => user.id
 question3 = Question.create! :title => "Routing", :body => "where is the routes.rb file located? ", :tag1 => 'Rails', :user_id => user.id
