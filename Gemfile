@@ -7,6 +7,7 @@ end
 
 # Additional Gems
 gem 'acts_as_votable', '~> 0.11.1'
+gem "paperclip"
 gem 'has_scope'
 
 gem 'devise'
