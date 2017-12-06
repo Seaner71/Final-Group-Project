@@ -24,9 +24,9 @@
         <div class="col text-right">
           <% if signed_in? %>
             <button type="button" class="btn btn-secondary float-right"><%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"} %></button>
-            <%= link_to "Dashboard", root_path %>
-            <%= link_to "My Profile", user_path(current_user) %>
-            <%= link_to "My Questions", questions_path %>
+            <%= link_to "<i class=\"fa fa-tachometer\" aria-hidden=\"true\"></i>".html_safe, root_path %>
+            <%= link_to "<i class=\"fa fa-user\" aria-hidden=\"true\"></i>".html_safe, user_path(current_user) %>
+            <%= link_to "<i class=\"fa fa-question-circle\" aria-hidden=\"true\"></i>".html_safe, questions_path %>
             <% else %>
             <%= link_to "Log In", new_user_session_path %>
             <button type="button" class="btn btn-secondary float-right"><%= link_to "Sign Up", new_user_registration_path %></button>
