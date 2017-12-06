@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'tags/index'
+  get 'tags/show'
 
   devise_for :users
   get 'welcome/index'
