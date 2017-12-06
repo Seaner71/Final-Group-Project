@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :blogs
+  resources :tags
 
   resources :questions do
       resources :answers do
