@@ -1,6 +1,6 @@
 <h1>Questions#show !!!!!!!</h1>
 
-<%= image_tag @user.avatar.url(:thumb) %><br>
+<%= image_tag @question.avatar.url(:thumb) %><br>
 Title: <%= @question.title %><br>
 Body: <%= @question.body %> <br>
 Tags:
@@ -13,4 +13,7 @@ Tags:
 
 <hr>
 <%= render 'answers/new' %>
-<%= link_to "Edit This Question", edit_question_path(@question) %>
+<% if current_user.id == @question.user_id %>
+<%= link_to "Edit this question", edit_question_path(@question) %><br>
+<%= link_to "Delete this question", question_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+<% end %>

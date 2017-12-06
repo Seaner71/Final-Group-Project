@@ -2,14 +2,12 @@ class QuestionsController < ApplicationController
   has_scope :by_tag1
   def index
     @questions = Question.all
-    @user = current_user
     @questions = apply_scopes(Question).all
 
   end
 
   def show
     get_question
-    @user = current_user
   end
 
   def new
@@ -29,6 +27,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.user_id = current_user.id
+    @question.avatar = current_user.avatar
       if @question.save
         redirect_to question_path(@question)
       else
@@ -37,7 +36,11 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    get_question
+    @question.destroy
+      redirect_to questions_path
   end
+
 
   private
 

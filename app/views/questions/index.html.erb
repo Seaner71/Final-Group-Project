@@ -1,18 +1,13 @@
 <h1>Questions</h1>
 <p>Here's a list of all the questions</p>
 
-<%= form_for questions_path, method: 'get' do |f| %>
-  <%= f.select :by_tag1, options_from_collection_for_select(Question.all, 'tag1','tag1'), prompt: "Select Category"%>
-  <%= f.submit "Search", :name => nil %>
-<% end %>
-
 <%= link_to 'Ask a question', new_question_path, :class => "btn btn-primary" %>
 <hr>
 
 <% @questions.last(10).reverse_each do |question| %>
   <div class="question-box row">
         <div class="col-sm-1 thumb">
-          <%= image_tag @user.avatar.url(:thumb) %>
+          <%= image_tag question.avatar.url(:thumb) %>
         </div>
         <div class="col">
           <a href="questions/<%= question.id %>">
@@ -24,8 +19,10 @@
             Posted on: <%= question.created_at.localtime.strftime("%B %d, %Y") %>
           </small>
           <br>
-          <%= link_to "<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Edit Question".html_safe, edit_question_path(question) %>
-        </div>
+          <% if current_user.id == question.user_id %>
+           <%= link_to "<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Edit Question".html_safe, edit_question_path(question) %>
+          <% end %>    
+    </div>
    </div>
    <div class="answer-box">
        <strong>Top Answers:</strong><br>
