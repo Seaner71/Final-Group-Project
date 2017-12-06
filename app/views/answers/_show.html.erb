@@ -10,7 +10,7 @@
   <a href="/questions/<%= @question.id %>/answers/<%= answer.id %>/dislike" data-method="PUT">Downvote</a>
   <%= answer.get_downvotes.size %>
 
-<% if current_user.id == answer.user_id %>
+<% if current_user.id == answer.user_id || current_user.admin? %>
   <p><a href='/questions/<%= @question.id %>/answers/<%= answer.id %>/edit'>Edit Answer</a></p>
   <p><a href='/questions/<%= @question.id %>/answers/<%= answer.id %>' data-method="DELETE">Delete Answer</a></p>
   <%#= link_to "Delete this answer", question_answer_path, method: :delete, data: {confirm: 'Are you sure?'} %>
