@@ -12,7 +12,7 @@
         <div class="col">
           <a href="questions/<%= question.id %>">
             <h3><%= question.title %></h3>
-            <p><%= question.body %></p>
+            <p><%= question.body.html_safe %></p>
             <!-- TODO: Add limit of charactors here like excerpt. -->
           </a>
           <small>
@@ -30,7 +30,7 @@
          <ul class="ans_list">
          <% question.answers.last(3).reverse.each do |answer| %>
          <!-- TODO: Create top answer logic Add limit of charactors here like excerpt. -->
-       <li><%=answer.content %></li>
+       <li><%=answer.content.html_safe %></li>
        <% end %>
        <ul>
    </div>
@@ -43,4 +43,7 @@
            <%= form_for '', method: 'get' do |f| %>
             <%= f.select :title, options_from_collection_for_select(Question.all, 'title','title'), prompt: "Select Question Title"%>
             <%= f.submit "Search", :name => nil %>
-<% end %>
+
+            <% end %>
+          
+

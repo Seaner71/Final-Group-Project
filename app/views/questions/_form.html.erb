@@ -14,7 +14,7 @@
     <%= f.label "Title:" %>
     <%= f.text_field :title %> <br>
     <%= f.label "Question:" %>
-    <%= f.text_area :body %> <br>
+    <%= f.trix_editor :body %> <br>
     <%= f.label :tag_list %>
     <%= f.select :tag_list, options_from_collection_for_select(Tag.all, 'name','name'), prompt: "Select Category" %>
   </div>
