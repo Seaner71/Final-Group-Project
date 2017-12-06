@@ -1,19 +1,18 @@
 Rails.application.routes.draw do
 
-
   get 'tags/index'
   get 'tags/show'
-
 
   devise_for :users
   get 'welcome/index'
   post 'users/:id/', to: 'users#show'
 
-
-  resources :users
-  resources :blogs
   resources :tags
 
+  resources :users do
+    resources :blogs
+end
+  
   resources :questions do
       resources :answers do
         member do
@@ -21,13 +20,7 @@ Rails.application.routes.draw do
           put "dislike", to: "answers#downvote"
         end
       end
-
   end
-
-
-
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'welcome#index'
 end
