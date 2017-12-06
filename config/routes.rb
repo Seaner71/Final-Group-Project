@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :users
   resources :blogs
 
-
   resources :questions do
       resources :answers do
         member do

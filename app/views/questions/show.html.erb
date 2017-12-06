@@ -1,16 +1,19 @@
 <h1>Questions#show !!!!!!!</h1>
 
-
+<%= image_tag @question.avatar.url(:thumb) %><br>
 Title: <%= @question.title %><br>
-Body: <%= @question.body %>
+Body: <%= @question.body %> <br>
+Tags:
+<% @question.tags.each do |tag|  %>
+  <%= link_to tag.name, tag_path(tag) %>
+<% end %>
 <hr>
 
 <%= render 'answers/show' %>
 
 <hr>
 <%= render 'answers/new' %>
-
-
- <%= link_to "Edit This Question", edit_question_path(@question) %>
-
-  
+<% if current_user.id == @question.user_id %>
+<%= link_to "Edit this question", edit_question_path(@question) %><br>
+<%= link_to "Delete this question", question_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+<% end %>

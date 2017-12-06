@@ -13,6 +13,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
     @answer.votes = 0
     @answer.user_id = current_user.id
+    @answer.avatar = current_user.avatar
 
     if @answer.save
       redirect_to question_path(@question)
@@ -35,6 +36,10 @@ class AnswersController < ApplicationController
   end
 
   def destroy
+    get_question
+    get_answer
+    @answer.destroy
+      redirect_to questions_path
   end
 
   def upvote
