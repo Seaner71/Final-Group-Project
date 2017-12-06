@@ -1,6 +1,9 @@
 class TagsController < ApplicationController
   def index
-    @questions = Question.where(params[:tags1])
-    # qtag = @questions.title
+    @tags = Tag.all
+  end
+
+  def show
+    @tag = Tag.find(params[:id])
   end
 end

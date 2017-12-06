@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def show
     get_user
-
   end
 
   def edit
@@ -9,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def new
-
   end
 
   def create
@@ -40,9 +38,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :location, :bio, :previous_industry, :github_url, :avatar)
   end
 
-  def blog_params
-    params.permit(:title, :body, :user_id)
-  end
 
 
 end

@@ -1,10 +1,9 @@
 class QuestionsController < ApplicationController
+  has_scope :by_tag1
   def index
     @questions = Question.all
-    #get_question
-    #@user.id = @question.user_id
-  #@user = User.find_by_id(params[:id])
     @user = current_user
+    @questions = apply_scopes(Question).all
 
   end
 
@@ -47,7 +46,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:title, :body, :tag1, :user_id)
+    params.require(:question).permit(:title, :body, :tag1, :tag_list, :user_id)
   end
 
   def user_params
