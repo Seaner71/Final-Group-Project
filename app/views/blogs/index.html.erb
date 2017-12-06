@@ -2,9 +2,8 @@
 
 <h2>My blog posts</h2>
   <% @user.blogs.reverse_each do |blog| %>
-    <h3><%= blog.title %><h3>
+    <h3><a href="/users/<%= @user.id %>/blogs/<%= blog.id %>" data-method="GET"><%= blog.title %></a></h3>
     <%= blog.body %>
-
   <% end %>
   <br>
 

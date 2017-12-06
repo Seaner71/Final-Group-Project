@@ -2,6 +2,7 @@ class BlogsController < ApplicationController
   def index
     @user = current_user
     @blogs = @user.blogs.all
+    @blog = @user.blogs.find_by_id(params[:id])
   end
 
   def show
