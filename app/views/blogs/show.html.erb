@@ -1,7 +1,7 @@
 <h1>Blogs#show</h1>
 <p>Find me in app/views/blogs/show.html.erb</p>
 
-<h2> My blog </h2>
+<h2> Make a blog post </h2>
 
   <%= form_with(model: Blog.new) do |f|  %>
   <%= f.hidden_field current_user.id %>
@@ -15,9 +15,11 @@
   <% end %>
 
   <hr>
-
-  <% @blog.each do |blog| %>
+<h2>My blog posts</h2>
+  <% @user.blogs.reverse_each do |blog| %>
     <h3><%= blog.title %><h3>
     <%= blog.body %>
+    <a href="/blogs/<%= blog.id %>/edit" %>Edit post</a>
+    <hr>
 
   <% end %>

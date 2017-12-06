@@ -3,23 +3,3 @@
 <%= link_to "My blog", blog_path %>
 
 <hr>
-<h2> My blog </h2>
-
-
-  <%= form_with(model: @blog) do |f|  %>
-  <%#= f.hidden_field current_user.id %>
-    <%= f.label "Title:" %>
-    <%= f.text_field :title %> <br>
-    <%= f.label "Body:" %>
-    <%= f.text_area :body %> <br>
-  </div>
-  <%= f.submit %>
-
-  <% end %>
-  <hr>
-
-  <% Blog.all.each do |blog| %>
-    <li><%= blog.title %></li>
-    <li><%= blog.body %></li>
-
-  <% end %>

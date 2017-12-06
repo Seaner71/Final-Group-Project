@@ -1,10 +1,12 @@
 class BlogsController < ApplicationController
   def index
     @blogs = Blog.all
+    @blog = Blog.find_by_id(:id)
   end
 
   def show
     @blog = Blog.find_by_id(:id)
+    @user = current_user
   end
 
   def new
@@ -22,13 +24,19 @@ class BlogsController < ApplicationController
   end
 
   def edit
-    @question = Question.find_by_id(params[:id])
+    @blog = Blog.find_by_id(params[:id])
   end
 
   def update
+    get_blog
+    @blog.update(blog_params)
+    redirect_to blogs_path
   end
 
   def destroy
+    @blog = Blog.find_by_id(params[:id])
+    @blog.destroy
+      redirect_to blog_path
   end
 
   private
