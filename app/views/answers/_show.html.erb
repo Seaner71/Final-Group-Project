@@ -1,6 +1,6 @@
 <h1>Answers</h1>
 <% @question.answers.each do |answer| %>
-<%= image_tag @user.avatar.url(:thumb) %><br>
+<%= image_tag answer.avatar.url(:thumb) %><br>
   <li><a href='/questions/<%=@question.id %>/answers/<%= answer.id %>/edit'><%=answer.content %></a></li>
   <li>Posted by: <%= answer.user.email %></li>
 
