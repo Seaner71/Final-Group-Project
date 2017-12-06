@@ -16,12 +16,9 @@
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.*/
 @import "bootstrap";
-
- /*colors
- burgundy = #814552
- green = #424932 */
-
 @import url('https://fonts.googleapis.com/css?family=Lato');
+
 * {
   font-family: 'Lato', sans-serif;
+  border: 1px dotted #ccc;
 }
