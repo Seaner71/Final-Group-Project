@@ -17,7 +17,7 @@ question3 = Question.create! :title => "Routing", :body => "where is the routes.
 question4 = Question.create! :title => "Resume", :body => "is my previous experience relevant now? ", :tag1 => 'Interview', :user_id => user.id
 question5 = Question.create! :title => "Success", :body => "What should i do prior to starting bootcamp to have the best chance for success ", :tag1 => 'Bootcamp prep', :user_id => user.id
 
-answer1 = question1.answers.create! :question_id => 1, :content => 'Put down the computer and exercise', :user_id => user.id 
+answer1 = question1.answers.create! :question_id => 1, :content => 'Put down the computer and exercise', :user_id => user.id
 answer2 = question1.answers.create! :question_id => 1, :content => 'Suck it up buttercup', :user_id => user.id
 answer3 = question2.answers.create! :question_id => 2, :content => 'A callback function is a function that is passed to another function ', :user_id => user.id
 answer4 = question2.answers.create! :question_id => 2, :content => 'Who knows ask Oggi ', :user_id => user.id
@@ -27,3 +27,5 @@ answer7 = question4.answers.create! :question_id => 4, :content => 'yes but keep
 answer8 = question4.answers.create! :question_id => 4, :content => 'no the past is prologue ', :user_id => user.id
 answer9 = question5.answers.create! :question_id => 5, :content => 'do CodeAcaddemy tutorials ', :user_id => user.id
 answer10 = question5.answers.create! :question_id => 5, :content => 'Learn to type well ', :user_id => user.id
+
+Tag.create(name: 'js')

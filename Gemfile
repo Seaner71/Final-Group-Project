@@ -9,6 +9,7 @@ end
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'acts_as_votable', '~> 0.11.1'
+gem "paperclip"
 gem 'has_scope'
 gem 'devise'
 

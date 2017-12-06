@@ -1,12 +1,15 @@
 class QuestionsController < ApplicationController
   has_scope :by_tag1
   def index
-    # @questions = Question.all
+    @questions = Question.all
+    @user = current_user
     @questions = apply_scopes(Question).all
+
   end
 
   def show
     get_question
+    @user = current_user
   end
 
   def new
@@ -27,7 +30,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.user_id = current_user.id
       if @question.save
-        redirect_to root_path
+        redirect_to question_path(@question)
       else
         render 'new'
       end
@@ -43,7 +46,11 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:title, :body, :tag1)
+    params.require(:question).permit(:title, :body, :tag1, :tag_list, :user_id)
+  end
+
+  def user_params
+    params.permit(:id, :username, :location, :bio, :previous_industry, :github_url, :avatar)
   end
 
 end

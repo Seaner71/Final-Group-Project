@@ -1,16 +1,16 @@
 <h1>Questions#show !!!!!!!</h1>
 
-
+<%= image_tag @user.avatar.url(:thumb) %><br>
 Title: <%= @question.title %><br>
-Body: <%= @question.body %>
+Body: <%= @question.body %> <br>
+Tags:
+<% @question.tags.each do |tag|  %>
+  <%= link_to tag.name, tag_path(tag) %>
+<% end %>
 <hr>
 
 <%= render 'answers/show' %>
 
 <hr>
 <%= render 'answers/new' %>
-
-
- <%= link_to "Edit This Question", edit_question_path(@question) %>
-
-  
+<%= link_to "Edit This Question", edit_question_path(@question) %>

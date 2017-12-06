@@ -1,4 +1,12 @@
 <h1>User <%= @user.id %> Homepage</h1>
+
+<%= image_tag @user.avatar.url(:middle) %><br>
+<%= @user.username %><br>
+<%= @user.location %><br>
+
+
+
+
 <%= link_to "Edit Your Info", edit_user_path(current_user) %>
 
 <hr>
