@@ -8,7 +8,7 @@
     <strong> <%= tag %> </strong>
     <br>
    <% question_tags = @questions.where(tag1: tag) %>
-       <%= pluralize(question_tags.count, 'question') %> 
+       <%= pluralize(question_tags.count, 'question') %>
         <% question_tags.each do |t| %>
          <li><%= link_to t.title, question_path(t) %></li>
          <br>
