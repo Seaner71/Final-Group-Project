@@ -36,7 +36,11 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    get_question
+    @question.destroy
+      redirect_to questions_path
   end
+
 
   private
 

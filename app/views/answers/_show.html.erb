@@ -1,7 +1,7 @@
 <h1>Answers</h1>
 <% @question.answers.each do |answer| %>
 <%= image_tag answer.avatar.url(:thumb) %><br>
-  <li><a href='/questions/<%=@question.id %>/answers/<%= answer.id %>/edit'><%=answer.content %></a></li>
+  <li><%=answer.content %></li>
   <li>Posted by: <%= answer.user.email %></li>
 
   <a href="/questions/<%= @question.id %>/answers/<%= answer.id %>/like" data-method="PUT">Upvote</a>
@@ -10,8 +10,11 @@
   <a href="/questions/<%= @question.id %>/answers/<%= answer.id %>/dislike" data-method="PUT">Downvote</a>
   <%= answer.get_downvotes.size %>
 
-
+<% if current_user.id == answer.user_id %>
   <p><a href='/questions/<%= @question.id %>/answers/<%= answer.id %>/edit'>Edit Answer</a></p>
+  <p><a href='/questions/<%= @question.id %>/answers/<%= answer.id %>' data-method="DELETE">Delete Answer</a></p>
+  <%#= link_to "Delete this answer", question_answer_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+  <% end %>
   <hr>
 
 

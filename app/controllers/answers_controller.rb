@@ -36,6 +36,10 @@ class AnswersController < ApplicationController
   end
 
   def destroy
+    get_question
+    get_answer
+    @answer.destroy
+      redirect_to questions_path
   end
 
   def upvote
