@@ -3,7 +3,7 @@
 
 
 <%= form_with(model: @blog) do |f|  %>
-<%= f.hidden_field current_user.id %>
+<%#= f.hidden_field current_user.id %>
   <%= f.label "Title:" %>
   <%= f.text_field :title %> <br>
   <%= f.label "Body:" %>

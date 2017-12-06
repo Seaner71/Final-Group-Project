@@ -3,8 +3,8 @@
 
 <h2> Make a blog post </h2>
 
-  <%= form_with(model: Blog.new) do |f|  %>
-  <%= f.hidden_field current_user.id %>
+  <%= form_with(model: Blog.new) do |f| %>
+  <%#= f.hidden_field current_user.id %>
     <%= f.label "Title:" %>
     <%= f.text_field :title %> <br>
     <%= f.label "Body:" %>
@@ -19,7 +19,7 @@
   <% @user.blogs.reverse_each do |blog| %>
     <h3><%= blog.title %><h3>
     <%= blog.body %>
-    <a href="/blogs/<%= blog.id %>/edit" %>Edit post</a>
+    <a href='/blogs/<%= @user.id %>/edit/'>Edit Post</a>
     <hr>
 
   <% end %>

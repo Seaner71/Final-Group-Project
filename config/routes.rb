@@ -14,6 +14,7 @@ resources :blogs
 
 
 
+
   resources :questions do
       resources :answers do
         member do
