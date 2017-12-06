@@ -18,10 +18,9 @@
           Logo
         </div>
         <div class="col">
-          <form action="">
-            <label for="search"></label>
-            <input type="text" name="search" placeholder="Search Not Working Yet">
-          </form>
+          <%= form_for '', method: 'get' do |f| %>
+           <%= f.text_field :body, placeholder: "Search" %>
+            <% end %>
         </div>
         <div class="col text-right">
           <% if signed_in? %>
