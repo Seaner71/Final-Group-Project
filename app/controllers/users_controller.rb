@@ -11,12 +11,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    @blog = current_user.posts.new(blog_params)
-      if @blog.save
-        redirect_to root_path
-      else
-        render 'new'
-      end
   end
 
   def update
