@@ -1,2 +1,23 @@
 <h1>Blogs#show</h1>
 <p>Find me in app/views/blogs/show.html.erb</p>
+
+<h2> My blog </h2>
+
+  <%= form_with(model: Blog.new) do |f|  %>
+  <%= f.hidden_field current_user.id %>
+    <%= f.label "Title:" %>
+    <%= f.text_field :title %> <br>
+    <%= f.label "Body:" %>
+    <%= f.text_area :body %> <br>
+  </div>
+  <%= f.submit %>
+
+  <% end %>
+
+  <hr>
+
+  <% @blog.each do |blog| %>
+    <h3><%= blog.title %><h3>
+    <%= blog.body %>
+
+  <% end %>

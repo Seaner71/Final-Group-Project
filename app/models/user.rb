@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :questions, dependent: :destroy
   has_many :blogs, dependent: :destroy
+  accepts_nested_attributes_for :blogs
 end

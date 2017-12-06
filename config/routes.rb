@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   post 'users/:id/', to: 'users#show'
 
 
-
+resources :users
+resources :blogs
 
 
 
@@ -22,9 +23,7 @@ Rails.application.routes.draw do
       end
 
   end
-  resources :users do
-  resources :blogs
-end
+
 
 
 
