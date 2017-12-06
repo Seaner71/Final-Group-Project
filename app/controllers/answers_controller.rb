@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @question = Question.find_by_id(params[:question_id])
+    get_question
     @answer = @question.answers.new(answer_params)
     @answer.votes = 0
     @answer.user_id = current_user.id
@@ -19,13 +19,13 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @question = Question.find_by_id(params[:question_id])
-    @answer = Answer.find(params[:id])
+    get_question
+    get_answer
   end
 
   def update
-    @question = Question.find_by_id(params[:question_id])
-    @answer = Answer.find(params[:id])
+    get_question
+    get_answer
     if @answer.update(answer_params)
       redirect_to @question
     else
@@ -37,7 +37,7 @@ class AnswersController < ApplicationController
   end
 
   def upvote
-    @answer = Answer.find(params[:id])
+    get_answer
     @answer.upvote_by current_user
     @q = Question.find(params[:question_id])
     redirect_to @q
@@ -45,13 +45,21 @@ class AnswersController < ApplicationController
   end
 
   def downvote
-    @answer = Answer.find(params[:id])
+    get_answer
     @answer.downvote_by current_user
     @q = Question.find(params[:question_id])
     redirect_to @q
   end
 
   private
+
+  def get_question
+    @question = Question.find_by_id(params[:question_id])
+  end
+
+  def get_answer
+    @answer = Answer.find(params[:id])
+  end
 
   def answer_params
     params.require(:answer).permit(:content)
