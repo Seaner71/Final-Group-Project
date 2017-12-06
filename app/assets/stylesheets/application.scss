@@ -12,7 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require trix
+
  */
+
+
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.*/
 @import "bootstrap";
@@ -53,4 +57,8 @@ ul.ans_list li {
   background-color: #f1f1f1;
   padding: 10px;
   margin-top: 15px;
+}
+
+.trix {
+
 }
