@@ -14,11 +14,20 @@
  *= require_self
  */
 
- /*colors
- burgundy = #814552
- green = #424932 */
-
+// Custom bootstrap variables must be set or imported *before* bootstrap.*/
+@import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Lato');
+
 * {
   font-family: 'Lato', sans-serif;
+  // border: 1px dotted #ccc;
+}
+
+nav {
+  line-height: 38px;
+  background-color: #f3f3f3;
+}
+
+nav a {
+  padding-right: 10px;
 }
