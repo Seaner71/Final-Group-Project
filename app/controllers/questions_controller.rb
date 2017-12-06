@@ -1,8 +1,7 @@
 class QuestionsController < ApplicationController
-  has_scope :by_tag1
   def index
-    @questions = Question.all
-    @questions = apply_scopes(Question).all
+    @questions = Question.where(nil) # creates an anonymous scope
+    @questions = @questions.title(params[:title]) if params[:title].present?
 
   end
 

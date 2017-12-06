@@ -36,3 +36,12 @@
    </div>
    <hr>
 <% end %>
+           <%= form_for '', method: 'get' do |f| %>
+            <%= f.select :by_tag1, options_from_collection_for_select(Tag.all, 'name','name'), prompt: "Select Tag"%>
+            <%= f.submit "Search", :name => nil %>
+            <% end %>
+           <%= form_for '', method: 'get' do |f| %>
+            <%= f.select :title, options_from_collection_for_select(Question.all, 'title','title'), prompt: "Select Question Title"%>
+            <%= f.submit "Search", :name => nil %>
+<% end %>
+
