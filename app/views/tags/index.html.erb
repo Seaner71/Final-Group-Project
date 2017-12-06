@@ -1,16 +1,9 @@
-<h1>Tags#index</h1>
-<p>Find me in app/views/tags/index.html.erb</p>
+<h1>See Posts With Tags</h1>
 
 <br>
 
-
-<% @question_tag_array.each do |tag| %>
-    <strong> <%= tag %> </strong>
-    <br>
-   <% question_tags = @questions.where(tag1: tag) %>
-       <%= pluralize(question_tags.count, 'question') %>
-        <% question_tags.each do |t| %>
-         <li><%= link_to t.title, question_path(t) %></li>
-         <br>
-      <% end %>
-    <% end %>
+<% @tags.each do |t| %>
+<ul>
+  <li> <%= link_to t.name, tag_path(t)%></li>
+</ul>
+<% end %>
