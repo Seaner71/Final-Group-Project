@@ -28,6 +28,11 @@
 
 
 <%= form_for questions_path, method: 'get' do |f| %>
-  <%= f.select :by_tag1, options_from_collection_for_select(Question.all, 'tag1','tag1'), prompt: "Select Category"%>
+  <%= f.select :by_tag1, options_from_collection_for_select(Question.all, 'tag1','tag1'), prompt: "Select Tag"%>
   <%= f.submit "Search", :name => nil %>
+<% end %>
+
+<%= form_for '/', method: 'get' do |f| %>
+  <%= f.select :title, options_from_collection_for_select(Question.all, 'title','title'), prompt: "Select Question Title"%>
+  <%= f.submit "Search" %>
 <% end %>

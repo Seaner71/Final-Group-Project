@@ -8,6 +8,11 @@ class Question < ApplicationRecord
   has_attached_file :avatar, styles: { medium: "300x300>", middle: "230x230>", thumb: "100x100>" }, default_url: "/assets/default.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+  #### Justin Weiss filtering stuff
+  scope :title, -> (title) { where title: title }
+  scope :location, -> (location_id) { where location_id: location_id }
+  scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
+
   def tag_list
     self.tags.collect do |tag|
       tag.name
