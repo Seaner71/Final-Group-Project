@@ -2,7 +2,7 @@
 
 <%= image_tag @question.avatar.url(:thumb) %><br>
 Title: <%= @question.title %><br>
-Body: <%= @question.body %> <br>
+Body: <%= @question.body.html_safe %> <br>
 Tags:
 <% @question.tags.each do |tag|  %>
   <%= link_to tag.name, tag_path(tag) %>
