@@ -28,4 +28,4 @@ answer8 = question4.answers.create! :question_id => 4, :content => 'no the past 
 answer9 = question5.answers.create! :question_id => 5, :content => 'do CodeAcaddemy tutorials ', :user_id => user.id
 answer10 = question5.answers.create! :question_id => 5, :content => 'Learn to type well ', :user_id => user.id
 
-Tag.create(name: 'JS')
+Tag.create(name: 'js')
