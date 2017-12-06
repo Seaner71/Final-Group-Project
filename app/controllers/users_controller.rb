@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
   def show
     get_user
-    @blog = Blog.find_by_id(:id)
-      #@blog = current_user.blogs.new(blog_params)
-    #@blog.user_id = current_user.id
+
   end
 
   def edit
@@ -11,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @blog = Blog.new
+
   end
 
   def create
