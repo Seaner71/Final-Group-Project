@@ -1,11 +1,9 @@
 class TagsController < ApplicationController
   def index
-    @questions = Question.all
-    @question_tag_array = @questions.map {|q| q.tag1}.uniq
+    @tags = Tag.all
   end
 
   def show
-    @questions = Question.all
-    
+    @tag = Tag.find(params[:id])
   end
 end
