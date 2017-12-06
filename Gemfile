@@ -7,7 +7,7 @@ end
 
 # Additional Gems
 gem 'acts_as_votable', '~> 0.11.1'
-
+gem 'has_scope'
 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

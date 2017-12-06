@@ -23,3 +23,21 @@
 
 
 <% end %>
+
+<%= form_for questions_path, :method => 'post' do %>
+  <%= collection_select :tag1, :id,  @questions, :id, :title, :prompt => "Select Category" %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<% form_tag questions_path :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search %>
+    <%= submit_tag 'Search' %>
+  </p>
+<% end %>
+
+<%= form_tag("/questions", method: "get") do %>
+  <%= label_tag(:tag1, "Search for:") %>
+  <%= text_field_tag(:tag1) %>
+  <%= submit_tag("Search") %>
+<% end %>
