@@ -1,0 +1,16 @@
+<h1>Blogs#edit</h1>
+<p>Find me in app/views/blogs/edit.html.erb</p>
+
+
+<%= form_with(model: @blog) do |f|  %>
+<%#= f.hidden_field current_user.id %>
+  <%= f.label "Title:" %>
+  <%= f.text_field :title %> <br>
+  <%= f.label "Body:" %>
+  <%= f.text_area :body %> <br>
+</div>
+<%= f.submit %>
+
+<% end %>
+
+<%= link_to 'Delete post', blog_path, method: :delete, data: {confirm: 'Are you sure?'} %>

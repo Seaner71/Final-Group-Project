@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
 
+
   get 'tags/index'
+
 
   devise_for :users
   get 'welcome/index'
+  post 'users/:id/', to: 'users#show'
+
+
+resources :users
+resources :blogs
+
+
 
 
   resources :questions do
@@ -15,7 +24,9 @@ Rails.application.routes.draw do
       end
 
   end
-  resources :users
+
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
