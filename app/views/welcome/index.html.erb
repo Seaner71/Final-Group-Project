@@ -6,6 +6,16 @@
     <%= link_to "Edit Your Profile", "#" %>
 </div>
 
+<% if current_user.admin == true %>
+<h1>Admin view </h1>
+<% User.all.each do |user| %>
+<%= link_to user.email, user_path(user) %><br>
+
+
+<% end %>
+
+<% if current_user.admin == false %>
+
 <div class="row">
   <div class="col-8">
     <ul class="nav nav-tabs" id="tabSort" role="tablist">
@@ -34,17 +44,18 @@
                 <% end %>
           </div>
          </div>
-
-      </div>
+        
+        </div>
       <div class="tab-pane fade" id="popular" role="tabpanel" aria-labelledby="popularTab">Popular questions list here</div>
       <div class="tab-pane fade" id="recent" role="tabpanel" aria-labelledby="recentTab">Recent questions list here</div>
     </div>
   </div>
+
   <div class="col-md">
     <h2>The latest blog posts</h2>
     <% Blog.last(3).reverse_each do |blog| %>
       <h3><%= blog.title %></h3>
-      <%= blog.body %>
+      <%= blog.body.html_safe %>
       <hr>
     <% end %>
   </div>

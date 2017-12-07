@@ -12,14 +12,14 @@
         <div class="col">
           <a href="questions/<%= question.id %>">
             <h3><%= question.title %></h3>
-            <p><%= question.body %></p>
+            <p><%= question.body.html_safe %></p>
             <!-- TODO: Add limit of charactors here like excerpt. -->
           </a>
           <small>
             Posted on: <%= question.created_at.localtime.strftime("%B %d, %Y") %>
           </small>
           <br>
-          <% if current_user.id == question.user_id %>
+          <% if current_user.id == question.user_id || current_user.admin? %>
            <%= link_to "<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Edit Question".html_safe, edit_question_path(question) %>
           <% end %>
     </div>
@@ -30,9 +30,21 @@
          <ul class="ans_list">
          <% question.answers.last(3).reverse.each do |answer| %>
          <!-- TODO: Create top answer logic Add limit of charactors here like excerpt. -->
-       <li><%=answer.content %></li>
+       <li><%=answer.content.html_safe %></li>
        <% end %>
        <ul>
    </div>
    <hr>
 <% end %>
+
+           <%= form_for '', method: 'get' do |f| %>
+            <%= f.select :by_tag1, options_from_collection_for_select(Tag.all, 'name','name'), prompt: "Select Tag"%>
+            <%= f.submit "Search", :name => nil %>
+            <% end %>
+           <%= form_for '', method: 'get' do |f| %>
+            <%= f.select :title, options_from_collection_for_select(Question.all, 'title','title'), prompt: "Select Question Title"%>
+            <%= f.submit "Search", :name => nil %>
+
+            <% end %>
+          
+

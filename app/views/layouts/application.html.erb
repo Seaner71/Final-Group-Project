@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="trix.css">
+    <script type="text/javascript" src="trix.js"></script>
   </head>
 
   <body>
@@ -16,10 +18,9 @@
           Logo
         </div>
         <div class="col">
-          <form action="">
-            <label for="search"></label>
-            <input type="text" name="search" placeholder="Search Not Working Yet">
-          </form>
+          <%= form_for '', method: 'get' do |f| %>
+           <%= f.text_field :body, placeholder: "Search" %>
+            <% end %>
         </div>
         <div class="col text-right">
           <% if signed_in? %>

@@ -9,6 +9,10 @@ User.destroy_all
 Tag.destroy_all
 
 user = User.create! :email => 'john@gmail.com', :password => '123456', :password_confirmation => '123456', :admin => true
+user = User.create! :email => 'test@gmail.com', :password => '123456', :password_confirmation => '123456', :admin => false
+user = User.create! :email => 'test2@gmail.com', :password => '123456', :password_confirmation => '123456', :admin => true
+
+
 
 question1 = Question.create! :title => "Sanity", :body => "how do you keep yourself sane and healthy during bootcamp? ", :user_id => user.id
 question2 = Question.create! :title => "Functions", :body => "What is a callback function ", :user_id => user.id

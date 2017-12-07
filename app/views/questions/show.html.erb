@@ -1,11 +1,10 @@
 <h1><%= @question.title %></h1>
-
 <div class="question-box row">
       <div class="col-sm-2 thumb">
         <%= image_tag @question.avatar.url(:thumb) %>
       </div>
       <div class="col">
-          <h4><%= @question.body %></h4>
+          <h4><%= @question.body.html_safe %></h4>
         <small>
           Posted on: <%= @question.created_at.localtime.strftime("%B %d, %Y") %>
         </small>
@@ -27,4 +26,8 @@
     <%= render 'answers/show' %>
      <hr>
      <%= render 'answers/new' %>
+   <% if current_user.id == @question.user_id || current_user.admin? %>
+<%= link_to "Edit this question", edit_question_path(@question) %><br>
+<%= link_to "Delete this question", question_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+<% end %>
  </div>

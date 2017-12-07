@@ -1,10 +1,4 @@
-<h1><%= @user.email %> Blog</h1>
-
-<h2>My blog posts</h2>
-  <% @user.blogs.reverse_each do |blog| %>
-    <h3><a href="/users/<%= @user.id %>/blogs/<%= blog.id %>" data-method="GET"><%= blog.title %></a></h3>
-    <%= blog.body %>
-  <% end %>
-  <br>
-
-  <%= render 'new' %>
+<% @blogs.each do |b| %>
+<%= link_to b.title, blog_path(b) %> || <%= b.body.html_safe %>
+<% end %>
+<%= link_to 'New Post', new_blog_path %>

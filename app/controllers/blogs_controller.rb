@@ -2,45 +2,53 @@ class BlogsController < ApplicationController
   def index
     @user = current_user
     @blogs = @user.blogs.all
-    @blog = @user.blogs.find_by_id(params[:id])
   end
 
   def show
-    @user = User.find_by_id(params[:user_id])
-    @blog = @user.blogs.find_by_id(params[:id])
+    @blog = Blog.find_by_id(params[:id])
   end
 
   def new
-    @user = User.find_by_id(params[:id])
-    @blog = @user.blogs.new
+    @user = current_user
+    @blog = Blog.new
   end
 
   def create
     @user = current_user
     @blog = @user.blogs.new(blog_params)
-
       if @blog.save
-        redirect_to user_blogs_path(@user)
+        redirect_to blogs_path(@user)
       else
-        render 'new'
+        render 'index'
       end
   end
 
   def edit
+    @user = current_user
+    @blog = Blog.find_by_id(params[:id])
   end
 
   def update
-  end
+    @user = current_user
+    @blog = Blog.find_by_id(params[:id])
+    @blog.update(blog_params)
+      if @blog.save
+        redirect_to blogs_path
+      else
+        render 'edit'
+      end
+    end
+
 
   def destroy
     @blog = Blog.find_by_id(params[:id])
     @blog.destroy
-      redirect_to blog_path
+      redirect_to blogs_path
   end
 
   private
   def blog_params
-    params.permit(:title, :body)
+    params.require(:blog).permit(:title, :body)
   end
 
 

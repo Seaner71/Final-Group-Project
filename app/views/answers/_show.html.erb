@@ -1,4 +1,4 @@
-  <%= 'No answer yet' if @question.answers.empty? %>
+ <%= 'No answer yet' if @question.answers.empty? %>
   <% @question.answers.each do |answer| %>
   <div class="row">
     <div class="col-sm-2 thumb text-center">
@@ -16,11 +16,12 @@
         <span class="dwn"><%= answer.get_downvotes.size %></span>
       </div>
 
-      <% if current_user.id == answer.user_id %>
+      <% if current_user.id == answer.user_id || current_user.admin? %>
         <a href='/questions/<%= @question.id %>/answers/<%= answer.id %>/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Answer</a><br>
         <a href='/questions/<%= @question.id %>/answers/<%= answer.id %>' data-method="DELETE"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Answer</a>
-        <% end %>
+        <%#= link_to "Delete this answer", question_answer_path, method: :delete, data: {confirm: 'Are you sure?'} %>  
+      <% end %>
     </div>
-    <div class="col"><%= answer.content %></div>
+    <div class="col"><%= answer.content.html_safe %></div>
   </div>
-  <% end %>
+<% end %>

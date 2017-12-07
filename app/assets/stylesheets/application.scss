@@ -12,7 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require trix
+
  */
+
+
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.*/
 @import "bootstrap";
@@ -196,3 +200,7 @@ ul.ans_list li {
 
 /* Hide Native iOS controls*/
 .video-bg video::-webkit-media-controls {display: none !important}
+
+.trix {
+
+}
