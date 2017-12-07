@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   def index
     @blogs = Blog.all
+    @tag = Tag.new
   end
 
   def show
