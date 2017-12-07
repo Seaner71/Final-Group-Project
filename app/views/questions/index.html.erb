@@ -7,7 +7,7 @@
 <% @questions.last(10).reverse_each do |question| %>
   <div class="question-box row">
         <div class="col-sm-2 thumb">
-          <%= image_tag question.user.avatar.url(:thumb) %>
+          <a href="/users/<%= question.user_id %>"><%= image_tag question.user.avatar.url(:thumb) %></a>
         </div>
         <div class="col">
           <a href="questions/<%= question.id %>">
