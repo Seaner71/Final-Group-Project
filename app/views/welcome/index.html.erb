@@ -1,7 +1,7 @@
 <div class="dash">
   <div class="row">
     <div class="col-2">
-      <%= image_tag current_user.avatar.url(:middle) %>
+      <a href="/users/<%= current_user.id %>"><%= image_tag current_user.avatar.url(:middle) %></a>
     </div>
     <div class="col">
     <h2>Welcome, <%= current_user.username %></h2>
