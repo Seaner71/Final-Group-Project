@@ -12,6 +12,7 @@
 <%= link_to user.email, user_path(user) %><br>
 <% end %> <br><br>
 <%= render 'tags/new' %>
+<% end %>
 
 <% if current_user.admin == false %>
 
@@ -53,11 +54,11 @@
   <div class="col-md">
     <h2>The latest blog posts</h2>
     <% Blog.last(3).reverse_each do |blog| %>
+      <%= image_tag blog.avatar.url(:thumb) %>
       <h3><%= blog.title %></h3>
       <%= blog.body.html_safe %>
       <hr>
     <% end %>
   </div>
 </div>
-<% end %>
 <% end %>
