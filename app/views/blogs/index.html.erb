@@ -1,4 +1,9 @@
 <% @blogs.each do |b| %>
-<%= link_to b.title, blog_path(b) %> || <%= b.body.html_safe %>
+  <%= link_to b.title, blog_path(b) %>
+  ||
+  <%= b.body.html_safe %>
+  <br>
 <% end %>
+
+<br><br>
 <%= link_to 'New Post', new_blog_path %>

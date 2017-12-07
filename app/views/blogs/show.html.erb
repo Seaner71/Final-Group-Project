@@ -2,5 +2,12 @@
 <h2><%= @blog.user_id %></h2><br>
 <h2><%= @blog.body.html_safe %></h2><br>
 
-<%= link_to 'Back', blogs_path %>
+Tags:
+ <% @blog.tags.each do |tag| %>
+   <%= link_to tag.name, tag_path(tag) %>
+ <% end %>
+
+<br><br>
+
+<%= link_to 'Back', blogs_path %> <br>
 <%= link_to 'Edit', edit_blog_path(@blog) %>
