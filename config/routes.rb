@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   post 'users/:id/', to: 'users#show'
 
   resources :users
-  resources :blogs
   resources :tags
+
+  resources :blogs do
+    resources :comments
+  end
 
   resources :questions do
       resources :answers do

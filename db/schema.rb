@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 20171207193901) do
     t.datetime "avatar_updated_at"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "body"
+    t.integer "blog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_comments_on_blog_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text "title"
     t.text "body"

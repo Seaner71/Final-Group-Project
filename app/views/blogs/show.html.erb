@@ -1,13 +1,24 @@
 <h1><%= @blog.title %></h1><br>
-<h2><%= @blog.user_id %></h2><br>
+<h2>Posted By: <%= @blog.user.username %></h2><br>
 <h2><%= @blog.body.html_safe %></h2><br>
 
-Tags:
- <% @blog.tags.each do |tag| %>
-   <%= link_to tag.name, tag_path(tag) %>
- <% end %>
+<div>Tags: <br>
+   <% @blog.tags.each do |tag| %>
+     <%= link_to tag.name, tag_path(tag) %>
+   <% end %>
+</div>
+
+<h2>Comments:</h2>
+<%= render @blog.comments %>
+
+<h2>Add a Comment:</h2>
+<%= render 'comments/form' %>
 
 <br><br>
 
+
 <%= link_to 'Back', blogs_path %> <br>
-<%= link_to 'Edit', edit_blog_path(@blog) %>
+<br>
+<% if @blog.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_blog_path(@blog) %>
+<% end %>

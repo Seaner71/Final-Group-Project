@@ -2,7 +2,7 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
   validates :title, :body, presence: true
   belongs_to :user
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   has_attached_file :avatar, styles: { medium: "300x300>", middle: "230x230>", thumb: "100x100>" }, default_url: "/assets/default.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
