@@ -1,5 +1,5 @@
 <div class="dash">
-  <h2>Welcome, (Username)</h2>
+  <h2>Welcome, <%= current_user.username %></h2>
   <p>Welcome back to your dashboard. Here are a few things to get you started:</p>
     <%= link_to 'Ask a question', new_question_path, :class => "btn btn-primary" %>
     <%= link_to "Write a blog", "#", :class => "btn btn-primary" %>
