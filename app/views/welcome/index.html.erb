@@ -1,38 +1,39 @@
-<h1>Dashboard</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="dash">
+  <h2>Welcome, (Username)</h2>
+  <p>Welcome back to your dashboard. Here are a few things to get you started:</p>
+    <%= link_to 'Ask a new question', new_question_path %>
+    <%= link_to "Write a blog", "#" %>
+    <%= link_to "Edit Your Profile", "#" %>
+</div>
 
-  <div class="row">
-  <%= link_to 'Ask a question', new_question_path %>
-  <%#= link_to "Write a blog", blog_path %>
-  </div>
-    <div class="row">
-      <div class="col-8">
-        <ul class="nav nav-tabs" id="tabSort" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" id="questionsTab" data-toggle="tab" href="#questions"  role="tab" aria-controls="questions" aria-selected="true">My Questions</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  id="popularTab" data-toggle="tab" href="#popular"  role="tab" aria-controls="popular" aria-selected="false">Popular</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="recentTab" data-toggle="tab" href="#recent"  role="tab" aria-controls="recent" aria-selected="false">Recent</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="tabSortContent">
-          <div class="tab-pane fade show active" id="questions" role="tabpanel" aria-labelledby="questionsTab">My questions list here</div>
-          <div class="tab-pane fade" id="popular" role="tabpanel" aria-labelledby="popularTab">Popular questions list here</div>
-          <div class="tab-pane fade" id="recent" role="tabpanel" aria-labelledby="recentTab">Recent questions list here</div>
-        </div>
-      </div>
-      <div class="col-md">
-      <h2>The latest blog posts<h3>
-        <% Blog.last(3).reverse_each do |blog| %>
-          <h3><%= blog.title %><h3>
-          <%= blog.body %>
-          <hr>
-        <% end %>
-      </div>
+<div class="row">
+  <div class="col-8">
+    <ul class="nav nav-tabs" id="tabSort" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="questionsTab" data-toggle="tab" href="#questions" role="tab" aria-controls="questions" aria-selected="true">My Question</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  id="popularTab" data-toggle="tab" href="#popular"  role="tab" aria-controls="popular" aria-selected="false">Popular</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="recentTab" data-toggle="tab" href="#recent"  role="tab" aria-controls="recent" aria-selected="false">Recent</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="tabSortContent">
+      <div class="tab-pane fade show active" id="questions" role="tabpanel" aria-labelledby="questionsTab">My Questions With option to edit each</div>
+      <div class="tab-pane fade" id="popular" role="tabpanel" aria-labelledby="popularTab">Popular questions list here</div>
+      <div class="tab-pane fade" id="recent" role="tabpanel" aria-labelledby="recentTab">Recent questions list here</div>
     </div>
+  </div>
+  <div class="col-md">
+    <h2>The latest blog posts</h2>
+    <% Blog.last(3).reverse_each do |blog| %>
+      <h3><%= blog.title %></h3>
+      <%= blog.body %>
+      <hr>
+    <% end %>
+  </div>
+</div>
