@@ -12,6 +12,7 @@ gem 'acts_as_votable', '~> 0.11.1'
 gem "paperclip"
 # gem 'has_scope'
 gem 'devise'
+gem 'bxslider-rails', '~> 4.2', '>= 4.2.5.1'
 gem 'trix'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

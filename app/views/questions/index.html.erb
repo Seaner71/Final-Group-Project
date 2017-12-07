@@ -6,7 +6,7 @@
 
 <% @questions.last(10).reverse_each do |question| %>
   <div class="question-box row">
-        <div class="col-sm-1 thumb">
+        <div class="col-sm-2 thumb">
           <%= image_tag question.avatar.url(:thumb) %>
         </div>
         <div class="col">
@@ -36,6 +36,7 @@
    </div>
    <hr>
 <% end %>
+
            <%= form_for '', method: 'get' do |f| %>
             <%= f.select :by_tag1, options_from_collection_for_select(Tag.all, 'name','name'), prompt: "Select Tag"%>
             <%= f.submit "Search", :name => nil %>

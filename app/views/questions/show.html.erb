@@ -1,19 +1,33 @@
-<h1>Questions#show !!!!!!!</h1>
-
-<%= image_tag @question.avatar.url(:thumb) %><br>
-Title: <%= @question.title %><br>
-Body: <%= @question.body.html_safe %> <br>
-Tags:
-<% @question.tags.each do |tag|  %>
-  <%= link_to tag.name, tag_path(tag) %>
-<% end %>
-<hr>
-
-<%= render 'answers/show' %>
-
-<hr>
-<%= render 'answers/new' %>
-<% if current_user.id == @question.user_id || current_user.admin? %>
+<h1><%= @question.title %></h1>
+<div class="question-box row">
+      <div class="col-sm-2 thumb">
+        <%= image_tag @question.avatar.url(:thumb) %>
+      </div>
+      <div class="col">
+          <h4><%= @question.body.html_safe %></h4>
+        <small>
+          Posted on: <%= @question.created_at.localtime.strftime("%B %d, %Y") %>
+        </small>
+        <br>
+        <span class="tags">
+          <% @question.tags.each do |tag|  %>
+          <%= link_to tag.name, tag_path(tag) %>
+          <% end %>
+        </span>
+        <% if current_user.id == @question.user_id %>
+         <%= link_to "<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Edit Question".html_safe, edit_question_path(@question) %>
+         <%= link_to "<i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i> Delete this question".html_safe, question_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+        <% end %>
+  </div>
+ </div>
+ <div class="answer-box">
+     <strong>Answers:</strong><br>
+       <%= 'No answer yet' if @question.answers.empty? %>
+    <%= render 'answers/show' %>
+     <hr>
+     <%= render 'answers/new' %>
+   <% if current_user.id == @question.user_id || current_user.admin? %>
 <%= link_to "Edit this question", edit_question_path(@question) %><br>
 <%= link_to "Delete this question", question_path, method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>
+ </div>
