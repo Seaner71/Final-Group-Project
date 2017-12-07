@@ -45,15 +45,16 @@ nav input[type="text"] {
   border: none;
   border-radius: 5px;
   padding: 0px 10px;
+  color: #fff;
 }
 
-.btn-secondary {
+.btn-secondary, .btn-primary {
     color: #fff;
     background-color: #f37f5a;
     border-color: #f37f5a;
   }
 
-.btn-secondary a {
+.btn-secondary a, .btn-primary a {
   padding: 0px;
   color: #fff;
   text-decoration: none;
@@ -88,11 +89,11 @@ ul.ans_list li {
   width: 60px;
 }
 
-.up a {
-  // Green
+.up, .fa-thumbs-up {
+  color: #424932;
 }
-.dwn a {
-  // red
+.dwn, .fa-thumbs-down {
+  color: #814552;
 }
 
 .answer-box textarea {
@@ -114,6 +115,7 @@ ul.ans_list li {
 	overflow: hidden;
   height: 100vh;
   margin: 0px -15px;
+  background-color: #424932;
 }
 
 .video-bg {
