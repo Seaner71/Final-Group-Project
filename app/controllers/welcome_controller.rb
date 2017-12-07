@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
     @blogs = Blog.all
     # @question = Question.find_by_id(params[:id])
     @questions = Question.all
-    @questions = apply_scopes(Question).all
+    # @questions = apply_scopes(Question).all
   end
 
   def show
