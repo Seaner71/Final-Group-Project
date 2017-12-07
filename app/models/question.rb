@@ -2,7 +2,7 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
   validates :title, :body, presence: true
   belongs_to :user
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
   #### Justin Weiss filtering stuff

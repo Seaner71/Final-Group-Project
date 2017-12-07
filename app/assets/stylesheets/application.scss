@@ -44,12 +44,22 @@ nav a:hover {
   color: #f37f5a;
 }
 
+.logo img {
+  width: 85%;
+  margin: 0 auto;
+}
+
 nav input[type="text"] {
   background-color: #525a3f;
   border: none;
   border-radius: 5px;
   padding: 0px 10px;
   color: #fff;
+}
+
+nav .fa {
+  margin-right: 16px;
+  font-size: 20px;
 }
 
 .btn-secondary, .btn-primary {
@@ -69,6 +79,11 @@ nav input[type="text"] {
   padding: 50px 10px;
   background-color: #814552;
   color: #fff;
+}
+
+.dash img {
+  height: 160px;
+  border-radius: 100%;
 }
 
 .tab-pane {
@@ -188,14 +203,15 @@ ul.ans_list li {
   width:100%;
   border: none;
   border-radius: 5px;
-  opacity: .3;
+  color: #000;
+  opacity: .9;
 }
 
 .video-hero--content input[type="submit"] {
   opacity: 1;
   background-color: #f37e59;
-  color: #fff;
   margin-top: 20px;
+  color: #fff;
 }
 
 /* Hide Native iOS controls*/

@@ -1,0 +1,12 @@
+<%= comment.body %>
+<br>
+
+<strong>Posted by:</strong>
+<%= @blog.user.username %>
+<br>
+
+<% if comment.user_id == current_user.id %>
+  <%= link_to 'Delete My Comment', [comment.blog, comment], method: :delete, data: { confirm: 'Are you sure?'} %>
+<% end %>
+
+<br>

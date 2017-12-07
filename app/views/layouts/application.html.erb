@@ -14,10 +14,10 @@
   <body>
 <div class="container-fluid">
     <nav class="row">
-        <div class="col">
-          Logo
+        <div class="logo col-sm-2 text-center">
+          <%= link_to image_tag("Logo.png"), root_path %>
         </div>
-        <div class="col">
+        <div class="col-6">
           <%= form_for '', method: 'get' do |f| %>
            <%= f.text_field :body, placeholder: "Search" %>
             <% end %>
