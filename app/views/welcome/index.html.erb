@@ -1,14 +1,14 @@
 <div class="dash">
   <div class="row">
     <div class="col-2">
-      <%= image_tag current_user.avatar.url(:middle) %>
+      <a href="/users/<%= current_user.id %>"><%= image_tag current_user.avatar.url(:middle) %></a>
     </div>
     <div class="col">
     <h2>Welcome, <%= current_user.username %></h2>
     <p>Welcome back to your dashboard. Here are a few things to get you started:</p>
     <%= link_to 'Ask a question', new_question_path, :class => "btn btn-primary" %>
-    <%= link_to "Write a blog", "#", :class => "btn btn-primary" %>
-    <%= link_to "Edit Your Profile", "#" %>
+    <%= link_to "Write a blog", new_blog_path(current_user), :class => "btn btn-primary" %>
+    <%= link_to "Edit Your Profile", edit_user_path(current_user), :class => "btn btn-primary" %>
       </div>
   </div>
 </div>
@@ -50,12 +50,12 @@
                       <span class="ans_num"><%= question.answers.size %></span>
                       <br><small>Answers</small></div>
                     <div class="col">
-                      <strong><%= question.title %></strong>
-                      <p><%= question.body %></p>
+                      <a href="questions/<%= question.id %>">
+                  <strong><%= question.title %><strong> </a>
+                  <p><%= question.body.html_safe %></p>
                     </div>
                   </div>
 
-                  <!-- TODO: Excerpt Here for question body and link to question -->
                   <hr>
                 <% end %>
               </div>

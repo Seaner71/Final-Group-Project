@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
     @blogs = Blog.all
     @tag = Tag.new
     @questions = Question.all
+
   end
 
   def show
