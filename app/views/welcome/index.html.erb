@@ -41,8 +41,8 @@
             <div class="question-box row">
               <div class="col">
                 <% @questions.last(10).reverse_each do |question| %>
-
-                  <strong><%= question.title %></strong>
+                <a href="questions/<%= question.id %>">
+                  <strong><%= question.title %><strong> </a>
                   <p><%= question.body.html_safe %></p>
                   <!-- TODO: Excerpt Here for question body and link to question -->
                   <hr>

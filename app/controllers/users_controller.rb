@@ -28,6 +28,10 @@ class UsersController < ApplicationController
       redirect_to root_path
   end
 
+  def makeAdmin
+    @user.update_attribute :admin, true
+  end
+
   private
 
   def get_user
