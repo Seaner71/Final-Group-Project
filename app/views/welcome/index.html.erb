@@ -12,16 +12,20 @@
       </div>
   </div>
 </div>
-<% if current_user.admin == true %>
 
-<strong>Admin view</strong>
-<% User.all.each do |user| %>
-<%= link_to user.email, user_path(user) %><br>
-<% end %> <br><br>
-<%= render 'tags/new' %>
-<% end %>
     <div class="row">
       <div class="col-8">
+
+        <% if current_user.admin == true %>
+          <div class="admin_block">
+            <h2>Admin view</h2>
+            <% User.all.each do |user| %>
+            <%= link_to user.email, user_path(user) %><br>
+            <% end %> <br><br>
+            <%= render 'tags/new' %>
+          </div>
+        <% end %>
+
         <ul class="nav nav-tabs" id="tabSort" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="questionsTab" data-toggle="tab" href="#questions" role="tab" aria-controls="questions" aria-selected="true">My Questions</a>
@@ -41,9 +45,16 @@
             <div class="question-box row">
               <div class="col">
                 <% @questions.last(10).reverse_each do |question| %>
+                  <div class="row">
+                    <div class="col-1 text-center">
+                      <span class="ans_num"><%= question.answers.size %></span>
+                      <br><small>Answers</small></div>
+                    <div class="col">
+                      <strong><%= question.title %></strong>
+                      <p><%= question.body %></p>
+                    </div>
+                  </div>
 
-                  <strong><%= question.title %></strong>
-                  <p><%= question.body %></p>
                   <!-- TODO: Excerpt Here for question body and link to question -->
                   <hr>
                 <% end %>
@@ -55,13 +66,24 @@
          </div>
         </div>
 
-  <div class="col-md">
-    <h2>The latest blog posts</h2>
-    <% Blog.last(3).reverse_each do |blog| %>
-      <%= image_tag blog.user.avatar.url(:thumb) %>
-      <h3><%= blog.title %></h3>
-      <%= blog.body.html_safe %>
-      <hr>
-    <% end %>
+  <div class="col-md recent_blogs">
+  <h3>The latest blog posts</h3>
+  <% Blog.last(3).reverse_each do |blog| %>
+    <div class="row blog_post">
+      <div class="col-4 text-center">
+        Posted By:
+        <%= image_tag blog.user.avatar.url(:thumb) %>
+        <%= blog.user.username %>
+      </div>
+      <div class="col">
+        <strong><%= blog.title %></strong>
+        <p><%= blog.body.first(50).html_safe %>
+          <%= link_to "...Read More", "#", class: "read_more" %></p>
+      </div>
+    </div>
+  <% end %>
+
   </div>
-</div>
+
+
+</div><!-- end row -->
