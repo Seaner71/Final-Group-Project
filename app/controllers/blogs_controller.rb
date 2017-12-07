@@ -1,21 +1,22 @@
 class BlogsController < ApplicationController
   def index
-    @user = current_user
+    get_user
     @blogs = @user.blogs.all
   end
 
   def show
-    @blog = Blog.find_by_id(params[:id])
+    get_blog
   end
 
   def new
-    @user = current_user
+    get_user
     @blog = Blog.new
   end
 
   def create
-    @user = current_user
+    get_user
     @blog = @user.blogs.new(blog_params)
+    @blog.avatar = current_user.avatar
       if @blog.save
         redirect_to blogs_path(@user)
       else
@@ -24,13 +25,13 @@ class BlogsController < ApplicationController
   end
 
   def edit
-    @user = current_user
-    @blog = Blog.find_by_id(params[:id])
+    get_user
+    get_blog
   end
 
   def update
-    @user = current_user
-    @blog = Blog.find_by_id(params[:id])
+    get_user
+    get_blog
     @blog.update(blog_params)
       if @blog.save
         redirect_to blogs_path
@@ -41,14 +42,23 @@ class BlogsController < ApplicationController
 
 
   def destroy
-    @blog = Blog.find_by_id(params[:id])
+    get_blog
     @blog.destroy
       redirect_to blogs_path
   end
 
   private
+
+  def get_user
+    @user = current_user
+  end
+
+  def get_blog
+    @blog = Blog.find_by_id(params[:id])
+  end
+
   def blog_params
-    params.require(:blog).permit(:title, :body)
+    params.require(:blog).permit(:title, :body, :tag_list)
   end
 
 

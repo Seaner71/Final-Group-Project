@@ -1,9 +1,8 @@
 class WelcomeController < ApplicationController
   def index
     @blogs = Blog.all
-    # @question = Question.find_by_id(params[:id])
+    @tag = Tag.new
     @questions = Question.all
-    @questions = apply_scopes(Question).all
   end
 
   def show
