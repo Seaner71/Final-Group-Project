@@ -27,11 +27,36 @@
 
 nav {
   line-height: 38px;
-  background-color: #f3f3f3;
+  background-color: #424932;
+  padding: 5px 0px;
 }
 
 nav a {
   padding-right: 10px;
+  color: #fff;
+}
+
+nav a:hover {
+  color: #f37f5a;
+}
+
+nav input[type="text"] {
+  background-color: #525a3f;
+  border: none;
+  border-radius: 5px;
+  padding: 0px 10px;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #f37f5a;
+    border-color: #f37f5a;
+  }
+
+.btn-secondary a {
+  padding: 0px;
+  color: #fff;
+  text-decoration: none;
 }
 
 .thumb img {
@@ -75,8 +100,12 @@ ul.ans_list li {
 }
 
 .login {
-  background-color: #cc9;
   margin: 0 auto;
+  color: #fff;
+}
+
+.login a {
+  color: #f37f5a;
 }
 
 /* login video styles */
@@ -137,6 +166,15 @@ ul.ans_list li {
 
 .video-hero--content input {
   width:100%;
+  border: none;
+  border-radius: 5px;
+  opacity: .3;
+}
+
+.video-hero--content input[type="submit"] {
+  opacity: 1;
+  background-color: #f37e59;
+  color: #fff;
 }
 
 /* Hide Native iOS controls*/
