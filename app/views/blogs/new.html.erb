@@ -6,6 +6,6 @@
   <%= f.label "Body:" %>
   <%= f.trix_editor :body, class: 'trix-content' %> <br>
   <%= f.label :tag_list %> <br>
-  <%= f.select :tag_list, options_from_collection_for_select(Tag.all, 'name','name'), prompt: "Select Category" %>
+  <%= f.select :tag_list, options_from_collection_for_select(Tag.all.order("name ASC"), 'name','name'), prompt: "Select Category" %>
   <%= f.submit "Post" %>
 <% end %>
