@@ -10,9 +10,8 @@
 <h1>Admin view </h1>
 <% User.all.each do |user| %>
 <%= link_to user.email, user_path(user) %><br>
-
-
-<% end %>
+<% end %> <br><br>
+<%= render 'tags/new' %>
 
 <% if current_user.admin == false %>
 
