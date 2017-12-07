@@ -1,9 +1,16 @@
-<% @blogs.each do |b| %>
-  <%= link_to b.title, blog_path(b) %>
-  ||
-  <%= b.body.html_safe %>
-  <br>
+<%= search_form_for @q do |f| %>
+  <%= f.label :contains %>
+  <%= f.search_field :title_or_body_cont %>
+
+
+  <%= f.submit "search" %>
+<% end %>
+...
+<%= content_tag :table do %>
+  <%= content_tag :th, sort_link(@q, :title) %>
+  <%= content_tag :th, sort_link(@q, :body) %>
 <% end %>
 
-<br><br>
-<%= link_to 'New Post', new_blog_path %>
+<% @blogs.each do |b| %>
+<%= b.title %> \\ <%= b.body %>
+<% end %>
