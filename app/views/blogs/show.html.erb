@@ -16,5 +16,9 @@
 
 <br><br>
 
+
 <%= link_to 'Back', blogs_path %> <br>
-<%= link_to 'Edit', edit_blog_path(@blog) %>
+<br>
+<% if @blog.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_blog_path(@blog) %>
+<% end %>
