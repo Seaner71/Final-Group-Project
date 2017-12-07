@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.where(nil) # creates an anonymous scope
     @questions = @questions.title(params[:title]) if params[:title].present?
-
+    @questions = @questions.contains(params[:body]) if params[:body].present?
   end
 
   def show

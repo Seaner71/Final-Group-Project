@@ -12,7 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require trix
+
  */
+
+
 
 // Custom bootstrap variables must be set or imported *before* bootstrap.*/
 @import "bootstrap";
@@ -23,13 +27,52 @@
   // border: 1px dotted #ccc;
 }
 
+// colors burgundy #814552 green #424932
+
 nav {
   line-height: 38px;
-  background-color: #f3f3f3;
+  background-color: #424932;
+  padding: 5px 0px;
 }
 
 nav a {
   padding-right: 10px;
+  color: #fff;
+}
+
+nav a:hover {
+  color: #f37f5a;
+}
+
+nav input[type="text"] {
+  background-color: #525a3f;
+  border: none;
+  border-radius: 5px;
+  padding: 0px 10px;
+  color: #fff;
+}
+
+.btn-secondary, .btn-primary {
+    color: #fff;
+    background-color: #f37f5a;
+    border-color: #f37f5a;
+  }
+
+.btn-secondary a, .btn-primary a {
+  padding: 0px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.dash {
+  margin: 0px -15px 20px -15px;
+  padding: 50px 10px;
+  background-color: #814552;
+  color: #fff;
+}
+
+.tab-pane {
+  padding: 20px;
 }
 
 .thumb img {
@@ -38,6 +81,7 @@ nav a {
   background-color: #ccc;
   display: block;
   border-radius: 100%;
+  margin: 0 auto;
 }
 
 .ans_list {
@@ -53,4 +97,110 @@ ul.ans_list li {
   background-color: #f1f1f1;
   padding: 10px;
   margin-top: 15px;
+}
+
+.answer-box .thumb img{
+  height: 60px;
+  width: 60px;
+}
+
+.up, .fa-thumbs-up {
+  color: #424932;
+}
+.dwn, .fa-thumbs-down {
+  color: #814552;
+}
+
+.answer-box textarea {
+  width: 100%;
+}
+
+.login {
+  margin: 0 auto;
+  color: #fff;
+  background: #4249338c;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.login a {
+  color: #f37f5a;
+}
+
+/* login video styles */
+.video-hero {
+	position: relative;
+	overflow: hidden;
+  height: 100vh;
+  margin: 0px -15px;
+  background-color: #424932;
+}
+
+.video-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	   -moz-background-size: cover;
+	    	background-size: cover;
+}
+
+.video-bg video {
+	position: absolute;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	   -moz-transform: translate(-50%,-50%);
+	    	transform: translate(-50%,-50%);
+}
+
+.video-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	pointer-events: none; /* Allows right click menu on the video */
+  background: #8145524f;
+	// background: rgba(0,0,0,0.5); /* You can play with the opacity */
+}
+
+.video-bg.demo-video {
+	// background-image: url(files/working-with-espresso.jpg);
+}
+
+.video-hero--content {
+	position: relative;
+  margin-top: 155px;
+	// text-align: center;
+}
+
+.video-hero--content input {
+  width:100%;
+  border: none;
+  border-radius: 5px;
+  opacity: .3;
+}
+
+.video-hero--content input[type="submit"] {
+  opacity: 1;
+  background-color: #f37e59;
+  color: #fff;
+  margin-top: 20px;
+}
+
+/* Hide Native iOS controls*/
+.video-bg video::-webkit-media-controls {display: none !important}
+
+.trix {
+
 }

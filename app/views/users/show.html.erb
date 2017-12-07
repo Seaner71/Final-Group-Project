@@ -4,9 +4,18 @@
 <%= @user.username %><br>
 <%= @user.location %><br>
 
+<trix-editor></trix-editor>
 
 
 
-<%= link_to "Edit Your Info", edit_user_path(current_user) %>
-<%= link_to "Blog Posts", blogs_path %>
+<% if current_user.id == @user.id || current_user.admin? %>
+<%= link_to "Edit Your Info", edit_user_path(current_user) %><br>
+<%= link_to 'Delete user', user_path, method: :delete, data: {confirm: 'Are you sure?'} %><br>
+<% end %>
+
+<%= link_to "Blog Posts", blogs_path %><br>
+
+<% if current_user.admin? %>
+<%= link_to "Make user admin" %>
+<% end %>
 <hr>
