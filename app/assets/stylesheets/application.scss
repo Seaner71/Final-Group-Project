@@ -20,8 +20,10 @@
 
 * {
   font-family: 'Lato', sans-serif;
-  border: 1px dotted #ccc;
+  // border: 1px dotted #ccc;
 }
+
+// colors burgundy #814552 green #424932
 
 nav {
   line-height: 38px;
@@ -71,3 +73,71 @@ ul.ans_list li {
 .answer-box textarea {
   width: 100%;
 }
+
+.login {
+  background-color: #cc9;
+  margin: 0 auto;
+}
+
+/* login video styles */
+.video-hero {
+	position: relative;
+	overflow: hidden;
+  height: 100vh;
+  margin: 0px -15px;
+}
+
+.video-bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	background-position: center center;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	   -moz-background-size: cover;
+	    	background-size: cover;
+}
+
+.video-bg video {
+	position: absolute;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	   -moz-transform: translate(-50%,-50%);
+	    	transform: translate(-50%,-50%);
+}
+
+.video-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	pointer-events: none; /* Allows right click menu on the video */
+  background: #8145524f;
+	// background: rgba(0,0,0,0.5); /* You can play with the opacity */
+}
+
+.video-bg.demo-video {
+	// background-image: url(files/working-with-espresso.jpg);
+}
+
+.video-hero--content {
+	position: relative;
+  margin-top: 155px;
+	// text-align: center;
+}
+
+.video-hero--content input {
+  width:100%;
+}
+
+/* Hide Native iOS controls*/
+.video-bg video::-webkit-media-controls {display: none !important}
