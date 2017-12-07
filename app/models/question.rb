@@ -4,8 +4,6 @@ class Question < ApplicationRecord
   belongs_to :user
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
-  has_attached_file :avatar, styles: { medium: "300x300>", middle: "230x230>", thumb: "100x100>" }, default_url: "/assets/default.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   #### Justin Weiss filtering stuff
   scope :title, -> (title) { where title: title }

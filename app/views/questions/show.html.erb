@@ -1,7 +1,7 @@
 <h1><%= @question.title %></h1>
 <div class="question-box row">
       <div class="col-sm-2 thumb">
-        <%= image_tag @question.avatar.url(:thumb) %>
+        <%= image_tag @question.user.avatar.url(:thumb) %>
       </div>
       <div class="col">
           <h4><%= @question.body.html_safe %></h4>

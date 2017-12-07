@@ -20,7 +20,6 @@
 <% end %> <br><br>
 <%= render 'tags/new' %>
 
-<% end %>
     <div class="row">
       <div class="col-8">
         <ul class="nav nav-tabs" id="tabSort" role="tablist">
@@ -42,6 +41,7 @@
             <div class="question-box row">
               <div class="col">
                 <% @questions.last(10).reverse_each do |question| %>
+
                   <strong><%= question.title %></strong>
                   <p><%= question.body %></p>
                   <!-- TODO: Excerpt Here for question body and link to question -->
@@ -58,11 +58,10 @@
   <div class="col-md">
     <h2>The latest blog posts</h2>
     <% Blog.last(3).reverse_each do |blog| %>
-      <%= image_tag blog.avatar.url(:thumb) %>
+      <%= image_tag blog.user.avatar.url(:thumb) %>
       <h3><%= blog.title %></h3>
       <%= blog.body.html_safe %>
       <hr>
     <% end %>
   </div>
 </div>
-<% end %>

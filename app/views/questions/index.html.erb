@@ -7,7 +7,7 @@
 <% @questions.last(10).reverse_each do |question| %>
   <div class="question-box row">
         <div class="col-sm-2 thumb">
-          <%= image_tag question.avatar.url(:thumb) %>
+          <%= image_tag question.user.avatar.url(:thumb) %>
         </div>
         <div class="col">
           <a href="questions/<%= question.id %>">
@@ -46,5 +46,3 @@
             <%= f.submit "Search", :name => nil %>
 
             <% end %>
-          
-
