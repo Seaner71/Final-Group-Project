@@ -16,7 +16,6 @@ class BlogsController < ApplicationController
   def create
     get_user
     @blog = @user.blogs.new(blog_params)
-    @blog.avatar = current_user.avatar
       if @blog.save
         redirect_to blogs_path(@user)
       else
