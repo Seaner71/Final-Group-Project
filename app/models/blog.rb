@@ -4,6 +4,9 @@ class Blog < ApplicationRecord
   has_many :blog_taggings
   has_many :tags, through: :blog_taggings
 
+  has_many :comments
+  validates :title, presence: true, length: { minimum: 6 }
+
   def tag_list
     self.tags.collect do |tag|
       tag.name
