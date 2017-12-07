@@ -33,6 +33,7 @@ nav {
   line-height: 38px;
   background-color: #424932;
   padding: 5px 0px;
+  margin-bottom: 40px;
 }
 
 nav a {
@@ -42,6 +43,11 @@ nav a {
 
 nav a:hover {
   color: #f37f5a;
+}
+
+.logo img {
+  width: 85%;
+  margin: 0 auto;
 }
 
 nav input[type="text"] {
