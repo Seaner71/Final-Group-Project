@@ -4,9 +4,9 @@
     <div class="col-sm-2 thumb text-center">
       <span>Answer by:</span>
       <!-- TODO: Add in link to user's profile -->
-      <%= image_tag @question.avatar.url(:thumb) %>
+      <a href="/users/<%= answer.user_id %>"><%= image_tag @question.avatar.url(:thumb) %></a>
       <div class="username">
-        <%= answer.user.email %>
+        <a href="/users/<%= answer.user_id %>"><%= answer.user.email %></a>
       </div>
       <div class="votes">
         <a href="/questions/<%= @question.id %>/answers/<%= answer.id %>/like" data-method="PUT"><i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
@@ -19,7 +19,7 @@
       <% if current_user.id == answer.user_id || current_user.admin? %>
         <a href='/questions/<%= @question.id %>/answers/<%= answer.id %>/edit'><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Answer</a><br>
         <a href='/questions/<%= @question.id %>/answers/<%= answer.id %>' data-method="DELETE"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete Answer</a>
-        <%#= link_to "Delete this answer", question_answer_path, method: :delete, data: {confirm: 'Are you sure?'} %>  
+        <%#= link_to "Delete this answer", question_answer_path, method: :delete, data: {confirm: 'Are you sure?'} %>
       <% end %>
     </div>
     <div class="col"><%= answer.content.html_safe %></div>
