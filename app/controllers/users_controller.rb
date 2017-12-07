@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    get_user
+    @user = User.find_by_id(params[:id])
   end
 
   def edit

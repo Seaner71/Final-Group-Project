@@ -7,18 +7,18 @@
     <h2>Welcome, <%= current_user.username %></h2>
     <p>Welcome back to your dashboard. Here are a few things to get you started:</p>
     <%= link_to 'Ask a question', new_question_path, :class => "btn btn-primary" %>
-    <%= link_to "Write a blog", "#", :class => "btn btn-primary" %>
-    <%= link_to "Edit Your Profile", "#" %>
+    <%= link_to "Write a blog", new_blog_path(current_user), :class => "btn btn-primary" %>
+    <%= link_to "Edit Your Profile", edit_user_path(current_user), :class => "btn btn-primary" %>
       </div>
   </div>
 </div>
 <% if current_user.admin == true %>
-
-<strong>Admin view</strong>
+<strong>Admin view</strong><br>
 <% User.all.each do |user| %>
 <%= link_to user.email, user_path(user) %><br>
 <% end %> <br><br>
 <%= render 'tags/new' %>
+<hr>
 <% end %>
     <div class="row">
       <div class="col-8">
@@ -43,7 +43,7 @@
                 <% @questions.last(10).reverse_each do |question| %>
 
                   <strong><%= question.title %></strong>
-                  <p><%= question.body %></p>
+                  <p><%= question.body.html_safe %></p>
                   <!-- TODO: Excerpt Here for question body and link to question -->
                   <hr>
                 <% end %>
