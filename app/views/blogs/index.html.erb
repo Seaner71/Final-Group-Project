@@ -1,23 +1,22 @@
-<%= search_form_for @q, url: search_blogs_path, html: { method: :post } do |f| %>
-<%= f.label :contains %>
-<%= f.search_field :title_or_body_cont %>
-
-<%= f.submit "search" %>
-<% end %>
-...
-
+<h1>Blogs</h1>
 
 <table>
   <tr>
+    <th> User </th>
     <th> <%= sort_link @q, :title, "Title"%></th>
     <th> <%= sort_link @q, :body, "Body"%></th>
     <th> <%= sort_link @q, :tags_name, "Tags" %></th>
+    <th> <%= sort_link @q, :created_at, "Date" %></th>
   </tr>
   <% @blogs.each do |b| %>
   <tr>
+    <td><div class="col-sm-2 thumb">
+    </div></td>
     <td><%= b.title %></td>
-    <td><%= b.body %></td>
+    <td><%= b.body %>
+    </td>
     <td><%= b.tags.first.name %></td>
+    <td><%= b.created_at %></td>
   </tr>
   <% end %>
 </table>
