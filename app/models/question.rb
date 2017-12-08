@@ -6,6 +6,8 @@ class Question < ApplicationRecord
   has_many :tags, through: :taggings
 
 
+
+
   def tag_list
     self.tags.collect do |tag|
       tag.name
