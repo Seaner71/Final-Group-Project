@@ -41,7 +41,7 @@ To see the application in action, open a browser window and navigate to [http://
 You can sign in to a demo account with the following credentials:
 
 | Email        | Password    | Rights |      
-| ------------- |:---------:| | ----------|
+| ------------- |:---------:|-----------|
 | test@test.com | 123456  |			
 | john@gmail.com | 123456  |  Admin User |
 
