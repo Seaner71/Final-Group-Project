@@ -1,16 +1,21 @@
 <%= search_form_for @q do |f| %>
-  <%= f.label :contains %>
-  <%= f.search_field :title_or_body_cont %>
+<%= f.label :contains %>
+<%= f.search_field :title_or_body_cont %>
 
-
-  <%= f.submit "search" %>
+<%= f.submit "search" %>
 <% end %>
 ...
-<%= content_tag :table do %>
-  <%= content_tag :th, sort_link(@q, :title) %>
-  <%= content_tag :th, sort_link(@q, :body) %>
-<% end %>
 
-<% @blogs.each do |b| %>
-<%= b.title %> \\ <%= b.body %>
-<% end %>
+
+<table>
+  <tr>
+    <th> <%= sort_link @q, :title, "Title"%></th>
+    <th> <%= sort_link @q, :body, "Body"%></th>
+  </tr>
+  <% @blogs.each do |b| %>
+  <tr>
+    <td><%= b.title %></td>
+    <td><%= b.body %></td>
+  </tr>
+  <% end %>
+</table>
