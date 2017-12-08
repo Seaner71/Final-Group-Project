@@ -1,9 +1,16 @@
-<h1>User <%= @user.id %> Homepage</h1>
+<h1><%= @user.username %>'s Profile</h1>
 
 <%= image_tag @user.avatar.url(:middle) %><br>
-<%= @user.username %><br>
-<%= @user.location %><br>
-
+Location: <%= @user.location %><br>
+Bio: <%= @user.bio %><br>
+Website: <a href="<%= @user.github_url %>"><%= @user.github_url %></a><br>
+Previous job: <%= @user.previous_industry %><br>
+<br>
+<%= @user.username %>'s blog posts<br>
+<%  @user.blogs.reverse_each do |blog| %>
+<a href="/blogs/<%= blog.id %>"><%= blog.title %><br></a>
+<% end %>
+<br>
 
 
 

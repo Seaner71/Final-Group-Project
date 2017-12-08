@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
+
   end
 
   def show
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    find_user
+    get_user
   end
 
   def new
