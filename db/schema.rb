@@ -26,10 +26,6 @@ ActiveRecord::Schema.define(version: 20171207195412) do
     t.integer "cached_weighted_score", default: 0
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
-    t.string "avatar_file_name"
-    t.string "avatar_content_type"
-    t.integer "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.index ["cached_votes_down"], name: "index_answers_on_cached_votes_down"
     t.index ["cached_votes_score"], name: "index_answers_on_cached_votes_score"
     t.index ["cached_votes_total"], name: "index_answers_on_cached_votes_total"
@@ -71,10 +67,6 @@ ActiveRecord::Schema.define(version: 20171207195412) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "avatar_file_name"
-    t.string "avatar_content_type"
-    t.integer "avatar_file_size"
-    t.datetime "avatar_updated_at"
   end
 
   create_table "taggings", force: :cascade do |t|
