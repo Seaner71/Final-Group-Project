@@ -3,6 +3,7 @@ class WelcomeController < ApplicationController
     @blogs = Blog.all
     @tag = Tag.new
     @questions = Question.all
+    @blog = Blog.find_by_id(params[:id])
 
   end
 
