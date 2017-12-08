@@ -11,11 +11,13 @@
   <tr>
     <th> <%= sort_link @q, :title, "Title"%></th>
     <th> <%= sort_link @q, :body, "Body"%></th>
+    <th> <%= sort_link @q, :tags_name, "Tags" %></th>
   </tr>
   <% @blogs.each do |b| %>
   <tr>
     <td><%= b.title %></td>
     <td><%= b.body %></td>
+    <td><%= b.tags.first.name %></td>
   </tr>
   <% end %>
 </table>
