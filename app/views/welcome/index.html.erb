@@ -3,7 +3,7 @@
     <div class="col-2">
       <a href="/users/<%= current_user.id %>"><%= image_tag current_user.avatar.url(:middle) %></a>
     </div>
-    <div class="col">
+    <div class="col-md">
     <h2>Hey There, <%= current_user.username %></h2>
     <p>Welcome back to your dashboard. Here are a few things to get you started:</p>
     <%= link_to 'Ask a question', new_question_path, :class => "btn btn-primary" %>
@@ -46,11 +46,11 @@
             <div class="question-box row">
               <div class="col">
                 <% @questions.last(10).reverse_each do |question| %>
-                  <div class="row">
+                  <div class="ans_row row">
                     <div class="col-1 text-center">
                       <span class="ans_num"><%= question.answers.size %></span>
                       <br><small>Answers</small></div>
-                    <div class="col">
+                    <div class="col-sm">
                       <a href="questions/<%= question.id %>">
                   <strong><%= question.title %></strong> </a>
                   <p><%= question.body.html_safe %></p>
