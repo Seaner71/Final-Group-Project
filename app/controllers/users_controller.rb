@@ -5,11 +5,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    get_user
+    find_user
   end
 
   def edit
-    get_user
+    find_user
   end
 
   def new
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    get_user
+    find_user
     if @user.update(user_params)
       redirect_to user_path(@user), notice: 'Updated your information'
     else
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    get_user
+    find_user
     @user.destroy
       redirect_to root_path
   end
@@ -39,8 +39,12 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def find_user
+    @user = User.find_by_id(params[:id])
+  end
+
   def user_params
-    params.require(:user).permit(:username, :location, :bio, :previous_industry, :github_url, :avatar)
+    params.require(:user).permit(:username, :location, :bio, :previous_industry, :github_url, :avatar, :admin)
   end
 
 

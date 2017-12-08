@@ -4,6 +4,7 @@ class BlogsController < ApplicationController
     # @blogs = @user.blogs.all
     @q = Blog.ransack(params[:q])
     @blogs = @q.result.includes(:user, :tags)
+
   end
 
   def show
@@ -16,12 +17,12 @@ class BlogsController < ApplicationController
   end
 
   def create
-    get_user
-    @blog = @user.blogs.new(blog_params)
+    @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
       if @blog.save
-        redirect_to blogs_path(@user)
+        redirect_to blogs_path
       else
-        render 'index'
+        render 'new'
       end
   end
 
