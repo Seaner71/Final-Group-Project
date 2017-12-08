@@ -25,11 +25,19 @@
     <%= f.label :avatar %>
     <%= f.file_field :avatar %>
   </div>
+  <% if current_user.admin? %>
+  <div>
+    <%= f.label :is_admin %>
+    <%= f.text_field :admin %>
+  </div>
+  <% end %>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
+
   <div>
-    <%= link_to "Edit Registration Info", edit_user_registration_path(current_user) %>
+    <%= link_to "Edit Registration Info", edit_user_registration_path(current_user) %><br>
+    <%= link_to 'Delete user', user_path(@user), method: :delete, data: {confirm: 'Are you sure?'} %><br>
   </div>
 <% end %>
 </div>

@@ -9,13 +9,9 @@
 
 
 <% if current_user.id == @user.id || current_user.admin? %>
-<%= link_to "Edit Your Info", edit_user_path(current_user) %><br>
-<%= link_to 'Delete user', user_path, method: :delete, data: {confirm: 'Are you sure?'} %><br>
+<%= link_to "Edit User Info", edit_user_path(@user) %><br>
 <% end %>
 
 <%= link_to "Blog Posts", blogs_path %><br>
 
-<% if current_user.admin? && current_user.id != @user.id %>
-<%= link_to "Make user admin", user_path, method: :makeAdmin %>
-<% end %>
 <hr>
