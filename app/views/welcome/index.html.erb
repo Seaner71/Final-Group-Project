@@ -66,20 +66,21 @@
           <div class="tab-pane fade" id="popular" role="tabpanel" aria-labelledby="popularTab">
             <div class="question-box row">
               <div class="col">
-                <% @questions.answers(10).reverse_each do |question| %>
+                  <% @sort.each do |s| %>
                   <div class="ans_row row">
                     <div class="col-1 text-center">
-                      <span class="ans_num"><%= question.answers.size %></span>
-                      <br><small>Answers</small></div>
+                      <span class="ans_num">
+                        <%= s.cached_votes_up%></span>
+                      <br><small>Up Votes</small></div>
                     <div class="col-sm">
-                      <a href="questions/<%= question.id %>">
-                  <strong><%= question.title %></strong> </a>
-                  <p><%= question.body.html_safe %></p>
+                      <a href="questions/<%# question.id %>">
+                  <strong><%= s.title %></strong> </a>
+                  <p><%= s.body.html_safe %></p>
                     </div>
                   </div>
 
                   <hr>
-                <% end %>
+                <% end%>
               </div>
             </div>
           </div>
