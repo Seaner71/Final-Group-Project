@@ -4,7 +4,11 @@ class BlogsController < ApplicationController
     # @blogs = @user.blogs.all
     @q = Blog.ransack(params[:q])
     @blogs = @q.result.includes(:user, :tags)
+  end
 
+  def search
+    index
+    render :index
   end
 
   def show
@@ -36,7 +40,7 @@ class BlogsController < ApplicationController
     get_blog
     @blog.update(blog_params)
       if @blog.save
-        redirect_to blogs_path
+        redirect_to blog_path(@blog)
       else
         render 'edit'
       end

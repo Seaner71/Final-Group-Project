@@ -37,7 +37,7 @@ class AnswersController < ApplicationController
     get_question
     get_answer
     @answer.destroy
-      redirect_to questions_path
+      redirect_to question_path(@question)
   end
 
   def upvote

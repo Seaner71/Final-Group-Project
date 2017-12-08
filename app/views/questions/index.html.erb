@@ -1,52 +1,33 @@
+<h1>Questions</h1>
 <div class="container">
-  <h1>Questions</h1>
-  <p>Here's a list of all the questions</p>
-
+  <%= search_form_for @q, url: search_questions_path, html: { method: :post } do |f| %>
+  <%= f.search_field :title_or_body_cont %>
+  <%= f.submit "search" %>
+  <% end %>
   <%= link_to 'Ask a question', new_question_path, :class => "btn btn-primary" %>
-  <hr>
 
-  <% @questions.last(10).reverse_each do |question| %>
-    <div class="question-box row">
-      <div class="col-sm-2 thumb">
-        <a href="/users/<%= question.user_id %>"><%= image_tag question.user.avatar.url(:thumb) %></a>
-      </div>
-      <div class="col">
-        <a href="questions/<%= question.id %>">
-          <h3><%= question.title %></h3>
-          <p><%= question.body.html_safe %></p>
-          <!-- TODO: Add limit of charactors here like excerpt. -->
-        </a>
-        <small>
-          Posted on:
-          <%= question.created_at.localtime.strftime("%B %d, %Y") %>
-        </small>
-        <br>
-        <% if current_user.id == question.user_id || current_user.admin? %>
-          <%= link_to "<i class='fa fa-pencil-square-o' aria-hidden='true'></i> Edit Question".html_safe, edit_question_path(question) %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="answer-box">
-      <strong>Top Answers:</strong><br>
-      <%= 'No answer yet' if question.answers.empty? %>
-      <ul class="ans_list">
-        <% question.answers.last(3).reverse.each do |answer| %>
-          <!-- TODO: Create top answer logic Add limit of charactors here like excerpt. -->
-          <li><%=answer.content.html_safe %></li>
-        <% end %>
-        <ul>
-    </div>
-    <hr>
-  <% end %>
-
-    <%= form_for '', method: 'get' do |f| %>
-      <%= f.select :by_tag1, options_from_collection_for_select(Tag.all, 'name','name'), prompt: "Select Tag"%>
-    <%= f.submit "Search", :name => nil %>
-    <% end %>
-    <%= form_for '', method: 'get' do |f| %>
-      <%= f.select :title, options_from_collection_for_select(Question.all, 'title','title'), prompt: "Select Question Title"%>
-    <%= f.submit "Search", :name => nil %>
-  <% end %>
+<br><br>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th><%= sort_link @q, :user_id, "User" %></th>
+        <th><%= sort_link @q, :title, "Title" %></th>
+        <th><%= sort_link @q, :body, "Body"%></th>
+        <th><%= sort_link @q, :tags, "Tags"%></th>
+        <th><%= sort_link @q, :created_at, "Date" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @questions.each do |question| %>
+      <tr>
+        <td><%= image_tag question.user.avatar.url(:thumb), class: "thumb-index" %><br></td>
+        <td><%= link_to question.title, question_path(question) %></td>
+        <td><%= question.body.html_safe %></td>
+        <td><%= question.tags.first.name %></td>
+        <td><%= question.created_at %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 </div>

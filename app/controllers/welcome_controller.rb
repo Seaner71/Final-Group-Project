@@ -3,11 +3,13 @@ class WelcomeController < ApplicationController
     @blogs = Blog.all
     @tag = Tag.new
     @questions = Question.all
-    # sql = 'select * from questions INNER JOIN answers ON questions.id = answers.question_id ORDER BY cached_votes_up DESC'
     @sort =  Answer.find_by_sql("
       SELECT * FROM questions
       INNER JOIN answers ON questions.id = answers.question_id
       ORDER BY cached_votes_up desc")
+    @blog = Blog.find_by_id(params[:id])
+    @user = User.find_by_id(params[:id])
+
   end
 
   def show

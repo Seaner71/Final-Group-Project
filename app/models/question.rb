@@ -5,13 +5,8 @@ class Question < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
-  #### Justin Weiss filtering stuff
-  scope :title, -> (title) { where title: title }
-  scope :contains, -> (body) { where("body like ?", "%#{body}%")}
-  # scope :location, -> (location_id) { where location_id: location_id }
-  # scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
-   # early of my attempt to search by tag (wrong model???)
-  # scope :by_tag, -> (name) { where name: name }
+
+
 
   def tag_list
     self.tags.collect do |tag|
