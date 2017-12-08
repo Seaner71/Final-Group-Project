@@ -7,10 +7,10 @@
   <% end %>
   <%= link_to 'Ask a question', new_question_path, :class => "btn btn-primary" %>
 
-
-  <table class="table table-hover">
-    <thead>
-      <tr class="bg-success">
+<br><br>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
         <th><%= sort_link @q, :user_id, "User" %></th>
         <th><%= sort_link @q, :title, "Title" %></th>
         <th><%= sort_link @q, :body, "Body"%></th>
@@ -21,8 +21,8 @@
     <tbody>
       <% @questions.each do |question| %>
       <tr>
-        <td><%= image_tag question.user.avatar.url(:thumb), class: "thumb" %><br></td>
-        <td><%= question.title %></td>
+        <td><%= image_tag question.user.avatar.url(:thumb), class: "thumb-index" %><br></td>
+        <td><%= link_to question.title, question_path(question) %></td>
         <td><%= question.body.html_safe %></td>
         <td><%= question.tags.first.name %></td>
         <td><%= question.created_at %></td>
