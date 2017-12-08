@@ -37,7 +37,7 @@
 
   <div>
     <%= link_to "Edit Registration Info", edit_user_registration_path(current_user) %><br>
-    <%= link_to 'Delete user', user_path, method: :delete, data: {confirm: 'Are you sure?'} %><br>
+    <%= link_to 'Delete user', user_path(@user), method: :delete, data: {confirm: 'Are you sure?'} %><br>
   </div>
 <% end %>
 </div>
