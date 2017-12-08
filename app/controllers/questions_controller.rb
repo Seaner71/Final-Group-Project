@@ -1,8 +1,17 @@
 class QuestionsController < ApplicationController
+
+
   def index
-    @questions = Question.where(nil) # creates an anonymous scope
-    @questions = @questions.title(params[:title]) if params[:title].present?
-    @questions = @questions.contains(params[:body]) if params[:body].present?
+    # @questions = Question.where(nil) # creates an anonymous scope
+    # @questions = @questions.title(params[:title]) if params[:title].present?
+    # @questions = @questions.contains(params[:body]) if params[:body].present?
+    @q = Question.ransack(params[:q])
+    @questions = @q.result.includes(:user, :tags, :answers)
+  end
+
+  def search 
+    index
+    render :index
   end
 
   def show

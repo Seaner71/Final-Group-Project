@@ -4,7 +4,11 @@ class BlogsController < ApplicationController
     # @blogs = @user.blogs.all
     @q = Blog.ransack(params[:q])
     @blogs = @q.result.includes(:user, :tags)
+  end
 
+  def search
+    index
+    render :index
   end
 
   def show
