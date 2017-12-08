@@ -13,11 +13,13 @@
   <tr>
     <th> <%= sort_link @q, :title, "Title"%></th>
     <th> <%= sort_link @q, :body, "Body"%></th>
+    <th> <%= sort_link @q, :tags_name, "Tags" %></th>
   </tr>
   <% @questions.each do |question| %>
   <tr>
     <td><%= question.title %></td>
     <td><%= question.body %></td>
+    <td><%= question.tags.first.name %></td>
   </tr>
   <% end %>
 </table>
