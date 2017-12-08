@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
     @tag = Tag.new
     @questions = Question.all
     @blog = Blog.find_by_id(params[:id])
-
+    @user = User.find_by_id(params[:id])
   end
 
   def show
