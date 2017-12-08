@@ -7,8 +7,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" type="text/css" href="trix.css">
-    <script type="text/javascript" src="trix.js"></script>
   </head>
 
   <body>
@@ -25,9 +23,9 @@
         <div class="col-md text-right">
           <% if signed_in? %>
             <button type="button" class="btn btn-secondary float-right"><%= link_to "Log Out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure you want to log out?"} %></button>
-            <%= link_to "<i class=\"fa fa-tachometer\" aria-hidden=\"true\"></i>".html_safe, root_path %>
-            <%= link_to "<i class=\"fa fa-user\" aria-hidden=\"true\"></i>".html_safe, user_path(current_user) %>
-            <%= link_to "<i class=\"fa fa-question-circle\" aria-hidden=\"true\"></i>".html_safe, questions_path %>
+            <%= link_to "<i class='fa fa-tachometer' aria-hidden='true'></i>".html_safe, root_path %>
+            <%= link_to "<i class='fa fa-user' aria-hidden='true'></i>".html_safe, user_path(current_user) %>
+            <%= link_to "<i class='fa fa-question-circle' aria-hidden='true'></i>".html_safe, questions_path %>
             <% else %>
             <%= link_to "Log In", new_user_session_path %>
             <button type="button" class="btn btn-secondary float-right"><%= link_to "Sign Up", new_user_registration_path %></button>
