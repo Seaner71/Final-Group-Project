@@ -40,7 +40,7 @@ class BlogsController < ApplicationController
     get_blog
     @blog.update(blog_params)
       if @blog.save
-        redirect_to blogs_path
+        redirect_to blog_path(@blog)
       else
         render 'edit'
       end
