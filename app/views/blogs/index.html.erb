@@ -21,8 +21,8 @@
       <td><%= image_tag b.user.avatar.url(:thumb), class: "thumb-index" %><br></td>
       <td><%= link_to b.title, blog_path(b) %></td>
       <td><%= b.body.html_safe %></td>
-      <td><%= b.tags.first.name %></td>
-      <td><%= b.created_at %></td>
+      <td><%= b.tags.first %></td>
+      <td><%= b.created_at.localtime.strftime("%B %d, %Y") %></td>
     </tr>
     <% end %>
   </tbody>
