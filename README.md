@@ -1,5 +1,4 @@
-# README
-#Bootcamp Overflow
+# Bootcamp Overflow
 From its humble origins as a game to guess the calories in a Big Mac, Bootcamp Overflow has become premiere resource for current, perspective and past coding bootcamp students. It was created and designed by NYCDA students Fatima Burke, Michael James, Michael Sharkey, Natalie Russo and Sean Smyth.
 
 Bootcamp Overflow was developed in Ruby on Rails 5.1 and requires the installation of the follow non-rails standard gems:
@@ -49,7 +48,7 @@ You can sign in to a demo account with the following credentials:
 ## MVC Configuration
 Bootcamp OVerflow is a platform designed to help students navigate their way through the pressure cooker that is a coding bootcamp. A user can create a profile, ask questions to the Bootcamp Overflow community, answer questions, find advice and create blog posts
 
-Bootcmp Overflow has 8 Model View Control (MVC) components:
+## Bootcamp Overflow has 8 Model View Control (MVC) components:
 
 #### User - Created using the devise gem  
 	 *Associations:*
@@ -66,7 +65,7 @@ Bootcmp Overflow has 8 Model View Control (MVC) components:
 	    has_many :tags, through: :taggings
 	 *Views*
 	    New(render partial form), Edit, Index, Show
-####Answer
+#### Answer
      *Associations*
         belongs_to :user
         has_many :blog_taggings, dependent: :destroy
