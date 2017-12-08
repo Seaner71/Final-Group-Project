@@ -53,12 +53,19 @@ nav a:hover {
   margin: 0 auto;
 }
 
+nav input, nav button {
+  margin-top: 5px;
+}
+
 nav input[type="text"] {
   background-color: #525a3f;
   border: none;
   border-radius: 5px;
   padding: 0px 10px;
   color: #fff;
+  width:100%;
+  box-sizing:border-box;
+  display: block;
 }
 
 nav .fa {
@@ -93,6 +100,11 @@ nav .fa {
 
 .tab-pane {
   padding: 20px;
+}
+
+.tab-pane .ans_row {
+  background-color: #f5f5f5;
+  padding: 20px 0px 15px 0px;
 }
 
 .thumb img {
