@@ -1,4 +1,30 @@
 <h1>Questions</h1>
+
+<%= search_form_for @q do |f| %>
+<%= f.label :contains %>
+<%= f.search_field :title_or_body_cont %>
+
+<%= f.submit "search" %>
+<% end %>
+...
+
+
+<table>
+  <tr>
+    <th> <%= sort_link @q, :title, "Title"%></th>
+    <th> <%= sort_link @q, :body, "Body"%></th>
+  </tr>
+  <% @questions.each do |question| %>
+  <tr>
+    <td><%= question.title %></td>
+    <td><%= question.body %></td>
+  </tr>
+  <% end %>
+</table>
+
+
+
+
 <p>Here's a list of all the questions</p>
 
 <%= link_to 'Ask a question', new_question_path, :class => "btn btn-primary" %>
