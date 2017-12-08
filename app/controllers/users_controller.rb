@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    get_user
+    @user = User.find_by_id(params[:id])
   end
 
   def new
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    get_user
+    @user = User.find_by_id(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user), notice: 'Updated your information'
     else
@@ -29,6 +29,7 @@ class UsersController < ApplicationController
   end
 
   def makeAdmin
+    @user = User.find_by_id(params[:id])
     @user.update_attribute :admin, true
   end
 
@@ -39,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :location, :bio, :previous_industry, :github_url, :avatar)
+    params.require(:user).permit(:username, :location, :bio, :previous_industry, :github_url, :avatar, :admin)
   end
 
 
