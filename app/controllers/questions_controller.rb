@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
     @questions = @q.result.includes(:user, :tags, :answers)
   end
 
-  def search 
+  def search
     index
     render :index
   end
@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
   def update
     get_question
     @question.update(question_params)
-    redirect_to questions_path
+    redirect_to question_path(@question)
   end
 
   def create
