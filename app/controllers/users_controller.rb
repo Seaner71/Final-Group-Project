@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find_by_id(params[:id])
+    find_user
   end
 
   def edit
-    @user = User.find_by_id(params[:id])
+    find_user
   end
 
   def new
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by_id(params[:id])
+    find_user
     if @user.update(user_params)
       redirect_to user_path(@user), notice: 'Updated your information'
     else
@@ -23,20 +23,19 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by_id(params[:id])
+    find_user
     @user.destroy
       redirect_to root_path
-  end
-
-  def makeAdmin
-    @user = User.find_by_id(params[:id])
-    @user.update_attribute :admin, true
   end
 
   private
 
   def get_user
     @user = current_user
+  end
+
+  def find_user
+    @user = User.find_by_id(params[:id])
   end
 
   def user_params
