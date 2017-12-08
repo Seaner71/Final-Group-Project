@@ -9,6 +9,7 @@ class WelcomeController < ApplicationController
       ORDER BY cached_votes_up desc")
     @blog = Blog.find_by_id(params[:id])
     @user = User.find_by_id(params[:id])
+    @question = Question.find_by_id(params[:id])
 
   end
 
