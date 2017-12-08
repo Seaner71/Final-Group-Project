@@ -1,7 +1,6 @@
 <h1>Questions</h1>
 <div class="container">
   <%= search_form_for @q, url: search_questions_path, html: { method: :post } do |f| %>
-  <%= f.label :contains %>
   <%= f.search_field :title_or_body_cont %>
   <%= f.submit "search" %>
   <% end %>

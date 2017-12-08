@@ -5,9 +5,9 @@
   <%= f.submit "Search" %>
 <% end %>
 
-<table class="table table-hover">
-  <thead class="thead">
-    <tr class="bg-success">
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
       <th><%= sort_link @q, :user_id, "User" %></th>
       <th><%= sort_link @q, :title, "Title" %></th>
       <th><%= sort_link @q, :body, "Body"%></th>
@@ -18,8 +18,8 @@
   <tbody>
     <% @blogs.each do |b| %>
     <tr>
-      <td><%= image_tag b.user.avatar.url(:thumb), class: "thumb" %><br></td>
-      <td><%= b.title %></td>
+      <td><%= image_tag b.user.avatar.url(:thumb), class: "thumb-index" %><br></td>
+      <td><%= link_to b.title, blog_path(b) %></td>
       <td><%= b.body.html_safe %></td>
       <td><%= b.tags.first.name %></td>
       <td><%= b.created_at %></td>
