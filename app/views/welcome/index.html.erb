@@ -3,8 +3,8 @@
     <div class="col-2">
       <a href="/users/<%= current_user.id %>"><%= image_tag current_user.avatar.url(:middle) %></a>
     </div>
-    <div class="col">
-    <h2>Welcome, <%= current_user.username %></h2>
+    <div class="col-md">
+    <h2>Hey There, <%= current_user.username %></h2>
     <p>Welcome back to your dashboard. Here are a few things to get you started:</p>
     <%= link_to 'Ask a question', new_question_path, :class => "btn btn-primary" %>
     <%= link_to "Write a blog", new_blog_path(current_user), :class => "btn btn-primary" %>
@@ -18,14 +18,15 @@
 
         <% if current_user.admin == true %>
           <div class="admin_block">
-            <h2>Admin view</h2>
+            <h3>Admin view</h3>
             <% User.all.each do |user| %>
             <%= link_to user.email, user_path(user) %><br>
             <% end %> <br><br>
-            <%= render 'tags/new' %>
+            <%#= render 'tags/new' %>
           </div>
         <% end %>
 
+        <h3>What are people asking?</h3>
         <ul class="nav nav-tabs" id="tabSort" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="questionsTab" data-toggle="tab" href="#questions" role="tab" aria-controls="questions" aria-selected="true">My Questions</a>
@@ -45,13 +46,13 @@
             <div class="question-box row">
               <div class="col">
                 <% @questions.last(10).reverse_each do |question| %>
-                  <div class="row">
+                  <div class="ans_row row">
                     <div class="col-1 text-center">
                       <span class="ans_num"><%= question.answers.size %></span>
                       <br><small>Answers</small></div>
-                    <div class="col">
+                    <div class="col-sm">
                       <a href="questions/<%= question.id %>">
-                  <strong><%= question.title %><strong> </a>
+                  <strong><%= question.title %></strong> </a>
                   <p><%= question.body.html_safe %></p>
                     </div>
                   </div>
@@ -77,8 +78,8 @@
       </div>
       <div class="col">
         <strong><%= blog.title %></strong>
-        <p><%= blog.body.first(50).html_safe %>
-          <%= link_to "...Read More", "#", class: "read_more" %></p>
+        <p><%= blog.body.first(100).html_safe %>...
+          <%= link_to "Read More", "#", class: "read_more" %></p>
       </div>
     </div>
   <% end %>
