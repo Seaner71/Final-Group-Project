@@ -1,43 +1,45 @@
-<h1>Edit Your Information</h1>
+<div class="container">
+  <h1>Edit Your Information</h1>
 
   <%= form_with model: @user, local: true do |f| %>
   <div class="field">
-    <%= f.label :username %>
+    <%= f.label "Username:" %> <br>
     <%= f.text_field :username %>
   </div>
   <div class="field">
-    <%= f.label :location %>
+    <%= f.label "Current Location:" %> <br>
     <%= f.text_field :location %>
   </div>
   <div class="field">
-    <%= f.label :bio %>
+    <%= f.label "Short Bio:" %> <br>
     <%= f.text_area :bio  %>
   </div>
   <div class="field">
-    <%= f.label :github_url %>
+    <%= f.label "Github URL:" %> <br>
     <%= f.text_area :github_url  %>
   </div>
   <div class="field">
-    <%= f.label :previous_industry %>
-    <%= f.text_field :previous_industry %>
+    <%= f.label "Previous Industry:" %> <br>
+    <%= f.select :previous_industry, job_list%>
   </div>
   <div class="field">
-    <%= f.label :avatar %>
+    <%= f.label "Profile Photo:" %> <br>
     <%= f.file_field :avatar %>
   </div>
   <% if current_user.admin? %>
   <div>
-    <%= f.label :is_admin %>
-    <%= f.text_field :admin %>
+    <%= f.label "Administrator Status" %> <br>
+    <%= f.select :admin, ['True', 'False']%>
   </div>
-  <% end %>
+  <% end %> <br>
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update Profile" %>
   </div>
-
+<br>
   <div>
-    <%= link_to "Edit Registration Info", edit_user_registration_path(current_user) %><br>
-    <%= link_to 'Delete user', user_path(@user), method: :delete, data: {confirm: 'Are you sure?'} %><br>
+    <%= link_to "Edit Your Registration Info", edit_user_registration_path(current_user) %><br>
+    <%= link_to 'Delete Account', user_path(@user), method: :delete, data: {confirm: 'Are you sure? This cannot be undone!'} %><br>
   </div>
 <% end %>
+</div>
 </div>
