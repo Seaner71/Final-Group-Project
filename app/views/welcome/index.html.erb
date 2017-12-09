@@ -76,7 +76,7 @@
                        <%= Question.find_by_id(s.first).answers.size %></span>
                      <br><small>Answers</small></div>
                    <div class="col-sm">
-                     <a href="questions/<%= Question.find_by_id(s).id %>">
+                     <a href="questions/<%= Question.find_by_id(s.first).id %>">
                  <strong><%= Question.find_by_id(s.first).title %></strong> </a>
                  <p><%= Question.find_by_id(s.first).body.html_safe %></p>
                    </div>
