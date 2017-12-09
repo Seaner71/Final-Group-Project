@@ -37,6 +37,9 @@
           <li class="nav-item">
             <a class="nav-link" id="recentTab" data-toggle="tab" href="#recent" role="tab" aria-controls="recent" aria-selected="false">Recent</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" id="bestTab" data-toggle="tab" href="#best" role="tab" aria-controls="best" aria-selected="false">Best Answers</a>
+          </li>
         </ul>
         <div class="tab-content" id="tabSortContent">
           <div class="tab-pane fade show active" id="questions" role="tabpanel" aria-labelledby="questionsTab">
@@ -66,21 +69,21 @@
           <div class="tab-pane fade" id="popular" role="tabpanel" aria-labelledby="popularTab">
             <div class="question-box row">
               <div class="col">
-                  <% @sort.each do |s| %>
-                  <div class="ans_row row">
-                    <div class="col-1 text-center">
-                      <span class="ans_num">
-                        <%= s.cached_votes_up%></span>
-                      <br><small>Up Votes</small></div>
-                    <div class="col-sm">
-                      <a href="questions/<%# question.id %>">
-                  <strong><%= s.title %></strong> </a>
-                  <p><%= s.body.html_safe %></p>
-                    </div>
-                  </div>
+                <% @sort_by_answers.each do |s| %>
+                 <div class="ans_row row">
+                   <div class="col-1 text-center">
+                     <span class="ans_num">
+                       <%= Question.find_by_id(s).answers.size%></span>
+                     <br><small>Answers</small></div>
+                   <div class="col-sm">
+                     <a href="questions/<%= Question.find_by_id(s).id %>">
+                 <strong><%= Question.find_by_id(s).title %></strong> </a>
+                 <p><%= Question.find_by_id(s).body.html_safe %></p>
+                   </div>
+                 </div>
 
-                  <hr>
-                <% end%>
+                 <hr>
+               <% end%>
               </div>
             </div>
           </div>
@@ -101,6 +104,27 @@
 
                   <hr>
                 <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="best" role="tabpanel" aria-labelledby="bestTab">
+            <div class="question-box row">
+              <div class="col">
+                 <% @sort.each do |s| %>
+                 <div class="ans_row row">
+                   <div class="col-1 text-center">
+                     <span class="ans_num">
+                       <%= s.cached_votes_up %></span>
+                     <br><small>Up Votes</small></div>
+                   <div class="col-sm">
+                     <a href="questions/<%= s.question.id %>">
+                 <strong><%= s.title %></strong> </a>
+                 <p><%= s.body.html_safe %></p>
+                   </div>
+                 </div>
+
+                 <hr>
+               <% end%>
               </div>
             </div>
           </div>
