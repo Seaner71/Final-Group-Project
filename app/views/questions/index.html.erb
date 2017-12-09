@@ -23,7 +23,7 @@
         <td><%= image_tag question.user.avatar.url(:thumb), class: "thumb-index" %><br></td>
         <td><%= link_to question.title, question_path(question) %></td>
         <td><%= question.body.html_safe %></td>
-        <td><%= link_to question.tags.first, tag_path(question) %></td>
+        <td><%= link_to question.tags.first, tag_path(question.tags.first) %></td>
         <td><%= question.created_at.localtime.strftime("%B %d, %Y") %></td>
       </tr>
       <% end %>

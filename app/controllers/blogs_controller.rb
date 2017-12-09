@@ -61,7 +61,7 @@ class BlogsController < ApplicationController
   end
 
   def get_blog
-    @blog = Blog.find_by_id(params[:id])
+    @blog = Blog.find(params[:id])
   end
 
   def blog_params
