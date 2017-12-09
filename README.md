@@ -51,12 +51,11 @@ Bootcamp Overflow is a platform designed to help students navigate their way thr
 ## Bootcamp Overflow has 8 Model View Control (MVC) components:
 
 #### User - Created using the devise gem  
-	 *Associations:*
-	    has_many :questions
-	    has_many :blogs, dependent: :destroy
-
-	 *Views:*
-	    Edit, Show
+		*Associations:*
+			has_many :questions
+			has_many :blogs, dependent: :destroy
+		*Views:*
+			Edit, Show
 #### Question
 	 *Associations*
 	    has_many :answers, dependent: :destroy
@@ -66,43 +65,42 @@ Bootcamp Overflow is a platform designed to help students navigate their way thr
 	 *Views*
 	    New(render partial form), Edit, Index, Show
 #### Answer
-     *Associations*
-        belongs_to :user
-        has_many :blog_taggings, dependent: :destroy
-        has_many :tags, through: :blog_taggings
-        has_many :comments, dependent: :destroy
-     *Views*
-        New, Edit, Index, Show
-#### Blog
-	 *Associations*
-	    belongs_to :question
+    *Associations*
 	    belongs_to :user
-	 *Views*
+	    has_many :blog_taggings, dependent: :destroy
+	    has_many :tags, through: :blog_taggings
+	    has_many :comments, dependent: :destroy
+    *Views*
+      New, Edit, Index, Show
+#### Blog
+		*Associations*
+		  belongs_to :question
+		  belongs_to :user
+		*Views*
 	    New(partial on Question Show), Edit, Show(partial on Question Show)
 #### Comment
-	 *Associations*
-	   belongs_to :blog
-	 *Views*
-	   partials on Blog new and Blog edit  
+		*Associations*
+	  	belongs_to :blog
+	 	*Views*
+	 		partials on Blog new and Blog edit  
 #### Tag
-	 *Associations*
-	   belongs_to :user
-	   has_many :blog_taggings, dependent: :destroy
-	   has_many :tags, through: :blog_taggings
-	   has_many :comments, dependent: :destroy
-
-    *Views*
+		*Associations*
+		  belongs_to :user
+		  has_many :blog_taggings, dependent: :destroy
+		  has_many :tags, through: :blog_taggings
+		  has_many :comments, dependent: :destroy
+		*Views*
       New (partial Admin only), Index, Show
 
 #### Taggging - Join table  for tags and questions
-	 *Associations*
-	    belongs_to :tag
-		belongs_to :question
-     *Views*
-        None
+		*Associations*
+		  belongs_to :tag
+			belongs_to :question
+    *Views*
+    	None
 #### BlogTagging -Join table  for tags and blogs
-*Associations*
-		belongs_to :tag
-		belongs_to :question
- *Views*
-    None
+		*Associations*
+			belongs_to :tag
+			belongs_to :question
+		*Views*
+    	None
