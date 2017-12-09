@@ -3,9 +3,8 @@ class WelcomeController < ApplicationController
     @blogs = Blog.all
     @tag = Tag.new
     @questions = Question.all
-    @answers = Answer.all
-    @sort_by_answers = @questions.joins(:answers).group("questions.id").count.sort.reverse
-    @sort =  Answer.find_by_sql("
+    @sort_by_answers = @questions.joins(:answers).group("questions.id").count.sort_by {|k, v| v}.reverse
+    @sort_by_best =  Answer.find_by_sql("
       select * from questions
       inner join answers on questions.id = answers.question_id
       group by questions.title
