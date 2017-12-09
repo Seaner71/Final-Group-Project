@@ -11,9 +11,9 @@ class AnswersController < ApplicationController
   def create
     get_question
     @answer = @question.answers.new(answer_params)
-    @answer.votes = 0
+    # @answer.votes = 0
     @answer.user_id = current_user.id
-    @question.answer_number = @question.answer_number + 1
+    # @question.answer_number = @question.answer_number + 1
     if @answer.save
       redirect_to question_path(@question)
     end

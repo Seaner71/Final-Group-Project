@@ -73,12 +73,12 @@
                  <div class="ans_row row">
                    <div class="col-1 text-center">
                      <span class="ans_num">
-                       <%= Question.find_by_id(s).answers.size%></span>
+                       <%= Question.find_by_id(s.first).answers.size%></span>
                      <br><small>Answers</small></div>
                    <div class="col-sm">
                      <a href="questions/<%= Question.find_by_id(s).id %>">
-                 <strong><%= Question.find_by_id(s).title %></strong> </a>
-                 <p><%= Question.find_by_id(s).body.html_safe %></p>
+                 <strong><%= Question.find_by_id(s.first).title %></strong> </a>
+                 <p><%= Question.find_by_id(s.first).body.html_safe %></p>
                    </div>
                  </div>
 
@@ -110,7 +110,7 @@
           <div class="tab-pane fade" id="best" role="tabpanel" aria-labelledby="bestTab">
             <div class="question-box row">
               <div class="col">
-                 <% @sort.each do |s| %>
+                 <% @sort_by_best.each do |s| %>
                  <div class="ans_row row">
                    <div class="col-1 text-center">
                      <span class="ans_num">
