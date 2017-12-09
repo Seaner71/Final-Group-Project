@@ -4,11 +4,7 @@ class WelcomeController < ApplicationController
     @tag = Tag.new
     @questions = Question.all
     @sort_by_answers = @questions.joins(:answers).group("questions.id").count.sort_by {|k, v| v}.reverse
-    @sort_by_best =  Answer.find_by_sql("
-      select * from questions
-      inner join answers on questions.id = answers.question_id
-      group by questions.title
-      order by answers.cached_votes_up DESC")
+    @sort_by_best = @questions.joins(:answers).group("questions.id").sum('answers.cached_votes_up').sort_by {|k,v| v}.reverse
     @blog = Blog.find_by_id(params[:id])
     @user = User.find_by_id(params[:id])
     @question = Question.find_by_id(params[:id])
