@@ -3,10 +3,7 @@ class WelcomeController < ApplicationController
     @blogs = Blog.all
     @tag = Tag.new
     @questions = Question.all
-    @sort =  Answer.find_by_sql("
-      SELECT * FROM questions
-      INNER JOIN answers ON questions.id = answers.question_id
-      ORDER BY cached_votes_up desc")
+    @sort_by_answers = @questions.joins(:answers).group("questions.id").count.sort.reverse
     @blog = Blog.find_by_id(params[:id])
     @user = User.find_by_id(params[:id])
     @question = Question.find_by_id(params[:id])
