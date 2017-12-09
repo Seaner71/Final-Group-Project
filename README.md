@@ -46,7 +46,7 @@ You can sign in to a demo account with the following credentials:
 | john@gmail.com | 123456  |  Admin User |
 
 ## MVC Configuration
-Bootcamp OVerflow is a platform designed to help students navigate their way through the pressure cooker that is a coding bootcamp. A user can create a profile, ask questions to the Bootcamp Overflow community, answer questions, find advice and create blog posts
+Bootcamp Overflow is a platform designed to help students navigate their way through the pressure cooker that is a coding bootcamp. A user can create a profile, ask questions to the Bootcamp Overflow community, answer questions, find advice and create blog posts
 
 ## Bootcamp Overflow has 8 Model View Control (MVC) components:
 
@@ -101,8 +101,8 @@ Bootcamp OVerflow is a platform designed to help students navigate their way thr
      *Views*
         None
 #### BlogTagging -Join table  for tags and blogs
-	 *Associations*
-	    belongs_to :tag
-		belongs_to :question
-     *Views*
-        None
+*Associations*
+belongs_to :tag
+belongs_to :question
+ *Views*
+    None
