@@ -38,7 +38,7 @@
             <a class="nav-link" id="recentTab" data-toggle="tab" href="#recent" role="tab" aria-controls="recent" aria-selected="false">Recent</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="bestTab" data-toggle="tab" href="#best" role="tab" aria-controls="best" aria-selected="false">Best Answers</a>
+            <a class="nav-link" id="bestTab" data-toggle="tab" href="#best" role="tab" aria-controls="best" aria-selected="false">Best</a>
           </li>
         </ul>
         <div class="tab-content" id="tabSortContent">
@@ -73,7 +73,7 @@
                  <div class="ans_row row">
                    <div class="col-1 text-center">
                      <span class="ans_num">
-                       <%= Question.find_by_id(s.first).answers.size%></span>
+                       <%= Question.find_by_id(s.first).answers.size %></span>
                      <br><small>Answers</small></div>
                    <div class="col-sm">
                      <a href="questions/<%= Question.find_by_id(s).id %>">
@@ -110,16 +110,16 @@
           <div class="tab-pane fade" id="best" role="tabpanel" aria-labelledby="bestTab">
             <div class="question-box row">
               <div class="col">
-                 <% @sort_by_best.each do |s| %>
+                <% @sort_by_best.each do |s| %>
                  <div class="ans_row row">
                    <div class="col-1 text-center">
                      <span class="ans_num">
-                       <%= s.cached_votes_up %></span>
+                       <%= s.second %></span>
                      <br><small>Up Votes</small></div>
                    <div class="col-sm">
-                     <a href="questions/<%= s.question.id %>">
-                 <strong><%= s.title %></strong> </a>
-                 <p><%= s.body.html_safe %></p>
+                     <a href="questions/<%= Question.find_by_id(s.first).id %>">
+                 <strong><%= Question.find_by_id(s.first).title %></strong> </a>
+                 <p><%= Question.find_by_id(s.first).body.html_safe %></p>
                    </div>
                  </div>
 
