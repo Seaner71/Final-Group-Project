@@ -13,6 +13,7 @@ class BlogsController < ApplicationController
 
   def show
     get_blog
+    @comment = Comment.find_by_id(params[:id])
   end
 
   def new
@@ -56,7 +57,7 @@ class BlogsController < ApplicationController
   private
 
   def get_user
-    @user = current_user
+    @user = User.find_by_id(params[:id])
   end
 
   def get_blog

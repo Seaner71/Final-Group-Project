@@ -1,4 +1,9 @@
 class CommentsController < ApplicationController
+  def show
+    @blog = Blog.find_by_id(params[:id])
+    @comment = Comment.find_by_id(params[:id])
+  end
+
 
   def create
     get_blog
