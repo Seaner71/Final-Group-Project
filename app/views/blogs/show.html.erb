@@ -1,5 +1,6 @@
 <h1><%= @blog.title %></h1><br>
-<h2>Posted By: <%= @blog.user.username %></h2><br>
+<h2>Posted By:
+  <a href="/users/<%= @blog.user_id %>"><%= @blog.user.username %></a></h2><br>
 <h2><%= @blog.body.html_safe %></h2><br>
 
 <div>Tags: <br>
@@ -7,6 +8,10 @@
      <%= link_to tag.name, tag_path(tag) %>
    <% end %>
 </div>
+<% if @blog.user_id == current_user.id || current_user.admin? %>
+  <%= link_to 'Edit Blog', edit_blog_path(@blog) %><br>
+  <%= link_to 'Delete Blog', blog_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+<% end %>
 
 <h2>Comments:</h2>
 <%= render @blog.comments %>
@@ -19,6 +24,3 @@
 
 <%= link_to 'Back', blogs_path %> <br>
 <br>
-<% if @blog.user_id == current_user.id %>
-  <%= link_to 'Edit', edit_blog_path(@blog) %>
-<% end %>
