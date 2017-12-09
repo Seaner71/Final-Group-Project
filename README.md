@@ -102,7 +102,7 @@ Bootcamp Overflow is a platform designed to help students navigate their way thr
         None
 #### BlogTagging -Join table  for tags and blogs
 *Associations*
-belongs_to :tag
-belongs_to :question
+		belongs_to :tag
+		belongs_to :question
  *Views*
     None
