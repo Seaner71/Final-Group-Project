@@ -1,18 +1,26 @@
-<h1><%= @user.username %>'s Profile</h1>
+<div class="global_hdr">
 
-<%= image_tag @user.avatar.url(:middle) %><br>
-Location: <%= @user.location %><br>
-Bio: <%= @user.bio %><br>
-Website: <a href="<%= @user.github_url %>"><%= @user.github_url %></a><br>
-Previous job: <%= @user.previous_industry %><br>
-<br>
-<%= @user.username %>'s blog posts<br>
-<%  @user.blogs.reverse_each do |blog| %>
-<a href="/blogs/<%= blog.id %>"><%= blog.title %><br></a>
-<% end %>
-<br>
-
-
+</div>
+<div class="row content">
+  <div class="col-3">
+    <div class="thumb">
+      <%= image_tag @user.avatar.url(:middle) %>
+    </div>
+  <div class="user_info">
+    Location: <%= @user.location %><br>
+    Bio: <%= @user.bio %><br>
+    Website: <a href="<%= @user.github_url %>"><%= @user.github_url %></a><br>
+    Previous job: <%= @user.previous_industry %><br>
+  </div>
+  </div>
+  <div class="col">
+    <h3>About <%= @user.username %></h3>
+    <%= @user.username %>'s blog posts<br>
+    <%  @user.blogs.reverse_each do |blog| %>
+    <a href="/blogs/<%= blog.id %>"><%= blog.title %><br></a>
+    <% end %>
+  </div>
+</div>
 
 
 <% if current_user.id == @user.id || current_user.admin? %>
@@ -20,5 +28,3 @@ Previous job: <%= @user.previous_industry %><br>
 <% end %>
 
 <%= link_to "Blog Posts", blogs_path %><br>
-
-<hr>
