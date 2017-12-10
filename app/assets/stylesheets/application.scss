@@ -74,23 +74,6 @@ nav .fa {
   font-size: 20px;
 }
 
-.btn-secondary, .btn-primary {
-    color: #fff;
-    background-color: #f37f5a;
-    border-color: #f37f5a;
-  }
-
-.btn-secondary:hover, .btn-primary:hover {
-  background-color: #424933;
-  border-color: #424933;
-}
-
-.btn-secondary a, .btn-primary a {
-  padding: 0px;
-  color: #fff;
-  text-decoration: none;
-}
-
 .dash {
   margin: 0px -15px 20px -15px;
   padding: 50px 10px;
@@ -111,6 +94,24 @@ nav .fa {
 
 .dash a {
   color: #f37f5a;
+}
+
+.btn-secondary, .btn-primary {
+    color: #fff !important;
+    background-color: #f37f5a;
+    border-color: #f37f5a;
+  }
+
+.btn-secondary:hover, .btn-primary:hover {
+  background-color: #424933;
+  border-color: #424933;
+  color: #fff;
+}
+
+.btn-secondary a, .btn-primary a {
+  padding: 0px;
+  color: #fff;
+  text-decoration: none;
 }
 
 .tab-pane {
@@ -134,6 +135,7 @@ nav .fa {
 
 .content {
   padding: 40px 20px 40px 20px;
+}
 
 .thumb-index {
   height: 100px;
@@ -275,10 +277,6 @@ a.user_qb {
 	// background: rgba(0,0,0,0.5); /* You can play with the opacity */
 }
 
-.video-bg.demo-video {
-	// background-image: url(files/working-with-espresso.jpg);
-}
-
 .video-hero--content {
 	position: relative;
   margin-top: 155px;
@@ -301,8 +299,6 @@ a.user_qb {
 }
 
 /* Hide Native iOS controls*/
-.video-bg video::-webkit-media-controls {display: none !important}
-
-.trix {
-
+.video-bg video::-webkit-media-controls {
+  display: none !important;
 }
