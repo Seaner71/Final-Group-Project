@@ -4,7 +4,7 @@
       <a href="/users/<%= current_user.id %>"><%= image_tag current_user.avatar.url(:middle) %></a>
     </div>
     <div class="col-md">
-    <h2>Hey There, <%= current_user.username %></h2>
+    <h2>Hey There, <%= current_user.username.capitalize %></h2>
     <p>Welcome back to your dashboard. Here are a few things to get you started:</p>
     <%= link_to 'Ask a question', new_question_path, :class => "btn btn-primary" %>
     <%= link_to "Write a blog", new_blog_path(current_user), :class => "btn btn-primary" %>
