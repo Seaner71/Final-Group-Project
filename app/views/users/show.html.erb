@@ -1,19 +1,19 @@
 <div class="row content">
-  <div class="col-2-md">
-    <div class="profile">
+  <div class="col-2-md user_info">
+    <div class="profile text-center">
       <%= image_tag @user.avatar.url(:middle) %>
     </div>
     <div class="user_info text-center">
       <% if current_user.id == @user.id || current_user.admin? %>
-      <%= link_to "Edit User Info", edit_user_path(@user), class: "btn btn-primary" %>
-      <%= @user.location %><br>
-      <em><%= @user.bio %></em><br>
-      <a href="http://<%= @user.github_url %>"><%= @user.github_url %></a><br>
-      <%= @user.previous_industry %><br>
+      <%= link_to "Edit User Info", edit_user_path(@user), class: "btn btn-primary prof_info" %><br>
+      <i class="fa fa-map-marker" aria-hidden="true"></i> <%= @user.location %><br>
+      <em class="bio"><%= @user.bio %></em><br>
+      <i class="fa fa-github" aria-hidden="true"></i> <a href="http://<%= @user.github_url %>"><%=  @user.github_url %></a><br>
+      <i class="fa fa-building" aria-hidden="true"></i><%= @user.previous_industry %><br>
       <% end %>
     </div>
   </div>
-  <div class="col">
+  <div class="col-md">
     <h3>About <%= @user.username.capitalize %></h3>
     <h4><%= @user.username.capitalize %>'s Questions</h4>
     <%  @user.questions.reverse_each do |q| %>
