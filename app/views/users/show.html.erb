@@ -6,11 +6,11 @@
     <div class="user_info text-center">
       <% if current_user.id == @user.id || current_user.admin? %>
       <%= link_to "Edit User Info", edit_user_path(@user), class: "btn btn-primary prof_info" %><br>
+      <% end %>
       <i class="fa fa-map-marker" aria-hidden="true"></i> <%= @user.location %><br>
       <em class="bio"><%= @user.bio %></em><br>
       <i class="fa fa-github" aria-hidden="true"></i> <a href="http://<%= @user.github_url %>"><%=  @user.github_url %></a><br>
       <i class="fa fa-building" aria-hidden="true"></i><%= @user.previous_industry %><br>
-      <% end %>
     </div>
   </div>
   <div class="col-md">
