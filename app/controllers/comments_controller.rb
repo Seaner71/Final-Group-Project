@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def create
     get_blog
     @comment = @blog.comments.new(comment_params)
@@ -12,9 +11,9 @@ class CommentsController < ApplicationController
     get_blog
     @comment = @blog.comments.find(params[:id])
     @comment.destroy
-    redirect to blog_path(@blog) 
+    redirect to blog_path(@blog)
   end
-
+  
   private
 
     def get_blog
