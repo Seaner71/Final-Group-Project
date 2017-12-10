@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   def index
     @q = Question.ransack(params[:q])
     @questions = @q.result.includes(:user, :tags, :answers)
+    @user = User.find_by_id(params[:id])
   end
 
   def search
@@ -11,6 +12,7 @@ class QuestionsController < ApplicationController
 
   def show
     get_question
+
   end
 
   def new
