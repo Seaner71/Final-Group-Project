@@ -4,7 +4,8 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = Tag.find(params[:id])
+    @tag = Tag.find_by_id(params[:id])
+    #@question = Question.find_by_id(params[:id])
   end
 
   def new

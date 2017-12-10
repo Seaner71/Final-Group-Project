@@ -1,47 +1,33 @@
 <div class="container">
   <h1>Questions</h1>
   <%= search_form_for @q, url: search_questions_path, html: { method: :post } do |f| %>
-  <%= f.label :contains %>
   <%= f.search_field :title_or_body_cont %>
   <%= f.submit "search" %>
   <% end %>
   <%= link_to 'Ask a question', new_question_path, :class => "btn btn-primary" %>
-
-
-  <table>
-    <tr>
-      <th> User </th>
-      <th> <%= sort_link @q, :title, "Title"%></th>
-      <th> <%= sort_link @q, :body, "Body"%></th>
-      <th> <%= sort_link @q, :tags_name, "Tags" %></th>
-      <th> <%= sort_link @q, :created_at, "Date" %></th>
-    </tr>
-    <% @questions.each do |question| %>
-    <tr>
-      <td><div class="col-sm-2 thumb">
-        Posted By:
-        <a href="/users/<%= question.user_id %>">
-          <%= image_tag question.user.avatar.url(:thumb) %>
-          <%= question.user.username %>
-        </a>
-      </div></td>
-      <td><%= question.title %></td>
-      <td><%= question.body %>
-        <div class="answer-box">
-            <strong>Top Answers:</strong><br>
-              <%= 'No answer yet' if question.answers.empty? %>
-              <ul class="ans_list">
-              <% question.answers.last(3).reverse.each do |answer| %>
-              <!-- TODO: Create top answer logic Add limit of charactors here like excerpt. -->
-            <li><%=answer.content.html_safe %></li>
-            <% end %>
-            <ul>
-        </div>
-      </td>
-      <td><%= question.tags.first.name %></td>
-      <td><%= question.created_at %></td>
-    </tr>
-    <% end %>
+<br><br>
+  
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th><%= sort_link @q, :user_id, "User" %></th>
+        <th><%= sort_link @q, :title, "Title" %></th>
+        <th><%= sort_link @q, :body, "Body"%></th>
+        <th><%= sort_link @q, :tags, "Tags"%></th>
+        <th><%= sort_link @q, :created_at, "Date" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @questions.each do |question| %>
+      <tr>
+        <td><a href="/users/<%= question.user_id %>"><%= image_tag question.user.avatar.url(:thumb), class: "thumb-index" %></a><br></td>
+        <td><%= link_to question.title, question_path(question) %></td>
+        <td><%= question.body.html_safe %></td>
+        <td><%= link_to question.tags.first, tag_path(question.tags.first) %></td>
+        <td><%= question.created_at.localtime.strftime("%B %d, %Y") %></td>
+      </tr>
+      <% end %>
+    </tbody>
   </table>
 
 </div>

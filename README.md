@@ -46,63 +46,60 @@ You can sign in to a demo account with the following credentials:
 | john@gmail.com | 123456  |  Admin User |
 
 ## MVC Configuration
-Bootcamp OVerflow is a platform designed to help students navigate their way through the pressure cooker that is a coding bootcamp. A user can create a profile, ask questions to the Bootcamp Overflow community, answer questions, find advice and create blog posts
+Bootcamp Overflow is a platform designed to help students navigate their way through the pressure cooker that is a coding bootcamp. A user can create a profile, ask questions to the Bootcamp Overflow community, answer questions, find advice and create blog posts
 
 ## Bootcamp Overflow has 8 Model View Control (MVC) components:
 
 #### User - Created using the devise gem  
-	 *Associations:*
-	    has_many :questions
-	    has_many :blogs, dependent: :destroy
-
-	 *Views:*
-	    Edit, Show
+	*Associations:*
+		has_many :questions
+		has_many :blogs, dependent: :destroy
+	*Views:*
+		Edit, Show
 #### Question
-	 *Associations*
-	    has_many :answers, dependent: :destroy
-	    belongs_to :user
-	    has_many :taggings, dependent: :destroy
-	    has_many :tags, through: :taggings
-	 *Views*
-	    New(render partial form), Edit, Index, Show
+ *Associations*
+    has_many :answers, dependent: :destroy
+    belongs_to :user
+    has_many :taggings, dependent: :destroy
+    has_many :tags, through: :taggings
+ *Views*
+    New(render partial form), Edit, Index, Show
 #### Answer
-     *Associations*
-        belongs_to :user
-        has_many :blog_taggings, dependent: :destroy
-        has_many :tags, through: :blog_taggings
-        has_many :comments, dependent: :destroy
-     *Views*
-        New, Edit, Index, Show
+  *Associations*
+    belongs_to :user
+    has_many :blog_taggings, dependent: :destroy
+    has_many :tags, through: :blog_taggings
+    has_many :comments, dependent: :destroy
+  *Views*
+    New, Edit, Index, Show
 #### Blog
-	 *Associations*
-	    belongs_to :question
-	    belongs_to :user
-	 *Views*
-	    New(partial on Question Show), Edit, Show(partial on Question Show)
+	*Associations*
+	  belongs_to :question
+	  belongs_to :user
+	*Views*
+    New(partial on Question Show), Edit, Show(partial on Question Show)
 #### Comment
-	 *Associations*
-	   belongs_to :blog
-	 *Views*
-	   partials on Blog new and Blog edit  
+	*Associations*
+  	belongs_to :blog
+ 	*Views*
+ 		partials on Blog new and Blog edit  
 #### Tag
-	 *Associations*
-	   belongs_to :user
-	   has_many :blog_taggings, dependent: :destroy
-	   has_many :tags, through: :blog_taggings
-	   has_many :comments, dependent: :destroy
-
-    *Views*
-      New (partial Admin only), Index, Show
-
+	*Associations*
+	  belongs_to :user
+	  has_many :blog_taggings, dependent: :destroy
+	  has_many :tags, through: :blog_taggings
+	  has_many :comments, dependent: :destroy
+	*Views*
+    New (partial Admin only), Index, Show
 #### Taggging - Join table  for tags and questions
-	 *Associations*
-	    belongs_to :tag
+	*Associations*
+	  belongs_to :tag
 		belongs_to :question
-     *Views*
-        None
+  *Views*
+  	None
 #### BlogTagging -Join table  for tags and blogs
-	 *Associations*
-	    belongs_to :tag
+	*Associations*
+		belongs_to :tag
 		belongs_to :question
-     *Views*
-        None
+	*Views*
+  	None

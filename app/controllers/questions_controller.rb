@@ -1,15 +1,10 @@
 class QuestionsController < ApplicationController
-
-
   def index
-    # @questions = Question.where(nil) # creates an anonymous scope
-    # @questions = @questions.title(params[:title]) if params[:title].present?
-    # @questions = @questions.contains(params[:body]) if params[:body].present?
     @q = Question.ransack(params[:q])
     @questions = @q.result.includes(:user, :tags, :answers)
   end
 
-  def search 
+  def search
     index
     render :index
   end
@@ -29,12 +24,13 @@ class QuestionsController < ApplicationController
   def update
     get_question
     @question.update(question_params)
-    redirect_to questions_path
+    redirect_to question_path(@question)
   end
 
   def create
     @question = Question.new(question_params)
     @question.user_id = current_user.id
+    @question.answer_number = 0
       if @question.save
         redirect_to question_path(@question)
       else

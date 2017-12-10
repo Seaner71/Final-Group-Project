@@ -13,6 +13,7 @@ class BlogsController < ApplicationController
 
   def show
     get_blog
+    @comment = Comment.find_by_id(params[:id])
   end
 
   def new
@@ -40,7 +41,7 @@ class BlogsController < ApplicationController
     get_blog
     @blog.update(blog_params)
       if @blog.save
-        redirect_to blogs_path
+        redirect_to blog_path(@blog)
       else
         render 'edit'
       end
@@ -56,11 +57,11 @@ class BlogsController < ApplicationController
   private
 
   def get_user
-    @user = current_user
+    @user = User.find_by_id(params[:id])
   end
 
   def get_blog
-    @blog = Blog.find_by_id(params[:id])
+    @blog = Blog.find(params[:id])
   end
 
   def blog_params

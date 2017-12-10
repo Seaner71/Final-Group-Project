@@ -8,7 +8,7 @@
       <%= link_to "Edit User Info", edit_user_path(@user), class: "btn btn-primary" %>
       <%= @user.location %><br>
       <em><%= @user.bio %></em><br>
-      <a href="<%= @user.github_url %>"><%= @user.github_url %></a><br>
+      <a href="http://<%= @user.github_url %>"><%= @user.github_url %></a><br>
       <%= @user.previous_industry %><br>
       <% end %>
     </div>

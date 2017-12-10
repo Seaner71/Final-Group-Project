@@ -1,4 +1,11 @@
 class CommentsController < ApplicationController
+
+  def show
+    @blog = Blog.find_by_id(params[:id])
+    @comment = Comment.find_by_id(params[:id])
+  end
+
+
   def create
     get_blog
     @comment = @blog.comments.new(comment_params)
@@ -9,7 +16,7 @@ class CommentsController < ApplicationController
 
   def destroy
     get_blog
-    @comment = @blog.comments.find(params[:id])
+    @comment = @blog.comments.find_by_id(params[:id])
     @comment.destroy
     redirect to blog_path(@blog)
   end
