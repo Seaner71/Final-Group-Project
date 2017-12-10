@@ -16,12 +16,16 @@
     <div class="card-block">
       <ul class="list-group">
         <li class="list-group-item"><strong>Blogs:</strong></li>
-        <li class="list-group-item"><%= 'No blogs yet.' if t.blogs.empty? %></li>
+        <% if t.blogs.empty? %>
+        <li class="list-group-item"><%= 'No blogs yet.'  %></li>
+        <% end %>
         <% t.blogs.each do |q| %>
         <li class="list-group-item"><%= link_to q.title, blog_path(q) %></li>
         <% end %>
         <li class="list-group-item"><strong>Questions:</strong></li>
-        <li class="list-group-item"><%= 'No questions yet.' if t.questions.empty? %></li>
+        <% if t.questions.empty? %>
+        <li class="list-group-item"><%= 'No questions yet.' %></li>
+        <% end %>
         <% t.questions.each do |q| %>
         <li class="list-group-item"><%= link_to q.title, question_path(q) %></li>
         <% end %>
