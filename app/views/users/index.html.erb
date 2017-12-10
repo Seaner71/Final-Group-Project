@@ -1,12 +1,12 @@
 <%= search_form_for @q do |f| %>
 
-  # Search if the name field contains...
+  <!-- # Search if the name field contains... -->
   <%= f.label :username_start %>
   <%= f.search_field :username_start %>
-
-  # Search if an associated articles.title starts with...
+  <br>
+  <!-- # Search if an associated articles.title starts with... -->
   <%= f.label :location_cont %>
   <%= f.search_field :location_cont %>
-
+  <br>
   <%= f.submit %>
 <% end %>
