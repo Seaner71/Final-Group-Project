@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   def index
-    # get_user
-    # @blogs = @user.blogs.all
+    get_user
+    @blog = Blog.new
     @q = Blog.ransack(params[:q])
     @blogs = @q.result.includes(:user, :tags)
   end
