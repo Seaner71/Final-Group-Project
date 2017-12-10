@@ -3,19 +3,23 @@
 </div>
 <div class="row content">
   <div class="col-3">
-    <div class="thumb">
+    <div class="profile">
       <%= image_tag @user.avatar.url(:middle) %>
     </div>
   <div class="user_info">
-    Location: <%= @user.location %><br>
-    Bio: <%= @user.bio %><br>
-    Website: <a href="<%= @user.github_url %>"><%= @user.github_url %></a><br>
-    Previous job: <%= @user.previous_industry %><br>
+
+    Location: City, State<%= @user.location %><br>
+    Bio: Here's a little abou myself and how cool of a developer I am.<%= @user.bio %><br>
+    Website: <a href="<%= @user.github_url %>">http://<%= @user.github_url %></a><br>
+    Previous job: Marketing<%= @user.previous_industry %><br>
   </div>
   </div>
   <div class="col">
     <h3>About <%= @user.username %></h3>
     <%= @user.username %>'s blog posts<br>
+    <%  @user.questions.reverse_each do |q| %>
+    <a href="/questions/<%= q.id %>"><%= q.title %><br></a>
+    <% end %><br>
     <%  @user.blogs.reverse_each do |blog| %>
     <a href="/blogs/<%= blog.id %>"><%= blog.title %><br></a>
     <% end %>
