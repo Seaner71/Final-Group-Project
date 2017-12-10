@@ -5,12 +5,13 @@
     </div>
     <div class="user_info text-center">
       <% if current_user.id == @user.id || current_user.admin? %>
-      <%= link_to "Edit User Info", edit_user_path(@user), class: "btn btn-primary" %>
+      <%= link_to "Edit User Info", edit_user_path(@user), class: "btn btn-primary" %><br>
+      <% end %>
       <%= @user.location %><br>
       <em><%= @user.bio %></em><br>
       <a href="http://<%= @user.github_url %>"><%= @user.github_url %></a><br>
       <%= @user.previous_industry %><br>
-      <% end %>
+
     </div>
   </div>
   <div class="col">
