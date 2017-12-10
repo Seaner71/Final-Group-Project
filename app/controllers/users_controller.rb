@@ -2,11 +2,11 @@ class UsersController < ApplicationController
   def index
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true)
-
+    @user = User.find_by_id(params[:id])
   end
 
   def show
-    find_user
+    @user = User.find_by_id(params[:id])
   end
 
   def edit

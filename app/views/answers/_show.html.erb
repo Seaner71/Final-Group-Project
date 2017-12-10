@@ -1,9 +1,7 @@
  <%#= 'No answer yet' if @question.answers.empty? %>
   <% @question.answers.each do |answer| %>
-  <div class="row">
+  <div class="row answer-box">
     <div class="col-sm-2 thumb text-center">
-      <span>Answer by:</span>
-      <!-- TODO: Add in link to user's profile -->
       <a href="/users/<%= answer.user_id %>"><%= image_tag answer.user.avatar.url(:thumb) %></a>
       <div class="username">
         <a href="/users/<%= answer.user_id %>"><%= answer.user.username %></a>
