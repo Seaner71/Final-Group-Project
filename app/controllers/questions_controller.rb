@@ -1,18 +1,9 @@
 class QuestionsController < ApplicationController
   def index
     get_user
+    @question = Question.new
     @q = Question.ransack(params[:q])
     @questions = @q.result.includes(:user, :tags, :answers)
-<<<<<<< HEAD
-<<<<<<< HEAD
-    @question = Question.new 
-
-=======
-    @user = User.find_by_id(params[:id])
->>>>>>> master
-=======
-    @user = User.find_by_id(params[:id])
->>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49
   end
 
   def search
@@ -22,21 +13,11 @@ class QuestionsController < ApplicationController
 
   def show
     get_question
-
   end
 
   def new
+    get_user
     @question = Question.new
-  end
-
-  def edit
-    get_question
-  end
-
-  def update
-    get_question
-    @question.update(question_params)
-    redirect_to question_path(@question)
   end
 
   def create
@@ -49,6 +30,20 @@ class QuestionsController < ApplicationController
         redirect_to questions_path
       end
   end
+
+  def edit
+    get_user
+    get_question
+  end
+
+  def update
+    get_user
+    get_question
+    @question.update(question_params)
+    redirect_to question_path(@question)
+  end
+
+
 
   def destroy
     get_question
