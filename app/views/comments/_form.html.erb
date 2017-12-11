@@ -1,5 +1,7 @@
 <%= form_with(model: [@blog, @blog.comments.build]) do |f| %>
 <%= f.trix_editor :body, cols: 120, rows: 10, class: 'trix-content' %>
  <br>
+<%= f.trix_editor :body, cols: 120, rows: 10, class: 'trix-content' %>
+ <br>
   <%= f.submit %>
 <% end %>

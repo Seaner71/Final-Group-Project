@@ -20,6 +20,13 @@
           </span>
         </small>
         <br>
+        <span class="tags">
+          <% @question.tags.each do |tag|  %>
+          <%= link_to tag.name, tag_path(tag) %>
+          <% end %>
+        </span>
+        <% if current_user.id == @question.user_id %>
+         <%= render 'edit' %>
 
         <% if current_user.id == @question.user_id || current_user.admin? %>
          <%= link_to "<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Edit Question".html_safe, edit_question_path(@question) %><br>
@@ -33,4 +40,7 @@
     <%= render 'answers/show' %>
      <hr>
      <%= render 'answers/new' %>
+     <% end %>
+   <% if current_user.id == @question.user_id || current_user.admin? %>
+<% end %>
  </div>

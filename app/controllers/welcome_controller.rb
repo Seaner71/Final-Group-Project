@@ -5,9 +5,9 @@ class WelcomeController < ApplicationController
     @questions = Question.all
     @sort_by_answers = @questions.joins(:answers).group("questions.id").count.sort_by {|k, v| v}.reverse
     @sort_by_best = @questions.joins(:answers).group("questions.id").sum('answers.cached_votes_up').sort_by {|k,v| v}.reverse
-    @blog = Blog.find_by_id(params[:id])
+    @blog = Blog.find_by_id(params[:id]) || Blog.new
     @user = User.find_by_id(params[:id])
-    @question = Question.find_by_id(params[:id])
+    @question = Question.find_by_id(params[:id]) || Question.new
 
   end
 

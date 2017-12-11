@@ -12,6 +12,7 @@ class AnswersController < ApplicationController
     get_question
     @answer = @question.answers.new(answer_params)
     @answer.user_id = current_user.id
+    # @question.answer_number = @question.answer_number + 1
     if @answer.save
       redirect_to question_path(@question)
     end
@@ -36,6 +37,7 @@ class AnswersController < ApplicationController
     get_question
     get_answer
     @answer.destroy
+    @question.answer_number -= 1
       redirect_to question_path(@question)
   end
 
