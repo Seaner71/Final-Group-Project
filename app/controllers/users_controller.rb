@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    get_user
+    find_user
   end
 
   def new
