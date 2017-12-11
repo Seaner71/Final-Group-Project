@@ -25,9 +25,9 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
     @blog.user_id = current_user.id
       if @blog.save
-        redirect_to blogs_path
+        redirect_to blog_path(@blog)
       else
-        redirect_to blogs_path 
+        render 'new', notice: 'Oops.  Something happen.'
       end
   end
 
