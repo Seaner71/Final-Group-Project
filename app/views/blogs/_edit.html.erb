@@ -37,7 +37,7 @@
     </div>
     <div class="modal-footer">
       <%= f.submit "Post", class: 'btn btn-success'%>
-      <%= link_to 'Delete post', blog_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+      <%= button_to 'Delete post', blog_path, class: 'btn btn-success', method: :delete, data: {confirm: 'Are you sure?'} %>
     <% end %>
   </div>
 </div>
