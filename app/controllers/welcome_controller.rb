@@ -7,8 +7,9 @@ class WelcomeController < ApplicationController
       SELECT * FROM questions
       INNER JOIN answers ON questions.id = answers.question_id
       ORDER BY cached_votes_up desc")
-    @blog = Blog.find_by_id(params[:id])
+    @blog = Blog.find_by_id(params[:id]) || Blog.new 
     @user = User.find_by_id(params[:id])
+    @question = Question.new
 
   end
 
