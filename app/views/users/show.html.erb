@@ -8,7 +8,11 @@
       <%= link_to "Edit User Info", edit_user_path(@user), class: "btn btn-primary prof_info" %><br>
       <% end %>
       <i class="fa fa-map-marker" aria-hidden="true"></i> <%= @user.location %><br>
+<<<<<<< HEAD
       <em class="bio"><%= @user.bio %></em><br>
+=======
+      <em class="bio"><%= @user.bio %></em>
+>>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49
       <i class="fa fa-github" aria-hidden="true"></i> <a href="http://<%= @user.github_url %>"><%=  @user.github_url %></a><br>
       <i class="fa fa-building" aria-hidden="true"></i><%= @user.previous_industry %><br>
     </div>

@@ -4,11 +4,15 @@ class QuestionsController < ApplicationController
     @q = Question.ransack(params[:q])
     @questions = @q.result.includes(:user, :tags, :answers)
 <<<<<<< HEAD
+<<<<<<< HEAD
     @question = Question.new 
 
 =======
     @user = User.find_by_id(params[:id])
 >>>>>>> master
+=======
+    @user = User.find_by_id(params[:id])
+>>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49
   end
 
   def search
