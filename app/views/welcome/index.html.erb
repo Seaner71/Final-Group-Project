@@ -6,8 +6,8 @@
     <div class="col-md">
     <h2>Hey There, <%= current_user.username.capitalize %></h2>
     <p>Welcome back to your dashboard. Here are a few things to get you started:</p>
-    <%= link_to 'Ask a question', new_question_path, :class => "btn btn-primary" %>
-    <%= link_to "Write a blog", new_blog_path(current_user), :class => "btn btn-primary" %>
+    <%= render 'questions/new' %>
+    <%= render 'blogs/new' %>
     <%= link_to "Edit Your Profile", edit_user_path(current_user), :class => "btn btn-primary" %>
       </div>
   </div>

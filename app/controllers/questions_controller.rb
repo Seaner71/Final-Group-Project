@@ -1,8 +1,18 @@
 class QuestionsController < ApplicationController
   def index
+    get_user
     @q = Question.ransack(params[:q])
     @questions = @q.result.includes(:user, :tags, :answers)
+<<<<<<< HEAD
+<<<<<<< HEAD
+    @question = Question.new 
+
+=======
     @user = User.find_by_id(params[:id])
+>>>>>>> master
+=======
+    @user = User.find_by_id(params[:id])
+>>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49
   end
 
   def search
@@ -32,10 +42,11 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.user_id = current_user.id
+    @question.answer_number = 0
       if @question.save
-        redirect_to question_path(@question)
+        redirect_to questions_path
       else
-        render 'new'
+        redirect_to questions_path
       end
   end
 
@@ -50,6 +61,10 @@ class QuestionsController < ApplicationController
 
   def get_question
     @question = Question.find_by_id(params[:id])
+  end
+
+  def get_user
+    @user = current_user
   end
 
   def question_params

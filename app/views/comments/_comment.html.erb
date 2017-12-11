@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+<%= comment.body.html_safe %>
+<br>
+
+<strong>Posted by:</strong>
+<%= @blog.user.username %>
+<br>
+
+<% if comment.user_id == current_user.id %>
+  <%= link_to 'Delete My Comment', [comment.blog, comment], method: :delete, data: { confirm: 'Are you sure?'} %>
+<% end %>
+
+<br>
+=======
+=======
+>>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49
   <div class="row answer-box">
     <strong>Posted by:</strong>
     <a href="/users/<%= comment.user_id %>"><%= comment.user.username %></a>
@@ -6,3 +23,7 @@
       <%= link_to "<i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>".html_safe, comment.blog, method: :delete, data: {confirm: 'Are you sure?'} %>
     <% end %>
   </div>
+<<<<<<< HEAD
+>>>>>>> master
+=======
+>>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49

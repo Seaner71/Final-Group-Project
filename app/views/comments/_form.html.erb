@@ -1,5 +1,14 @@
 <%= form_with(model: [@blog, @blog.comments.build]) do |f| %>
+<<<<<<< HEAD
+<<<<<<< HEAD
+  <%= f.trix_editor :body, class: 'trix-content' %> <br>
+=======
 <%= f.trix_editor :body, cols: 120, rows: 10, class: 'trix-content' %>
  <br>
+>>>>>>> master
+=======
+<%= f.trix_editor :body, cols: 120, rows: 10, class: 'trix-content' %>
+ <br>
+>>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49
   <%= f.submit %>
 <% end %>

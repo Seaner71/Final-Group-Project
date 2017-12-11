@@ -1,0 +1,43 @@
+<button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Ask A Question</button>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Your Question</h5>
+        <button class="btn btn-danger" data-dismiss="modal" aria-label="Close">X</button>
+      </div>
+      <div class="modal-body">
+        <%= form_with model: @question, local: true do |f| %>
+        <% if @question.errors.any? %>
+          <div id="explain_error">
+            <h2>
+              Uh oh!
+              <%= pluralize(@question.errors.count, "error") %>
+              prohibited this post from being saved:
+            </h2>
+            <ul>
+              <% @question.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div>
+          <%= f.label "Title:" %>
+          <%= f.text_field :title %>
+          <br>
+          <%= f.label "Question:" %>
+          <%= f.trix_editor :body %>
+          <br>
+          <%= f.label :tag_list %>
+          <%= f.select :tag_list, options_from_collection_for_select(Tag.all.order("name ASC"), 'name','name'), prompt: "Select Category" %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Post", class: 'btn btn-success'%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

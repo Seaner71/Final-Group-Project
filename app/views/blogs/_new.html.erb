@@ -1,0 +1,35 @@
+<button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">New Blog Post</button>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">New Entry</h5>
+        <button class="btn btn-danger" data-dismiss="modal" aria-label="Close">X</button>
+    </div>
+    <div class="modal-body">
+      <%= form_with model: @blog, local: true  do |f| %>
+      <% if @blog.errors.any? %>
+        <div id="explain_error">
+          <h2> Uh oh! <%= pluralize(@blog.errors.count, "error") %> prohibited this post from being saved: </h2>
+          <ul>
+            <% @blog.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+        <%= f.label "Title:" %>
+        <%= f.text_field :title %> <br>
+        <%= f.label "Body:" %>
+        <%= f.trix_editor :body, class: 'trix-content' %> <br>
+        <%= f.label :tag_list %> <br>
+        <%= f.select :tag_list, options_from_collection_for_select(Tag.all.order("name ASC"), 'name','name'), prompt: "Select Category" %>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit "Post", class: 'btn btn-success'%>
+    </div>
+      <% end %>
+    </div>
+  </div>
+</div>

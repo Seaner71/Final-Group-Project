@@ -20,10 +20,23 @@
           </span>
         </small>
         <br>
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <span class="tags">
+          <% @question.tags.each do |tag|  %>
+          <%= link_to tag.name, tag_path(tag) %>
+          <% end %>
+        </span>
+        <% if current_user.id == @question.user_id %>
+         <%= render 'edit' %>
+=======
+=======
+>>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49
 
         <% if current_user.id == @question.user_id || current_user.admin? %>
          <%= link_to "<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Edit Question".html_safe, edit_question_path(@question) %><br>
          <%= link_to "<i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i> Delete this question".html_safe, question_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+>>>>>>> master
         <% end %>
   </div>
  </div>
@@ -33,4 +46,12 @@
     <%= render 'answers/show' %>
      <hr>
      <%= render 'answers/new' %>
+<<<<<<< HEAD
+<<<<<<< HEAD
+   <% if current_user.id == @question.user_id || current_user.admin? %>
+<% end %>
+=======
+>>>>>>> master
+=======
+>>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49
  </div>
