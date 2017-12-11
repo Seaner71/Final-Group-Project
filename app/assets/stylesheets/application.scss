@@ -29,6 +29,24 @@
 
 // colors burgundy #814552 green #424932
 
+.homie {
+  background-color: #814552;
+  text-align: center;
+  border-radius: 20px 0px 0px 20px;
+}
+
+.login h2 {
+  margin-top: 20px;
+}
+
+.homie img {
+  width: 80%;
+}
+
+.homie h3 {
+  color: #fff;
+}
+
 nav {
   line-height: 42px;
   background-color: #424932;
@@ -239,7 +257,7 @@ ul.ans_list li {
   margin: 0 auto;
   color: #fff;
   background: #4249338c;
-  padding: 20px;
+  // padding: 20px;
   border-radius: 15px;
 }
 
