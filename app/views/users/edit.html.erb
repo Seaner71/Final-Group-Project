@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Edit Your Information</h1>
+  <h3>Edit Profile</h3>
 
   <%= form_with model: @user, local: true do |f| %>
   <div class="field">
@@ -37,7 +37,7 @@
   </div>
 <br>
   <div>
-    <%= link_to "Edit Your Registration Info", edit_user_registration_path(current_user) %><br>
+    <%= link_to "Edit Account", edit_user_registration_path(current_user) %><br>
     <%= link_to 'Delete Account', user_path(@user), method: :delete, data: {confirm: 'Are you sure? This cannot be undone!'} %><br>
   </div>
 <% end %>
