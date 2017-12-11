@@ -59,7 +59,7 @@ nav input, nav button {
   margin-top: 5px;
 }
 
-nav input[type="text"] {
+nav input[type="search"] {
   background-color: #525a3f;
   border: none;
   border-radius: 5px;
@@ -318,18 +318,6 @@ a.user_qb {
   display: none !important;
 }
 
-#new-question-modal {
-  color: black;
-}
-
-#new-blog-modal {
-  color: black;
-}
-
-#edit-question-modal {
-  color: black;
-}
-
-#edit-blog-modal {
-  color: black;
+.modal-content {
+  color: #000;
 }

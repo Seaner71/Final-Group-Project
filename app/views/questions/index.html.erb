@@ -1,13 +1,7 @@
 <div class="container">
   <div class="row align-items-start">
-    <div class="col-lg">
-  <%= search_form_for @q, url: search_questions_path, html: { method: :post } do |f| %>
-  <%= f.search_field :title_or_body_or_tags_name_cont %>
-  <%= f.submit "search" %>
-  <% end %>
+    <div class="col-sm"><%= render 'new' %></div>
   </div>
-  <div class="col-sm"><%= render 'new' %></div>
-</div>
 
   <table class="table table-striped">
     <thead class="thead-dark">

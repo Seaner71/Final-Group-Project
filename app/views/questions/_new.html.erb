@@ -4,8 +4,8 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Your Question</h5>
-        <button class="btn btn-danger" data-dismiss="modal" aria-label="Close">X</button>
+        <h3 class="modal-title">Your Question</h3>
+        <button class="btn btn-primary" data-dismiss="modal" aria-label="Close">X</button>
       </div>
       <div class="modal-body">
         <%= form_with model: @question, local: true do |f| %>
@@ -34,7 +34,7 @@
           <%= f.select :tag_list, options_from_collection_for_select(Tag.all.order("name ASC"), 'name','name'), prompt: "Select Category" %>
         </div>
         <div class="modal-footer">
-          <%= f.submit "Post", class: 'btn btn-success'%>
+          <%= f.submit "Post", class: 'btn btn-primary'%>
         <% end %>
       </div>
     </div>
