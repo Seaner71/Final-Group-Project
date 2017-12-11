@@ -114,10 +114,11 @@
               <div class="col">
                 <% @sort_by_best.each do |s| %>
                  <div class="ans_row row">
-                   <div class="col-1 text-center">
+                   <div class="col-2 text-center">
                      <span class="ans_num">
                        <%= s.second %></span>
-                     <br><small>Up Votes</small></div>
+                     <br><small><i class="fa fa-thumbs-up" aria-hidden="true"></i>Votes</small>
+                   </div>
                    <div class="col-sm">
                      <a href="questions/<%= Question.find_by_id(s.first).id %>">
                  <strong><%= Question.find_by_id(s.first).title %></strong> </a>
