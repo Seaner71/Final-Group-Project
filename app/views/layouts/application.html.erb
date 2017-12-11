@@ -16,12 +16,12 @@
           <%= link_to image_tag("Logo.png"), root_path %>
         </div>
         <div class="col-md">
-          <% if current_page?(controller: 'blogs', action: 'index') || current_page?(controller: 'blogs', action: :search) %>
+          <% if current_page?(controller: '/blogs', action: 'index') || current_page?(controller: '/blogs', action: :search) %>
             <%= search_form_for @q, url: search_blogs_path, html: { method: :post } do |f| %>
               <%= f.search_field :title_or_body_or_tags_name_cont, placeholder: "Search Blogs" %>
               <%#= f.submit "Search Blogs" %>
             <% end %>
-          <% elsif current_page?(controller: 'questions', action: "index") || current_page?(controller: 'questions', action: :search) %>
+          <% elsif current_page?(controller: '/questions', action: "index") || current_page?(controller: '/questions', action: :search) %>
             <%= search_form_for @q, url: search_questions_path, html: { method: :post } do |f| %>
               <%= f.search_field :title_or_body_or_tags_name_cont, placeholder: "Search Questions" %>
               <%#= f.submit "Search Questions" %>
