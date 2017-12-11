@@ -14,7 +14,7 @@
 </div>
 
     <div class="row">
-      <div class="col-8">
+      <div class="col-md">
 
         <% if current_user.admin == true %>
           <div class="admin_block">
@@ -131,7 +131,7 @@
          </div>
         </div>
 
-  <div class="col-md recent_blogs">
+  <div class="col recent_blogs">
   <h3>The latest blog posts</h3>
   <% Blog.last(3).reverse_each do |blog| %>
     <div class="row blog_post">
