@@ -1,6 +1,7 @@
-  <div class="row answer-box">
-    <strong>Posted by:</strong>
-    <a href="/users/<%= comment.user_id %>"><%= comment.user.username %></a>
+  <div class="answer-box">
+    <strong>Posted by: </strong>
+    <a href="/users/<%= comment.user_id %>">
+      <%= comment.user.username %></a><br>
     <p><%= comment.body.html_safe %></p>
     <% if comment.user_id == current_user.id %>
       <%= link_to "<i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>".html_safe, comment.blog, method: :delete, data: {confirm: 'Are you sure?'} %>
