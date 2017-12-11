@@ -31,7 +31,7 @@
           <%= f.trix_editor :body %>
           <br>
           <%= f.label :tag_list %>
-          <%= f.select :tag_list, options_from_collection_for_select(Tag.all.order("name ASC"), 'name','name'), prompt: "Select Category" %>
+          <%= f.select :tag_list, options_from_collection_for_select(@question.tags + (Tag.all.order("name ASC") - @question.tags), 'name','name'), prompt: "Select Category" %>
         </div>
         <div class="modal-footer">
           <%= f.submit "Post", class: 'btn btn-success'%>

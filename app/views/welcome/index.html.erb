@@ -18,9 +18,11 @@
 
         <% if current_user.admin == true %>
           <div class="admin_block">
-            <h3>Admin view</h3>
+            <h3>Current user list</h3>
             <% User.all.each do |user| %>
-            <%= link_to user.email, user_path(user) %><br>
+            <%= link_to user.username, user_path(user) %> |
+            <%= link_to 'Edit User', edit_user_path(user) %> |
+            <%= link_to 'Delete User', user_path(user), method: :delete, data: {confirm: 'Are you sure? This cannot be undone!'} %> <br>
             <% end %> <br><br>
             <%#= render 'tags/new' %>
           </div>
