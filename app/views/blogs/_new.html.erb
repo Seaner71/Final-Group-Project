@@ -8,7 +8,7 @@
         <button class="btn btn-primary" data-dismiss="modal" aria-label="Close">X</button>
     </div>
     <div class="modal-body">
-      <%= form_with model: @blog, local: true  do |f| %>
+      <%= form_with model: @blog do |f| %>
       <% if @blog.errors.any? %>
         <div id="explain_error">
           <h2> Uh oh! <%= pluralize(@blog.errors.count, "error") %> prohibited this post from being saved: </h2>

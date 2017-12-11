@@ -8,7 +8,7 @@
         <button class="btn btn-danger" data-dismiss="modal" aria-label="Close">X</button>
       </div>
       <div class="modal-body">
-        <%= form_with model: @question, local: true do |f| %>
+        <%= form_with model: @question do |f| %>
         <% if @question.errors.any? %>
           <div id="explain_error">
             <h2>
