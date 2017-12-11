@@ -3,27 +3,11 @@ class WelcomeController < ApplicationController
     @blogs = Blog.all
     @tag = Tag.new
     @questions = Question.all
-<<<<<<< HEAD
-<<<<<<< HEAD
-    @sort =  Answer.find_by_sql("
-      SELECT * FROM questions
-      INNER JOIN answers ON questions.id = answers.question_id
-      ORDER BY cached_votes_up desc")
-    @blog = Blog.find_by_id(params[:id]) || Blog.new 
-    @user = User.find_by_id(params[:id])
-    @question = Question.new
-=======
-=======
->>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49
     @sort_by_answers = @questions.joins(:answers).group("questions.id").count.sort_by {|k, v| v}.reverse
     @sort_by_best = @questions.joins(:answers).group("questions.id").sum('answers.cached_votes_up').sort_by {|k,v| v}.reverse
-    @blog = Blog.find_by_id(params[:id])
+    @blog = Blog.find_by_id(params[:id]) || Blog.new
     @user = User.find_by_id(params[:id])
-    @question = Question.find_by_id(params[:id])
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49
+    @question = Question.find_by_id(params[:id]) || Question.new
 
   end
 

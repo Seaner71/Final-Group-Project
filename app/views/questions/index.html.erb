@@ -1,18 +1,13 @@
 <div class="container">
-  <h1>Questions</h1>
+  <div class="row align-items-start">
+    <div class="col-lg">
   <%= search_form_for @q, url: search_questions_path, html: { method: :post } do |f| %>
   <%= f.search_field :title_or_body_or_tags_name_cont %>
   <%= f.submit "search" %>
   <% end %>
-<<<<<<< HEAD
-  <%= render 'new' %>
-=======
-  <%= link_to 'Ask a question', new_question_path, :class => "btn btn-primary" %>
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49
-<br><br>
+  </div>
+  <div class="col-sm"><%= render 'new' %></div>
+</div>
 
   <table class="table table-striped">
     <thead class="thead-dark">
@@ -27,27 +22,14 @@
     <tbody>
       <% @questions.reverse_each do |question| %>
       <tr>
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <td><a href="/users/<%= question.user_id %>"><%= image_tag question.user.avatar.url(:thumb), class: "thumb-index" %></a><br></td>
-        <td><%= link_to question.title, question_path(question) %></td>
-        <td><%= question.body.html_safe %></td>
-        <td><%= link_to question.tags.first, tags_path(question.tags.first) %></td>
-=======
-=======
->>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49
         <td><a href="/users/<%= question.user_id %>"><%= image_tag question.user.avatar.url(:thumb), class: "thumb-index" %>
-        <%= question.user.username %></a></td>
+        <td><%= question.user.username %></td>
         <td><%= link_to question.title, question_path(question) %></td>
         <td><%= question.body.html_safe %></td>
         <td><%= link_to question.tags.first, tag_path(question.tags.first) %></td>
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> ac4bfc1361ab34a3047c32851440ab774a96db49
         <td><%= question.created_at.localtime.strftime("%B %d, %Y") %></td>
+        <% end %>
       </tr>
-      <% end %>
     </tbody>
   </table>
 
