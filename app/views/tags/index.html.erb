@@ -1,5 +1,5 @@
 <div class="content">
-  <h1>Explore Question and Blog Topics...</h1>
+  <h3>Explore Question and Blog Topics...</h3>
 
 
 <% @tags.each_with_index do |t, index| %>
@@ -25,7 +25,7 @@
         <li class="list-group-item"><strong>Questions:</strong></li>
         <% if t.questions.empty? %>
           <li class="list-group-item"><%= 'No questions yet.' %></li>
-        <% end %>  
+        <% end %>
         <% t.questions.each do |q| %>
         <li class="list-group-item"><%= link_to q.title, question_path(q) %></li>
         <% end %>
