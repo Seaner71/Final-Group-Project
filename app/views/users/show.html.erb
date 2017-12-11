@@ -1,23 +1,29 @@
-<h1><%= @user.username %>'s Profile</h1>
-
-<%= image_tag @user.avatar.url(:middle) %><br>
-Location: <%= @user.location %><br>
-Bio: <%= @user.bio %><br>
-Website: <a href="http://<%= @user.github_url %> "><%= @user.github_url %></a><br>
-Previous job: <%= @user.previous_industry %><br>
-<br>
-<%= @user.username %>'s blog posts<br>
-<%  @user.blogs.reverse_each do |blog| %>
-<a href="/blogs/<%= blog.id %>"><%= blog.title %><br></a>
-<% end %>
-<br>
-
-
-
-
-<% if current_user.id == @user.id || current_user.admin? %>
-<%= link_to "Edit User Info", edit_user_path(@user) %><br>
-<% end %>
-
-
-<hr>
+<div class="row content">
+  <div class="col-2-md user_info">
+    <div class="profile text-center">
+      <%= image_tag @user.avatar.url(:middle) %>
+    </div>
+    <div class="user_info text-center">
+      <% if current_user.id == @user.id || current_user.admin? %>
+      <%= link_to "Edit User Info", edit_user_path(@user), class: "btn btn-primary prof_info" %><br>
+      <% end %>
+      <i class="fa fa-map-marker" aria-hidden="true"></i> <%= @user.location %><br>
+      <em class="bio"><%= @user.bio %></em><br>
+      <i class="fa fa-github" aria-hidden="true"></i> <a href="http://<%= @user.github_url %>"><%=  @user.github_url %></a><br>
+      <i class="fa fa-building" aria-hidden="true"></i><%= @user.previous_industry %><br>
+    </div>
+  </div>
+  <div class="col-md">
+    <h3>About <%= @user.username.capitalize %></h3>
+    <h4><%= @user.username.capitalize %>'s Questions</h4>
+    <%  @user.questions.reverse_each do |q| %>
+    <a class="user_qb" href="/questions/<%= q.id %>"><%= q.title %></a>
+    <hr>
+    <% end %>
+    <h4><%= @user.username.capitalize %>'s Blog Posts</h4>
+    <%  @user.blogs.reverse_each do |blog| %>
+    <a class="user_qb" href="/blogs/<%= blog.id %>"><%= blog.title %></a>
+    <hr>
+    <% end %>
+  </div>
+</div>

@@ -3,8 +3,12 @@ class QuestionsController < ApplicationController
     get_user
     @q = Question.ransack(params[:q])
     @questions = @q.result.includes(:user, :tags, :answers)
+<<<<<<< HEAD
     @question = Question.new 
 
+=======
+    @user = User.find_by_id(params[:id])
+>>>>>>> master
   end
 
   def search
@@ -14,6 +18,7 @@ class QuestionsController < ApplicationController
 
   def show
     get_question
+
   end
 
   def new
@@ -33,6 +38,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.user_id = current_user.id
+    @question.answer_number = 0
       if @question.save
         redirect_to questions_path
       else
