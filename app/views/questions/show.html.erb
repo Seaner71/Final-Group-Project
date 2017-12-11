@@ -15,8 +15,7 @@
           <% end %>
         </span>
         <% if current_user.id == @question.user_id %>
-         <%= link_to "<i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i> Edit Question".html_safe, edit_question_path(@question) %>
-         <%= link_to "<i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i> Delete this question".html_safe, question_path, method: :delete, data: {confirm: 'Are you sure?'} %>
+         <%= render 'edit' %>
         <% end %>
   </div>
  </div>
@@ -27,7 +26,5 @@
      <hr>
      <%= render 'answers/new' %>
    <% if current_user.id == @question.user_id || current_user.admin? %>
-<%= link_to "Edit this question", edit_question_path(@question) %><br>
-<%= link_to "Delete this question", question_path, method: :delete, data: {confirm: 'Are you sure?'} %>
 <% end %>
  </div>

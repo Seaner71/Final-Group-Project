@@ -26,7 +26,7 @@ class BlogsController < ApplicationController
       if @blog.save
         redirect_to blogs_path
       else
-        render 'new'
+        redirect_to blogs_path 
       end
   end
 
