@@ -18,7 +18,8 @@
 
         <% if current_user.admin == true %>
           <div class="admin_block">
-            <h3>Current user list</h3>
+            <h3>Admin View</h3>
+            <strong>Current User List</strong><br>
             <% User.all.each do |user| %>
             <%= link_to user.username, user_path(user) %> |
             <%= link_to 'Edit User', edit_user_path(user) %> |
