@@ -1,6 +1,6 @@
 <div class="content">
 
-  <h3><%= link_to "Blogs", blogs_path %></h3>
+  <h3><%= link_to "Questions", questions_path %></h3>
   <%= render 'new' %>
 
   <table class="table table-striped">
@@ -20,7 +20,7 @@
         <%= question.user.username %></a></td>
         <td><%= link_to question.title, question_path(question) %></td>
         <td><%= question.body.html_safe %></td>
-        <td><%= link_to question.tags.first, tag_path(question.tags.first) %></td>
+        <td><i class="fa fa-tag" aria-hidden="true"></i> <%= link_to question.tags.first, tag_path(question.tags.first) %></td>
         <td><%= question.created_at.localtime.strftime("%B %d, %Y") %></td>
         <% end %>
       </tr>
