@@ -41,6 +41,15 @@ h3 {
   margin-top: 20px;
 }
 
+a {
+  color: #f37f5a;
+}
+
+h3 a {
+  color: #814552;
+}
+
+
 nav a {
   padding-right: 10px;
   color: #fff;
@@ -78,6 +87,7 @@ nav .fa {
 .dash {
   margin: 0px -15px 20px -15px;
   padding: 50px 10px;
+  background: url(codeblock.png);
   background-color: #814552;
   color: #fff;
 }
